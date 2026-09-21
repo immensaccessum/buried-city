@@ -1,0 +1,15 @@
+{
+    "debugMode": 1,
+    "noCache": false,
+    "showFPS": false,
+    "frameRate": 60,
+    "id": "gameCanvas",
+    "renderMode": 0,
+    "jsList": [
+        "src/web/saveStore.js",
+        "src/web/platform.js",
+        "src/web/resList.js",
+        "src/web/webBoot.js",
+        "src/util/preloading.js"
+    ]
+}

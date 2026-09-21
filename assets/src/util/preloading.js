@@ -3,6 +3,8 @@ var beginGame = function () {
         var scene = new AssetsManagerLoaderScene();
         cc.director.runScene(scene);
         scene.loadGame();
+    } else {
+        WebBoot.run();
     }
 };
 
