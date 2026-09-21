@@ -48,3 +48,19 @@ All stand-ins live in `assets/src/web/` and never contact a server.
 Engine differences fixed (`engineCompat.js`, `uiUtil.js`): `new cc.ControlButton(label)` semantics, and the
 game's `cc.LabelTTF` wrapper (calls a class without `new`, JSB-only) is now native-only.
 The native font `FZDaHei-B02S` is mapped to system sans-serif fonts via `@font-face local()` in index.html.
+- Follow-up: the repo's `res/new_temp.plist/png` is older than the release_6 APK's and lacks frames the
+  code uses (`icon_iap_111.png`, ...). Replaced with the APK's copy. The APK's other assets match the repo.
+
+## Part 5 — Saves
+Every read/write of persistent data in the game goes through `cc.sys.localStorage.getItem/setItem/removeItem`
+(`src/game/record.js`, `game.js`, `SaveFileScene.js`, `MenuScene.js`, `medal.js`, `achievement.js`, `radioNode.js`,
+...). On Android the JSB engine backs that object with the encrypted sqlite3 db. On the web it is replaced by
+**`src/web/saveStore.js`** (`SaveStore`), loaded first:
+- Same synchronous API, served from an in-memory copy, written through to `window.localStorage` under the
+  `buriedcity:` prefix. Falls back to memory-only if storage is blocked.
+- Slot data: `record` holds `player<N>`, `time<N>`, `navigation<N>` for all slots; per-slot extras are
+  `chosenTalent<N>`, `radio<N>`, `medalTemp<N>`, `ad<N>`, `weather<N>`. Cross-save: `achievement`, `medal`,
+  `dataLog` (cemetery), `lastScore`, `cheat`. Settings/device: `language`, `sound`, `music`, `screenfix`, `ftue`,
+  `modVer`, `uuid`, `username`.
+- Hooks for a future sync layer (not implemented): `SaveStore.onChange(fn)`, `exportAll()`, `importAll(obj, merge)`,
+  `keys()`.
