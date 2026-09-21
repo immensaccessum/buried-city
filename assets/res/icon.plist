@@ -1882,13 +1882,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>icon.pvr.ccz</string>
+            <string>icon.png</string>
             <key>size</key>
             <string>{507,1853}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:376443002cccdba4e4f4f7caff071364$</string>
             <key>textureFileName</key>
-            <string>icon.pvr.ccz</string>
+            <string>icon.png</string>
         </dict>
     </dict>
 </plist>

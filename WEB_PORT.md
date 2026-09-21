@@ -21,3 +21,10 @@ See `license.txt` — non-commercial, must stay open source, original credits un
 - `src/util/preloading.js` now calls `WebBoot.run()` when not native. `src/web/webBoot.js` does what the
   native `AssetsManagerLoaderScene` did: picks the language string table, loads `src/jsList.js`,
   preloads textures, starts `MenuScene`.
+
+## Part 3 — Textures
+- 10 atlases were still `.pvr.ccz` (zlib CCZ around PVR v2 RGBA4444 / PVR v3 RGBA8888, straight alpha),
+  which cocos2d-html5 cannot decode. `tools/convert_pvr.py` converted them to PNG, repointed each `.plist`
+  and removed the `.pvr.ccz` files. PNG also works on native, so the Android layout is not broken.
+- `tools/build-res-list.js` writes `src/web/resList.js` (all plists + images, preloaded at boot).
+  Re-run it after adding images.

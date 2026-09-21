@@ -1011,13 +1011,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>site.pvr.ccz</string>
+            <string>site.png</string>
             <key>size</key>
             <string>{2047,2032}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:6b1078efa2daf61b383f98836ac78bc0:1/1$</string>
             <key>textureFileName</key>
-            <string>site.pvr.ccz</string>
+            <string>site.png</string>
         </dict>
     </dict>
 </plist>

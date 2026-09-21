@@ -816,13 +816,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>ui.pvr.ccz</string>
+            <string>ui.png</string>
             <key>size</key>
             <string>{2048,1490}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:5b0bf1ff4dc7ce728bd8bbb24f27a55e:1/1$</string>
             <key>textureFileName</key>
-            <string>ui.pvr.ccz</string>
+            <string>ui.png</string>
         </dict>
     </dict>
 </plist>

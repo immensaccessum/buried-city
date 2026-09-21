@@ -387,13 +387,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>new_site.pvr.ccz</string>
+            <string>new_site.png</string>
             <key>size</key>
             <string>{2031,1431}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:a23ba285a014644f5a3b3c0520c56098:1/1$</string>
             <key>textureFileName</key>
-            <string>new_site.pvr.ccz</string>
+            <string>new_site.png</string>
         </dict>
     </dict>
 </plist>

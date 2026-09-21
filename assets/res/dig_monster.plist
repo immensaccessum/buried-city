@@ -192,13 +192,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>dig_monster.pvr.ccz</string>
+            <string>dig_monster.png</string>
             <key>size</key>
             <string>{932,988}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:2840c26da55941182090b660fd0e04cc:1/1$</string>
             <key>textureFileName</key>
-            <string>dig_monster.pvr.ccz</string>
+            <string>dig_monster.png</string>
         </dict>
     </dict>
 </plist>

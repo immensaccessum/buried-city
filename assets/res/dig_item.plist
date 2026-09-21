@@ -829,13 +829,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>dig_item.pvr.ccz</string>
+            <string>dig_item.png</string>
             <key>size</key>
             <string>{2030,1926}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:8c1ccf036b457c9a271d1048e4d0c906:1/1$</string>
             <key>textureFileName</key>
-            <string>dig_item.pvr.ccz</string>
+            <string>dig_item.png</string>
         </dict>
     </dict>
 </plist>

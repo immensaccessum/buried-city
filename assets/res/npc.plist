@@ -192,13 +192,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>npc.pvr.ccz</string>
+            <string>npc.png</string>
             <key>size</key>
             <string>{463,1010}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:602f88431a8f59b68bf517b8bce33e98:1/1$</string>
             <key>textureFileName</key>
-            <string>npc.pvr.ccz</string>
+            <string>npc.png</string>
         </dict>
     </dict>
 </plist>

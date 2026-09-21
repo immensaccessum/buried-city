@@ -509,13 +509,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>new.pvr.ccz</string>
+            <string>new.png</string>
             <key>size</key>
             <string>{1024,1414}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:5e4b5aa4a83d992609409736f87e94d2:6b6f843d4be16453168495ee67a3961c:b90d2237a64a04ee4a3b28e0d742cbc9$</string>
             <key>textureFileName</key>
-            <string>new.pvr.ccz</string>
+            <string>new.png</string>
         </dict>
     </dict>
 </plist>

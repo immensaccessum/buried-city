@@ -543,7 +543,7 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>build.pvr.ccz</string>
+            <string>build.png</string>
             <key>size</key>
             <string>{1710,122}</string>
             <key>smartupdate</key>

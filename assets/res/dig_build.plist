@@ -400,13 +400,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>dig_build.pvr.ccz</string>
+            <string>dig_build.png</string>
             <key>size</key>
             <string>{1034,2038}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:c8a6e63306d884042c61af5fdd0e5b52:1/1$</string>
             <key>textureFileName</key>
-            <string>dig_build.pvr.ccz</string>
+            <string>dig_build.png</string>
         </dict>
     </dict>
 </plist>
