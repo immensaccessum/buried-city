@@ -64,3 +64,22 @@ Every read/write of persistent data in the game goes through `cc.sys.localStorag
   `modVer`, `uuid`, `username`.
 - Hooks for a future sync layer (not implemented): `SaveStore.onChange(fn)`, `exportAll()`, `importAll(obj, merge)`,
   `keys()`.
+
+## Part 6 — Phone fit, touch, run
+- Portrait 640x1136 design size. On web the default screen mode is the game's own "Full" setting
+  (`screenfix` = 2 → SHOW_ALL letterbox) instead of the native "shrink" mode, which cropped the sides on
+  tall phones. Changeable in Settings. Viewport meta disables zoom; CSS disables scroll/overscroll/selection.
+- Touch works through the engine's touch listeners (tested with emulated touch taps).
+- Default language English (`WebBoot` forces `en` unless the player picked Chinese in Settings).
+- Robustness (`engineCompat.js`): JSB logs script errors and keeps going; html5 froze the frame loop and
+  wedged the touch dispatcher on the first error. Both now log and continue. Added `cc.Node#removeChildByName`.
+  `SettingLayer` calls two selectors the mod removed; stubbed. Fixed `gsetItem` typo in the v29/30 save migration.
+- Verified in headless Chrome (Pixel-sized viewport, touch): menu renders, new game → talents → intro → shelter
+  → gate → map; slot 1 persists across a page reload and a full browser restart and resumes into the game.
+
+Run locally:  `python -m http.server 8080 -d assets`  → http://localhost:8080/
+(any static server works; opening index.html from file:// does not, the engine loads files via XHR).
+
+Known gaps: background music is `.ogg` (older iOS Safari cannot play it; transcode to .mp3/.m4a if needed).
+The message wall and update check are offline. On mobile browsers the engine requests fullscreen on the
+first tap (a harmless "Permissions check failed" is logged on load).

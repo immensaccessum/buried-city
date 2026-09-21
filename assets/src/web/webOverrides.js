@@ -39,3 +39,8 @@ var DialogMoreGame = cc.Class.extend({
         document.body.appendChild(overlay);
     }
 });
+
+// SettingLayer's backdrop touch handler calls two selectors that no longer exist in the
+// mod (throws on native too, where JSB just logs it). Define them as no-ops.
+SettingLayer.prototype.closeCitySelector = SettingLayer.prototype.closeCitySelector || function () {};
+SettingLayer.prototype.closeFestivalSelector = SettingLayer.prototype.closeFestivalSelector || function () {};

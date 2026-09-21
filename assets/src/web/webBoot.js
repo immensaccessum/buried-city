@@ -29,3 +29,11 @@ var WebBoot = {
         });
     }
 };
+
+// Phones are taller than the game's 640x1136 design size. The native default (fixed height +
+// 0.83 "shrink screen" scale) crops the sides in a browser, so default to the game's own
+// "full screen" setting (screenfix 2 = SHOW_ALL letterboxing). Players can still change it
+// in Settings. Runs before main.js reads it in cc.game.onStart.
+if (!cc.sys.localStorage.getItem("screenfix")) {
+    cc.sys.localStorage.setItem("screenfix", 2);
+}
