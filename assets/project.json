@@ -8,6 +8,7 @@
     "jsList": [
         "src/web/saveStore.js",
         "src/web/platform.js",
+        "src/web/engineCompat.js",
         "src/web/resList.js",
         "src/web/webBoot.js",
         "src/util/preloading.js"

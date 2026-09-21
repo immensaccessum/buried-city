@@ -28,3 +28,23 @@ See `license.txt` — non-commercial, must stay open source, original credits un
   and removed the `.pvr.ccz` files. PNG also works on native, so the Android layout is not broken.
 - `tools/build-res-list.js` writes `src/web/resList.js` (all plists + images, preloaded at boot).
   Re-run it after adding images.
+
+## Part 4 — Native-only calls
+All stand-ins live in `assets/src/web/` and never contact a server.
+| Native call | Web behaviour | File |
+|---|---|---|
+| `jsb.reflection` → `CommonUtil.gotoUrl` | `window.open` new tab | platform.js |
+| `CommonUtil.md5` (radio achievement backup/restore) | JS MD5, same hex output | platform.js |
+| `CommonUtil.getMetaData`, `getLocaleLanguage` | `""`, `navigator.language` | platform.js |
+| `PayHelper.init` / `exitGame` (IAP SDK, back-button exit) | no-op (IAP is already free in the mod) | platform.js |
+| `jsb.fileUtils` search paths / `isFileExist` | in-memory paths / HTTP HEAD | platform.js |
+| JSB `require` / `__cleanScript` (language switch) | sync XHR + global eval | platform.js |
+| Update check (studio.code.org JSON) | disabled | webOverrides.js |
+| Message wall `chatScene` (code.org datablock server) | shows an offline notice | webOverrides.js |
+| `ccui.WebView` credits page (`DialogMoreGame`) | DOM iframe overlay of `index_en.html` | webOverrides.js |
+| Ads, Google Play, leaderboards, analytics | already removed by the mod (adHelper is local; "rank" is the local cemetery log) | — |
+| Radio | local in-game feature, no network | — |
+
+Engine differences fixed (`engineCompat.js`, `uiUtil.js`): `new cc.ControlButton(label)` semantics, and the
+game's `cc.LabelTTF` wrapper (calls a class without `new`, JSB-only) is now native-only.
+The native font `FZDaHei-B02S` is mapped to system sans-serif fonts via `@font-face local()` in index.html.

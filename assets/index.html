@@ -13,6 +13,9 @@
     <meta name="360-fullscreen" content="true"/>
     <meta name="theme-color" content="#000000"/>
     <style>
+        /* The APK ships the FZDaHei-B02S font inside the native engine; map it to system fonts. */
+        @font-face { font-family: "FZDaHei-B02S"; src: local("Arial"), local("Helvetica Neue"), local("Helvetica"),
+            local("Roboto"), local("Noto Sans"), local("PingFang SC"), local("Microsoft YaHei"); }
         html, body { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden;
             touch-action: none; overscroll-behavior: none; }
         body, canvas, div { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;

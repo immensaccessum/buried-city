@@ -1688,11 +1688,15 @@ uiUtil.showPayDialog = function (purchaseId, cb) {
     return d;
 };
 
+// JSB classes can be called without `new`; cocos2d-html5 classes cannot, so keep the
+// engine's cc.LabelTTF on the web (this wrapper does not change any arguments anyway).
+if (cc.sys.isNative) {
 var _labelTTF = cc.LabelTTF;
 cc.LabelTTF = function (text, fontName, fontSize, dimensions, hAlignment, vAlignment) {
     var defaultHAlignment = null;
     return _labelTTF(text, fontName, fontSize, dimensions, defaultHAlignment || hAlignment, vAlignment);
 };
+}
 
 uiUtil.showBackMenuDialog = function (cb) {
     var dialog = new BackToMenuDialog(cb);
