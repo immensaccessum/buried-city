@@ -2,6 +2,7 @@
 // image under assets/res, preloaded before the menu (the native engine loads these
 // synchronously on demand; the browser engine needs them in cc.loader's cache first).
 // Audio is not listed - cc.audioEngine loads it lazily on first play.
+// assets/res/ext/ (loose extension sprites) is included by the walk below.
 var fs = require("fs");
 var path = require("path");
 var assets = path.join(__dirname, "..", "assets");

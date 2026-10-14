@@ -45,6 +45,16 @@ var PurchaseList = {
 var IAPPackage = {
     _map: {},
     _record: {},
+    _talentCache: null,
+    _talentSlot: null,
+
+    _chosenTalents: function () {
+        if (this._talentSlot !== utils.SAVE_SLOT || this._talentCache === null) {
+            this._talentCache = JSON.parse(cc.sys.localStorage.getItem("chosenTalent" + utils.SAVE_SLOT));
+            this._talentSlot = utils.SAVE_SLOT;
+        }
+        return this._talentCache;
+    },
 
     init: function (player) {
         if (this.getChosenTalentPurchaseId(102)){
@@ -116,7 +126,7 @@ var IAPPackage = {
     },
 
     chooseTalent: function (id) {
-        var purchaseId = JSON.parse(cc.sys.localStorage.getItem("chosenTalent" + utils.SAVE_SLOT));
+        var purchaseId = this._chosenTalents();
         var index = -1;
         for (var i = 0; i < purchaseId.length; i++){
             if (purchaseId[i] == id){
@@ -128,11 +138,13 @@ var IAPPackage = {
         }else{
             purchaseId.splice(index, 1);
         }
+        this._talentCache = purchaseId;
+        this._talentSlot = utils.SAVE_SLOT;
         cc.sys.localStorage.setItem("chosenTalent" + utils.SAVE_SLOT, JSON.stringify(purchaseId));
     },
 
     getChosenTalentPurchaseId: function (id) {
-        var purchaseId = JSON.parse(cc.sys.localStorage.getItem("chosenTalent" + utils.SAVE_SLOT));
+        var purchaseId = this._chosenTalents();
         for (var i = 0; i < purchaseId.length; i++){
             if (purchaseId[i] == id){
                 return true;

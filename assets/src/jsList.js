@@ -20,6 +20,7 @@ var jsList = [
     "src/data/siteConfig.js",
     "src/data/monsterConfig.js",
     "src/data/MoonlightingConfig.js",
+    "src/data/balanceConfig.js",
     "src/data/secretRooms.js",
     "src/data/weatherConfig.js",
     "src/data/randomReward.js",

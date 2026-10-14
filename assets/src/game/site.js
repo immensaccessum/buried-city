@@ -221,7 +221,8 @@ var Site = BaseSite.extend({
         var res = [];
         for (var i = 0; i < this.config.battleRoom; i++) {
             var diff = utils.getRandomInt(this.config.difficulty[0], this.config.difficulty[1]);
-            var list = utils.getMonsterListByDifficulty(diff)
+            diff = utils.hook("battle.difficulty", diff, {site: this, source: "site"});
+            var list = utils.getMonsterListByDifficulty(diff);
             res.push({list: list, difficulty: diff});
         }
         return res;
@@ -231,7 +232,9 @@ var Site = BaseSite.extend({
         if (this.config.workRoom > 0) {
             var produceValue = this.config.produceValue;
             produceValue = IAPPackage.getDropEffect(produceValue);
+            produceValue = utils.hook("loot.produceValue", produceValue, {site: this});
             var itemIds = utils.getFixedValueItemIds(produceValue, this.config.produceList);
+            itemIds = utils.hook("loot.itemIds", itemIds, {site: this});
             var fixedProduceList = this.config.fixedProduceList;
             fixedProduceList.forEach(function (item) {
                 for (var i = 0; i < item.num; i++) {
@@ -264,6 +267,7 @@ var Site = BaseSite.extend({
                 player.log.addMsg(1117, stringUtil.getString(3007)[doneRoom.workType]);
             }
             this.step++;
+            utils.hookEmit("site.roomEnd", {site: this, room: doneRoom, win: isWin});
             if (this.step >= this.rooms.length) {
                 this.siteEnd();
             }

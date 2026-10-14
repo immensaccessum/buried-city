@@ -27,6 +27,8 @@ var MenuLayer = cc.Layer.extend({
                 strShow += "\n" + stringUtil.getString(1270);
             } else {
                 strShow += "\n" + stringUtil.getString(1269);
+                // Buried City v45 saves have no player.ext. Ext.restoreAll runs
+                // each module's onNewGame when that field is missing at load.
                 if ((lastVer == 29 || lastVer == 30) && ClientData.MOD_VERSION > 30) {
                     upgradeSave = true;
                 }
@@ -490,6 +492,9 @@ var SettingLayer = cc.Layer.extend({
                     if (jsb.fileUtils.isFileExist("src/data/string/string_" + sender.lan + ".js")) {
                         __cleanScript("src/data/string/string_" + self.lan + ".js");
                         require("src/data/string/string_" + sender.lan + ".js")
+                        if (typeof ExtBoot !== "undefined") {
+                            ExtBoot.run();
+                        }
                     }
                     cc.director.runScene(new MenuScene(true, false));
                 }

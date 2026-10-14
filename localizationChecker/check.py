@@ -1,66 +1,68 @@
-import json
+#!/usr/bin/env python3
+"""Compare localization keys.
+
+Core tables: assets/src/data/string/string_en.js vs string_zh.js (zh is the reference).
+Extension modules: each strings_en.js must match strings_zh.js in the same folder.
+"""
+import os
 import re
+import sys
 
-def load_json(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        file_content = file.read()
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+STRING_DIR = os.path.join(ROOT, "assets", "src", "data", "string")
+EXT_DIR = os.path.join(ROOT, "assets", "src", "ext")
 
-        match = re.search(r'\{.*\}', file_content, re.DOTALL)
-        if match:
-            json_content = match.group()
-            return json.loads(json_content)
-        else:
-            print(f"Error: No JSON content found in {file_path}")
-            return None
 
-def find_duplicate_keys(json_data):
-    seen_keys = set()
-    duplicate_keys = set()
+def js_object_keys(path):
+    text = open(path, encoding="utf-8").read()
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if not match:
+        raise SystemExit("no object in " + path)
+    body = match.group()
+    return set(re.findall(r'"([^"]+)"\s*:', body))
 
-    for key in json_data:
-        if key in seen_keys:
-            duplicate_keys.add(key)
-        else:
-            seen_keys.add(key)
 
-    if duplicate_keys:
-        print("Duplicate keys:")
-        for key in duplicate_keys:
-            print(key)
-    else:
-        print("No duplicate keys found in the file.")
+def ext_keys(path, lang):
+    text = open(path, encoding="utf-8").read()
+    return set(re.findall(r'ExtStrings\.%s\["([^"]+)"\]' % re.escape(lang), text))
 
-def find_missing_and_extraneous_keys(reference_strings, target_strings, target_language):
-    missing_keys = []
-    extraneous_keys = []
 
-    for key in reference_strings:
-        if key not in target_strings:
-            missing_keys.append(key)
-    for key in target_strings:
-        if key not in reference_strings:
-            extraneous_keys.append(key)
-    trig = 0
-    if missing_keys:
-        print(f"Missing keys in {target_language} version:")
-        trig = 1
-        for key in missing_keys:
-            print(key)
+def report(label, reference, target):
+    missing = sorted(reference - target)
+    extra = sorted(target - reference)
+    if not missing and not extra:
+        print("%s: ok (%d keys)" % (label, len(reference)))
+        return 0
+    for key in missing:
+        print("%s: missing %s" % (label, key))
+    for key in extra:
+        print("%s: extra %s" % (label, key))
+    return 1
 
-    if extraneous_keys:
-        print(f"Extraneous keys in {target_language} version:")
-        trig = 1
-        for key in extraneous_keys:
-            print(key)
 
-    if trig == 0:
-        print(f"No missing or extraneous key in {target_language} version")
+def main():
+    failed = 0
+    zh = js_object_keys(os.path.join(STRING_DIR, "string_zh.js"))
+    en = js_object_keys(os.path.join(STRING_DIR, "string_en.js"))
+    failed |= report("core en", zh, en)
+    hant_path = os.path.join(STRING_DIR, "string_zh-Hant.js")
+    if os.path.exists(hant_path):
+        failed |= report("core zh-Hant", zh, js_object_keys(hant_path))
 
-languages_to_check = ["ar", "de", "en", "es", "fr", "ja", "ko", "pt", "ru", "tr", "vi", "zh-Hant"]
+    for dirpath, _, names in os.walk(EXT_DIR):
+        if "strings_en.js" not in names:
+            continue
+        en_keys = ext_keys(os.path.join(dirpath, "strings_en.js"), "en")
+        zh_path = os.path.join(dirpath, "strings_zh.js")
+        if not os.path.exists(zh_path):
+            print("%s: missing strings_zh.js" % dirpath)
+            failed = 1
+            continue
+        rel = os.path.relpath(dirpath, ROOT)
+        failed |= report(rel, en_keys, ext_keys(zh_path, "zh"))
 
-reference_strings = load_json(f'string_zh.js')
+    return failed
 
-for language_code in languages_to_check:
-    target_strings = load_json(f'string_{language_code}.js')
-    find_missing_and_extraneous_keys(reference_strings, target_strings, language_code)
-    find_duplicate_keys(target_strings)
+
+if __name__ == "__main__":
+    sys.exit(main())

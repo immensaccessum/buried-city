@@ -1,0 +1,31 @@
+// Web-only helpers for exercising day phases and loot without playing for hours.
+// Loaded from project.json; every call reads globals at use time, after the game starts.
+window.bt = {
+    skipDays: function (n) {
+        if (!cc.timer) {
+            return;
+        }
+        cc.timer.updateTime((n || 1) * 24 * 60 * 60);
+    },
+    setDay: function (n) {
+        if (!cc.timer) {
+            return;
+        }
+        var dayIndex = Math.max(0, (n || 1) - 1);
+        cc.timer.time = dayIndex * 24 * 60 * 60 + 6 * 60 * 60 + 1;
+        cc.timer.realTime = cc.timer.time / cc.timer.timeScale;
+        cc.timer.currentSeason = cc.timer.getSeason();
+    },
+    give: function (itemId, n) {
+        player.storage.increaseItem(itemId, n || 1, true);
+        Record.saveAll();
+    },
+    dump: function () {
+        return {
+            day: cc.timer.getTimeNum(),
+            hp: player.hp,
+            spirit: player.spirit,
+            ext: player.save().ext
+        };
+    }
+};

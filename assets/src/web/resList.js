@@ -46,6 +46,8 @@ var WEB_PRELOAD_RESOURCES = [
     "res/dig_item.png",
     "res/dig_monster.plist",
     "res/dig_monster.png",
+    "res/ext/dig_item_1106061.png",
+    "res/ext/icon_item_1106061.png",
     "res/gate.plist",
     "res/gate.png",
     "res/home.plist",

@@ -23,7 +23,14 @@ var WebBoot = {
             cc.LoaderScene.preload(WEB_PRELOAD_RESOURCES, function () {
                 cc.loader.loadJs(scripts, function (err) {
                     if (err) return cc.error("failed to load game scripts: " + err);
-                    cc.director.runScene(new MenuScene(false, false));
+                    cc.loader.loadJs(["src/ext/extList.js"], function (err) {
+                        if (err) return cc.error("failed to load extList: " + err);
+                        cc.loader.loadJs(extList, function (err) {
+                            if (err) return cc.error("failed to load extensions: " + err);
+                            if (typeof ExtBoot !== "undefined") ExtBoot.run();
+                            cc.director.runScene(new MenuScene(false, false));
+                        });
+                    });
                 });
             });
         });

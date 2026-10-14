@@ -11,6 +11,7 @@
         "src/web/engineCompat.js",
         "src/web/resList.js",
         "src/web/webBoot.js",
+        "src/web/devtools.js",
         "src/util/preloading.js"
     ]
 }

@@ -331,7 +331,7 @@ var Actor = cc.Node.extend({
         }
         //天气影响
         v += this.MAX_VELOCITY * player.weather.getValue("speed");
-        return v;
+        return utils.hook("travel.speed", v, {canAfford: canAfford, actor: this});
     },
     onExit: function () {
         this._super();

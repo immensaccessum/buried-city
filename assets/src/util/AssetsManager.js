@@ -58,6 +58,23 @@ var AssetsManagerLoaderScene = cc.Scene.extend({
                         }
                     }
                 }
+                var loadRel = function (jsFilename) {
+                    for (var key in storagePaths) {
+                        if (jsb.fileUtils.isFileExist(storagePaths[key] + jsFilename)) {
+                            require(storagePaths[key] + jsFilename);
+                            return;
+                        }
+                    }
+                };
+                loadRel("src/ext/extList.js");
+                if (typeof extList !== "undefined") {
+                    for (var ei = 0; ei < extList.length; ei++) {
+                        loadRel(extList[ei]);
+                    }
+                }
+                if (typeof ExtBoot !== "undefined") {
+                    ExtBoot.run();
+                }
                 cc.director.runScene(new MenuScene(false, true));
             });
             var searchPaths = jsb.fileUtils.getSearchPaths();

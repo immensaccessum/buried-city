@@ -7,10 +7,23 @@ utils.emitter = new Emitter();
 utils.SAVE_SLOT = 1;
 
 var ClientData = {
-    MOD_VERSION: 45,
-    MOD_VARIANT: 1,
+    MOD_VERSION: 100,
+    MOD_VARIANT: 2,
     MIN_VER: 27,
     REC_VER: 29
+};
+
+// Delegates to Hooks once extensions have loaded. Before that, returns value unchanged.
+utils.hook = function (name, value, ctx) {
+    if (typeof Hooks !== "undefined") {
+        return Hooks.filter(name, value, ctx);
+    }
+    return value;
+};
+utils.hookEmit = function (name, ctx) {
+    if (utils.emitter) {
+        utils.emitter.emit(name, ctx || {});
+    }
 };
 
 var ERRORCode = 0;
@@ -264,12 +277,12 @@ utils.getMonsterListByDifficulty = function (difficulty) {
         return monsterList[mid].difficulty == difficulty;
     });
 
+    var list = null;
     if (monsterListIds.length !== 0) {
         var monsterListId = monsterListIds[utils.getRandomInt(0, monsterListIds.length - 1)];
-        return monsterList[monsterListId].list;
-    } else {
-        return null;
+        list = monsterList[monsterListId].list;
     }
+    return utils.hook("battle.monsterList", list, {difficulty: difficulty});
 };
 
 utils.getFixedValueItemIds = function (produceValue, produceList) {

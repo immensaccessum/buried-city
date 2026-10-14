@@ -168,6 +168,7 @@ var Player = cc.Class.extend({
             lastBanditCaveIn: this.lastBanditCaveIn,
             cloned: this.cloned,
             stealthInactive: this.stealthInactive,
+            ext: (typeof Ext !== "undefined") ? Ext.saveAll() : {}
         };
         return opt;
     },
@@ -259,6 +260,10 @@ var Player = cc.Class.extend({
         if (!player.room.isBuildExist(12, -1) && !player.room.isBuildExist(12, 0)) {
             this.room.createBuild(12, -1);
         }
+        // v45 slots have no ext field; each module then runs onNewGame.
+        if (typeof Ext !== "undefined") {
+            Ext.restoreAll(opt && opt.ext);
+        }
     },
     
     getDogName: function () {
@@ -305,9 +310,9 @@ var Player = cc.Class.extend({
             season = cc.timer.getSeason()
         }
         if (season == 3) {
-            expire *= 1.25;
+            expire *= Balance.food.winterMul;
         } else if (season == 1) {
-            expire *= 0.75;
+            expire *= Balance.food.summerMul;
         }
         var amount = expire * numbers;
         var floorValue = Math.floor(amount);
@@ -414,7 +419,7 @@ var Player = cc.Class.extend({
     testSteal: function () {
         var def = this._getHomeDef();
         if (this.isBombActive) {
-            def += 30;
+            def += Balance.home.bombDef;
         }
         def =  1.0 - (def / 100);
         player.log.addMsg("def: " + def);
@@ -473,7 +478,7 @@ var Player = cc.Class.extend({
 
         var def = this._getHomeDef();
         if (this.isBombActive) {
-            def += 30;
+            def += Balance.home.bombDef;
         }
         def =  1.0 - (def / 100);
         probability = probability * def;
@@ -482,7 +487,7 @@ var Player = cc.Class.extend({
         if (rand < probability) {
             if (IAPPackage.isStealthUnlocked()) {
                 var rand = Math.random();
-                if (rand >= 0.25) {
+                if (rand >= Balance.theft.stealthSkipChance) {
                     stealFlag = true;
                 }
             } else { 
@@ -502,12 +507,12 @@ var Player = cc.Class.extend({
     checkBreakdown: function (source) {
         //Newbie protection - won't break down on the first 5 days.
         var day = cc.timer.formatTime().d;
-        if (day < 6 && this.spirit < 20) {
-            day = 20 - this.spirit;
-            this.changeSpirit(day);
+        if (day < Balance.mood.newbieDays && this.spirit < Balance.mood.newbieSpirit) {
+            day = Balance.mood.newbieSpirit - this.spirit;
+            this.changeSpirit(day, "newbie");
         }
-        if (this.spirit < 5) {
-            var prob = [0.6, 0.45, 0.32, 0.21, 0.12]
+        if (this.spirit < Balance.mood.suicideBelow) {
+            var prob = Balance.mood.suicideChance
             var rand = Math.random();
             if (rand <= prob[this.spirit]) {
                 var str = stringUtil.getString(source) + " " + stringUtil.getString(8113) + " ";
@@ -575,11 +580,14 @@ var Player = cc.Class.extend({
     enterSite: function (siteId) {
         this.isAtSite = true;
         this.nowSiteId = siteId;
+        utils.hookEmit("site.enter", {siteId: siteId});
     },
     outSite: function () {
+        var leftSiteId = this.nowSiteId;
         this.isAtSite = false;
         this.nowSiteId = 0;
         Record.saveAll();
+        utils.hookEmit("site.leave", {siteId: leftSiteId});
     },
 
     sleep: function () {
@@ -715,17 +723,18 @@ var Player = cc.Class.extend({
         this.changeAttr("starve", value);
     },
 
-    changeSpirit: function (value) {
+    changeSpirit: function (value, source) {
+        value = utils.hook("spirit.delta", value, {source: source || null, player: this});
         if (value < 0) {
             //Apply safety filter
             var tempSpirit = this.spirit;
             var modifier = 1;
             if (tempSpirit < 30) {
-                modifier = 0.85;
+                modifier = Balance.mood.filter30;
                 if (tempSpirit < 20) {
-                    modifier = 0.7;
+                    modifier = Balance.mood.filter20;
                     if (tempSpirit < 10) {
-                        modifier = 0.55;
+                        modifier = Balance.mood.filter10;
                     }
                 }
             }
@@ -1295,18 +1304,18 @@ var Player = cc.Class.extend({
         var homeDef = 0;
         var level = this.room.getBuildLevel(11);
         if (level >= 0) {
-            homeDef += (level + 1) * 10;
+            homeDef += (level + 1) * Balance.home.fencePerLevel;
         }
         if (this.room.getBuild(12).isActive()) {
-            homeDef += 10;
+            homeDef += Balance.home.dogDef;
         }
         var electricFenceBuild = this.room.getBuild(19);
         if (this.room.isBuildExist(19, 0)) {  //电网抵御僵尸
             if (electricFenceBuild.isActive()) {
-                homeDef += 30;
+                homeDef += Balance.home.electricDef;
             }
         }
-        return homeDef;
+        return utils.hook("home.defense", homeDef, {});
     },
     
     _getOrigDef: function () {
@@ -1314,10 +1323,10 @@ var Player = cc.Class.extend({
         var homeDef = 0;
         var level = this.room.getBuildLevel(11);
         if (level >= 0) {
-            homeDef += (level + 1) * 10;
+            homeDef += (level + 1) * Balance.home.fencePerLevel;
         }
         if (this.room.getBuild(12).isActive()) {
-            homeDef += 10;
+            homeDef += Balance.home.dogDef;
         }
         return homeDef;
     },
@@ -1424,12 +1433,12 @@ var Player = cc.Class.extend({
                 amount = 1;
             }
             var discountRand = Math.random();
-            if (discountRand < 0.05) {
-                discountRand = 15;
-            } else if (discountRand < 0.15) {
-                discountRand = 10;
-            } else if (discountRand < 0.3) {
-                discountRand = 5;
+            if (discountRand < Balance.bazaar.tier15) {
+                discountRand = Balance.bazaar.off15;
+            } else if (discountRand < Balance.bazaar.tier10) {
+                discountRand = Balance.bazaar.off10;
+            } else if (discountRand < Balance.bazaar.tier5) {
+                discountRand = Balance.bazaar.off5;
             } else {
                 discountRand = 0;
             }
@@ -1441,7 +1450,7 @@ var Player = cc.Class.extend({
     underAttackInNight: function () {
         var homeRes = {};
         var rand = Math.random();
-        if (cc.timer.formatTime().d < 2) {
+        if (cc.timer.formatTime().d < Balance.home.raidImmuneDays) {
             rand = 1;
         } else {
             rand = Math.random();
@@ -1456,12 +1465,13 @@ var Player = cc.Class.extend({
             }
         }
         var homeDef = this._getHomeDef();
-        if (homeDef >= 80 && this.isBombActive) {
+        if (homeDef >= Balance.home.fullDefense && this.isBombActive) {
             Achievement.checkSpecial("bt_special_2");
         }
         if (IAPPackage.isStealthUnlocked()) {
-            probability -= probability * 0.25;
+            probability -= probability * Balance.home.stealthRaidReduction;
         }
+        probability = utils.hook("home.raidChance", probability, {day: timeObj.d, defense: homeDef});
         if (rand <= probability) {
 
             this.log.addMsg(1099);
@@ -1546,11 +1556,12 @@ var Player = cc.Class.extend({
         var probability = config.probability;
 
         if (IAPPackage.isStealthUnlocked() && !this.stealthInactive) {
-            probability -= probability * 0.25;
+            probability -= probability * Balance.travel.stealthReduction;
         }
         if (player.equip.isEquiped(1305053)) {
-            probability -= probability * 0.25;
+            probability -= probability * Balance.travel.detectorReduction;
         }
+        probability = utils.hook("travel.encounterChance", probability, {stage: stage, day: timeObj.d, config: config});
         if (rand <= probability || override) {
             var diff;
             var list;
@@ -1559,16 +1570,17 @@ var Player = cc.Class.extend({
             if (!override) {
                 //no saved battle. Start new one. First, determine if this should be a bandit battle.
                 var banditRand = Math.random();
-                var tempProb = 0.25;
+                var tempProb = Balance.travel.banditChance;
                 if (IAPPackage.isStealthUnlocked() && this.stealthInactive) {
-                    tempProb = 0.1875;
+                    tempProb = Balance.travel.banditChanceStealthOff;
                 }
                 if (banditRand <= tempProb) {
                     //bandit battle. check if day is immune
                     if (this.lastBanditCaveIn >= cc.timer.getTimeNum()) {
                         return false;
                     }
-                    diff = utils.getRandomInt(1, 2);
+                    diff = utils.getRandomInt(Balance.travel.banditDifficulty[0], Balance.travel.banditDifficulty[1]);
+                    diff = utils.hook("battle.difficulty", diff, {source: "bandit"});
                     list = utils.getMonsterListByDifficulty(diff);
                     banditList = this.bag.getRobItem();
                     type = 1;
@@ -1576,6 +1588,7 @@ var Player = cc.Class.extend({
                 } else {
                     //zombie battle per usual.
                     diff = utils.getRandomInt(config.difficulty[0], config.difficulty[1]);
+                    diff = utils.hook("battle.difficulty", diff, {source: "travel"});
                     list = utils.getMonsterListByDifficulty(diff);
                     this.mapBattle = {"a": diff, "b": list, "c": 0, "d": null};
                 }
@@ -1610,6 +1623,7 @@ var Player = cc.Class.extend({
         var self = this;
         cc.timer.addTimerCallbackDayAndNight(null, function (flag) {
             if (flag === 'day') {
+                utils.hookEmit("day.start");
                 self.npcManager.visitPlayer();
                 self.npcManager.updateTradingItem();
                 self.log.addMsg(1122);
@@ -1617,11 +1631,13 @@ var Player = cc.Class.extend({
                 Medal.checkDay(1);
                 Record.saveAll();
             } else {
+                utils.hookEmit("night.start");
                 self.log.addMsg(1121);
                 self.npcManager.visitSale();
             }
         });
         cc.timer.addTimerCallbackDayByDay(this, function () {
+            utils.hookEmit("day.midnight");
             for (var npcId in npcConfig) {
                 var npc = player.npcManager.getNPC(npcId);
                 if (npc.isUnlocked) {
@@ -1641,6 +1657,7 @@ var Player = cc.Class.extend({
             cc.sys.localStorage.setItem("ad" + utils.SAVE_SLOT, "1");
         });
         cc.timer.addTimerCallbackDayByDayOneAM(this, function () {
+            utils.hookEmit("day.oneAM");
             var fridgeBuild = self.room.getBuildLevel(21);
             if (fridgeBuild < 0 || !this.map.getSite(WORK_SITE).isActive) {
                 self.expireFoodCraft(false);
@@ -1650,6 +1667,7 @@ var Player = cc.Class.extend({
         });
 
         cc.timer.addTimerCallbackHourByHour(this, function () {
+            utils.hookEmit("hour");
             self.updateByTime();
             self.updateTemperature();
             self.updateTemperatureEffect();

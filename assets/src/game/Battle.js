@@ -151,6 +151,7 @@ var Battle = cc.Class.extend({
         this.isBattleEnd = true;
 
         this.sumRes.win = isWin;
+        utils.hookEmit("battle.end", {win: isWin, battle: this});
         this.isMonsterStop = true;
         cc.director.getScheduler().unscheduleCallbackForTarget(this, this.updateMonster);
         cc.director.getScheduler().unscheduleCallbackForTarget(this, this.updatePlayer);
@@ -215,7 +216,7 @@ var Battle = cc.Class.extend({
         cc.timer.resume();
         audioManager.resumeMusic();
         var rand = Math.random();
-        if (player.dogState && player.isDogActive() && player.room.getBuildLevel(12) >= 0 && player.nowSiteId != null && player.nowSiteId != 0 && rand > 0.8) {
+        if (player.dogState && player.isDogActive() && player.room.getBuildLevel(12) >= 0 && player.nowSiteId != null && player.nowSiteId != 0 && rand > Balance.combat.dogLootAbove) {
             //generate loot dialog for dog bonus
             player.changeAttr("dogMood", -2);
             var config = utils.clone(stringUtil.getString("statusDialog"));
@@ -927,17 +928,17 @@ var Gun = Weapon.extend({
         precise = IAPPackage.getPreciseEffect(precise);
         precise += player.weather.getValue("gun_precise");
 
-        var decPrecise = Math.max(0, 80 - player.spirit) * 0.006;
+        var decPrecise = Math.max(0, Balance.combat.moodPreciseFloor - player.spirit) * Balance.combat.moodPrecisePerPoint;
         precise -= decPrecise;
         if (goodBullet) {
-            precise += 0.15;
+            precise += Balance.combat.goodBulletPrecise;
         }
         var currentTime = Number(cc.timer.time);
         currentTime -= player.lastAlcoholTime;
-        if (currentTime <= 43200) {
-            currentTime = 43200 - currentTime;
-            currentTime = Math.ceil(currentTime / 3600);
-            precise -= 0.02 * currentTime;
+        if (currentTime <= Balance.combat.alcoholWindow) {
+            currentTime = Balance.combat.alcoholWindow - currentTime;
+            currentTime = Math.ceil(currentTime / Balance.combat.alcoholHour);
+            precise -= Balance.combat.alcoholPrecisePerHour * currentTime;
         }
 
         var rand = Math.random();

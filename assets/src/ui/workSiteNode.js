@@ -3,16 +3,16 @@ var workSiteConfig = {
     needItems: [
         {itemId: 1102063, num: 1}
     ],
-    lastTime: 96 * 60,
-    brokenProbability: 0.03
+    lastTime: Balance.power.plantLastMinutes,
+    brokenProbability: Balance.power.plantBreakChance
 };
 var gasSiteConfig = {
     costTime: 90,
     needItems: [
         {itemId: 1102073, num: 1}
     ],
-    lastTime: 72 * 60,
-    brokenProbability: 0.03
+    lastTime: Balance.power.gasLastMinutes,
+    brokenProbability: Balance.power.gasBreakChance
 };
 
 var WorkSiteNode = BottomFrameNode.extend({
