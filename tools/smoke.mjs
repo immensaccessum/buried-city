@@ -159,6 +159,17 @@ try {
 
             if (!player.map.getSite(2)) player.map.unlockSite(2);
             var site = player.map.getSite(2);
+            var addedTalent = false;
+            if (!IAPPackage.isAllItemUnlocked()) {
+                IAPPackage.chooseTalent(110);
+                addedTalent = true;
+            }
+            var finished = site.rooms.length;
+            site.step = finished;
+            site.getProgressStr(1, site.id);
+            if (site.step !== finished) return "progress-reset:" + site.step;
+            if (addedTalent) IAPPackage.chooseTalent(110);
+            site.step = 0;
             delete CityExt.sites["2"];
             bt.setDay(1);
             utils.hookEmit("site.enter", {siteId: 2});

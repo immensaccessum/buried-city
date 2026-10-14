@@ -261,6 +261,16 @@ Hooks.add("battle.difficulty", function (diff, ctx) {
         return origCanClose.call(this);
     };
 
+    // The "all items" talent rewinds a finished site every time its map dialog opens.
+    // City districts restock on the midnight timer instead, so the same day stays cleared.
+    var origGetProgressStr = Site.prototype.getProgressStr;
+    Site.prototype.getProgressStr = function (val, id) {
+        if (CityExt.isTracked(this)) {
+            return this.step + "/" + this.rooms.length;
+        }
+        return origGetProgressStr.call(this, val, id);
+    };
+
     var origGetDes = Site.prototype.getDes;
     Site.prototype.getDes = function () {
         var base = origGetDes.call(this);
