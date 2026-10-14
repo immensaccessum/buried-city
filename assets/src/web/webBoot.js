@@ -17,9 +17,8 @@ var WebBoot = {
         var lan = this.getLanguage();
         cc.loader.loadJs(["src/jsList.js"], function (err) {
             if (err) return cc.error("failed to load jsList: " + err);
-            var stringLan = lan === "ru" ? "en" : lan;
             var scripts = jsList.map(function (f) {
-                return f.indexOf("string.js") !== -1 ? f.replace("string.js", "string_" + stringLan + ".js") : f;
+                return f.indexOf("string.js") !== -1 ? f.replace("string.js", "string_" + lan + ".js") : f;
             }).concat(["src/web/webOverrides.js"]);
             cc.LoaderScene.preload(WEB_PRELOAD_RESOURCES, function () {
                 cc.loader.loadJs(scripts, function (err) {
