@@ -2,6 +2,7 @@ var lanSupports = [];
 var stringName = {
     "zh": "简体中文",
     "en": "English",
+    "ru": "Русский",
     "zh-Hant": "繁體中文"
 }
 var AssetsManagerLoaderScene = cc.Scene.extend({

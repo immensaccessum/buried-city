@@ -3,5 +3,6 @@
 var ExtStrings = {
     en: {},
     zh: {},
+    ru: {},
     "zh-Hant": {}
 };

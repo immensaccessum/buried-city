@@ -2,7 +2,7 @@
 // Loads the game scripts listed in src/jsList.js (with the language string
 // table substituted), preloads textures/plists, then shows the menu.
 var WebBoot = {
-    SUPPORTED_LANGUAGES: ["en", "zh"],
+    SUPPORTED_LANGUAGES: ["en", "zh", "ru"],
 
     getLanguage: function () {
         var lan = cc.sys.localStorage.getItem("language");
@@ -17,8 +17,9 @@ var WebBoot = {
         var lan = this.getLanguage();
         cc.loader.loadJs(["src/jsList.js"], function (err) {
             if (err) return cc.error("failed to load jsList: " + err);
+            var stringLan = lan === "ru" ? "en" : lan;
             var scripts = jsList.map(function (f) {
-                return f.indexOf("string.js") !== -1 ? f.replace("string.js", "string_" + lan + ".js") : f;
+                return f.indexOf("string.js") !== -1 ? f.replace("string.js", "string_" + stringLan + ".js") : f;
             }).concat(["src/web/webOverrides.js"]);
             cc.LoaderScene.preload(WEB_PRELOAD_RESOURCES, function () {
                 cc.loader.loadJs(scripts, function (err) {
@@ -28,6 +29,9 @@ var WebBoot = {
                         cc.loader.loadJs(extList, function (err) {
                             if (err) return cc.error("failed to load extensions: " + err);
                             if (typeof ExtBoot !== "undefined") ExtBoot.run();
+                            lanSupports.length = 0;
+                            lanSupports.push("en", "zh", "ru");
+                            stringName.ru = "Русский";
                             cc.director.runScene(new MenuScene(false, false));
                         });
                     });

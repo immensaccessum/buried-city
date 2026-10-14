@@ -3,7 +3,7 @@
 var ExtBoot = {
     languageKey: function () {
         var lan = cc.sys.localStorage.getItem("language") || "en";
-        if (lan === "zh" || lan === "zh-Hant" || lan === "en") {
+        if (lan === "zh" || lan === "zh-Hant" || lan === "en" || lan === "ru") {
             return lan;
         }
         if (lan.indexOf("zh") === 0) {

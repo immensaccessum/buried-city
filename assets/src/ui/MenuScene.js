@@ -489,9 +489,10 @@ var SettingLayer = cc.Layer.extend({
                 if (type == ccui.Widget.TOUCH_ENDED) {
                     cc.sys.localStorage.setItem("language", sender.lan);
 
-                    if (jsb.fileUtils.isFileExist("src/data/string/string_" + sender.lan + ".js")) {
-                        __cleanScript("src/data/string/string_" + self.lan + ".js");
-                        require("src/data/string/string_" + sender.lan + ".js")
+                    var stringLan = sender.lan === "ru" ? "en" : sender.lan;
+                    if (jsb.fileUtils.isFileExist("src/data/string/string_" + stringLan + ".js")) {
+                        __cleanScript("src/data/string/string_" + stringLan + ".js");
+                        require("src/data/string/string_" + stringLan + ".js")
                         if (typeof ExtBoot !== "undefined") {
                             ExtBoot.run();
                         }
