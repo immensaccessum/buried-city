@@ -110,6 +110,7 @@ try {
         Record.save("time1", {time: 6 * 60 * 60 + 1});
         game.init();
         if (!SampleExt.migrated) return "not-migrated";
+        if (!CityExt.migrated || !player.save().ext.city) return "city-not-migrated";
         if (player.storage.getNumByItemId(1101011) !== 3) return "wood";
         bt.give(1106061, 1);
         if (player.storage.getNumByItemId(1106061) !== 1) return "give";
@@ -121,12 +122,98 @@ try {
         if (!raw.player1.storage["1106061"]) return "blob-item";
         game.init();
         if (SampleExt.migrated) return "remigrated";
+        if (CityExt.migrated) return "city-remigrated";
+        if (!player.save().ext.city) return "city-lost";
         if (!SampleExt.data || !SampleExt.data.binoculars) return "restore";
         if (player.storage.getNumByItemId(1106061) !== 1) return "item-after-reload";
         return "clean";
     })()`);
     if (migrated !== "clean") fail("save " + migrated);
     else ok("v45 save migrates, binoculars round-trip");
+
+    const city = await check(`(function () {
+        function lootValue(rooms) {
+            var sum = 0;
+            rooms.forEach(function (room) {
+                room.forEach(function (cell) {
+                    var cfg = itemConfig[cell.itemId];
+                    if (cfg) sum += (cfg.value || 0) * (cell.num || 1);
+                });
+            });
+            return sum;
+        }
+        try {
+            if (!Balance.city || typeof CityExt === "undefined") return "missing";
+            bt.setDay(1);
+            if (CityExt.phase() !== 0) return "phase0:" + CityExt.phase();
+            bt.setDay(31);
+            if (CityExt.phase() !== 2) return "phase2:" + CityExt.phase();
+
+            bt.setDay(1);
+            delete CityExt.sites["2"];
+            var early = lootValue(new Site(2).genWorkRoom());
+            bt.setDay(61);
+            delete CityExt.sites["2"];
+            var late = lootValue(new Site(2).genWorkRoom());
+            if (!(late < early)) return "loot:" + early + "," + late;
+
+            if (!player.map.getSite(2)) player.map.unlockSite(2);
+            var site = player.map.getSite(2);
+            delete CityExt.sites["2"];
+            bt.setDay(1);
+            utils.hookEmit("site.enter", {siteId: 2});
+            utils.hookEmit("site.enter", {siteId: 2});
+            if (CityExt.sites["2"].depletion !== 1) return "depletion:" + CityExt.sites["2"].depletion;
+
+            CityExt.siteState(2).infestation = 2;
+            var diff = utils.hook("battle.difficulty", 3, {site: site, source: "site"});
+            if (diff !== 5) return "diff:" + diff;
+
+            site.rooms = [{type: "marker"}];
+            site.step = site.rooms.length;
+            utils.hookEmit("site.roomEnd", {site: site, room: site.rooms[0], win: true});
+            if (CityExt.sites["2"].clearedDay == null) return "not-cleared";
+            if (CityExt.sites["2"].infestation !== 0) return "infest-left";
+            var regen = CityExt.phaseRow().regenDays;
+            if (!player._citySmokeStarted) {
+                game.start();
+                player._citySmokeStarted = true;
+            }
+            bt.skipDays(regen + 1);
+            if (site.step !== 0) return "step:" + site.step;
+            if (site.closed) return "still-closed";
+            if (site.rooms[0] && site.rooms[0].type === "marker") return "not-rebuilt";
+            if (CityExt.sites["2"].clearedDay != null) return "cleared-stuck";
+
+            if (!player.save().ext.city) return "ext-city";
+            Record.saveAll();
+            game.init();
+            if (CityExt.migrated) return "round-remigrated";
+            if (!CityExt.sites || !CityExt.sites["2"]) return "round-restore";
+
+            bt.setDay(1);
+            site = player.map.getSite(2);
+            site.closed = true;
+            Ext.modules.forEach(function (mod) {
+                if (mod.id === "city") mod.onNewGame();
+            });
+            if (site.closed) return "migrate-closed";
+            if (CityExt.sites["2"].depletion !== 1) return "migrate-depletion";
+            var expectCleared = 1 - Balance.city.phases[0].regenDays;
+            if (CityExt.sites["2"].clearedDay !== expectCleared) return "migrate-cleared:" + CityExt.sites["2"].clearedDay;
+
+            CityExt.sites["2"].infestation = 3;
+            CityExt.sites["2"].clearedDay = null;
+            autoSpriteFrameController.addSpriteFrames("res/site.plist");
+            var entity = new Entity(site);
+            if (!entity.getChildByName("cityDanger")) return "no-icon";
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.message ? err.message : err);
+        }
+    })()`);
+    if (city !== "clean") fail("city " + city);
+    else ok("city phases, depletion, regen, save, migration, map icon");
 
     if (logs.length) fail("exceptions:\\n" + logs.slice(0, 5).join("\\n"));
     else ok("no exceptions");

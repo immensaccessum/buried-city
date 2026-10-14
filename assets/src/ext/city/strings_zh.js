@@ -1,0 +1,13 @@
+ExtStrings.zh["city_phase_0"] = "尚可";
+ExtStrings.zh["city_phase_1"] = "不安";
+ExtStrings.zh["city_phase_2"] = "危急";
+ExtStrings.zh["city_phase_3"] = "沦陷";
+ExtStrings.zh["city_danger_0"] = "街道平静";
+ExtStrings.zh["city_danger_1"] = "需要警惕";
+ExtStrings.zh["city_danger_2"] = "危险";
+ExtStrings.zh["city_danger_3"] = "尸群盘踞";
+ExtStrings.zh["city_depleted"] = "已被搜刮。";
+ExtStrings.zh["city_regen_in"] = "%d 天后会再有东西。";
+ExtStrings.zh["city_log_regen"] = "%s一带又能搜到东西了。";
+ExtStrings.zh["city_log_infest"] = "%s一带尸群变多了。";
+ExtStrings.zh["city_log_deplete"] = "再搜%s，收获更少了。";

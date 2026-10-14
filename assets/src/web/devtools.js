@@ -27,5 +27,14 @@ window.bt = {
             spirit: player.spirit,
             ext: player.save().ext
         };
+    },
+    city: function () {
+        if (typeof CityExt === "undefined") {
+            return null;
+        }
+        return {
+            phase: CityExt.phase(),
+            sites: CityExt.sites
+        };
     }
 };

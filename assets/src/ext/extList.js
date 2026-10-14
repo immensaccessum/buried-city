@@ -8,5 +8,10 @@ var extList = [
     "src/ext/sample/strings_en.js",
     "src/ext/sample/strings_zh.js",
     "src/ext/sample/logic.js",
+    "src/ext/city/config.js",
+    "src/ext/city/strings_en.js",
+    "src/ext/city/strings_zh.js",
+    "src/ext/city/logic.js",
+    "src/ext/city/ui.js",
     "src/ext/core/boot.js"
 ];

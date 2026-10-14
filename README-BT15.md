@@ -4,10 +4,15 @@ Derivative of Buried City (ArithSeq's mod of BuriedTown 1.4.3 by Locojoy/Dice7).
 Original credits stay where they are. This work is non-commercial and stays open source.
 See `license.txt`.
 
-This branch is the extension host for the later systems (living city, expeditions,
-events, zombies, shelter, residents, mood, story). It does not add those systems yet.
+This branch is the extension host for the later systems (expeditions,
+events, zombies, shelter, residents, mood, story).
 A sample item, Binoculars (`1106061`), proves the pipeline: config, strings, loot hook,
 loose sprites, save field.
+
+`ext/city` is the living city. Districts are no longer closed forever: loot
+returns after a few days, repeat visits deplete it, and ignored districts fill
+with the dead. Day bands (1–10, 11–30, 31–60, 61+) scale loot and difficulty.
+The map icon shows the danger. `bt.city()` prints the phase and per-site state.
 
 ## Run in a browser
 
@@ -26,6 +31,7 @@ bt.skipDays(10)
 bt.setDay(31)
 bt.give(1106061, 1)
 bt.dump()
+bt.city()
 ```
 
 ## Check
