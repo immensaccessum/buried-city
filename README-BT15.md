@@ -1,4 +1,4 @@
-# BuriedTown 1.5 — foundation
+# Buried City — web build
 
 Derivative of Buried City (ArithSeq's mod of BuriedTown 1.4.3 by Locojoy/Dice7).
 Original credits stay where they are. This work is non-commercial and stays open source.

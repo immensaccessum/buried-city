@@ -29,7 +29,7 @@
 // The dev server used to let the browser keep old scripts. Stamp every
 // script URL so a reload of this page actually fetches dialog.js and the rest.
 (function () {
-    var v = "20261015u";
+    var v = "20261015v";
     var orig = cc.loader._createScript;
     cc.loader._createScript = function (jsPath, isAsync, cb) {
         if (typeof jsPath === "string" && jsPath.indexOf("v=" + v) === -1) {
@@ -39,9 +39,9 @@
     };
 })();
 if (/[?&]debug=1(?:&|$)/.test(location.search)) {
-    document.write('<script src="src/web/devtools.js?v=20261015u"><\/script>');
+    document.write('<script src="src/web/devtools.js?v=20261015v"><\/script>');
 }
 </script>
-<script src="main.js?v=20261015u"></script>
+<script src="main.js?v=20261015v"></script>
 </body>
 </html>
