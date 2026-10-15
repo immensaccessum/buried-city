@@ -25,6 +25,20 @@
 <body>
 <canvas id="gameCanvas" width="640" height="1136"></canvas>
 <script src="frameworks/cocos2d-js-v3.6.js"></script>
-<script src="main.js"></script>
+<script>
+// The dev server used to let the browser keep old scripts. Stamp every
+// script URL so a reload of this page actually fetches dialog.js and the rest.
+(function () {
+    var v = "20261015l";
+    var orig = cc.loader._createScript;
+    cc.loader._createScript = function (jsPath, isAsync, cb) {
+        if (typeof jsPath === "string" && jsPath.indexOf("v=" + v) === -1) {
+            jsPath += (jsPath.indexOf("?") === -1 ? "?" : "&") + "v=" + v;
+        }
+        return orig.call(this, jsPath, isAsync, cb);
+    };
+})();
+</script>
+<script src="main.js?v=20261015l"></script>
 </body>
 </html>

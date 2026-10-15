@@ -226,6 +226,119 @@ try {
     if (city !== "clean") fail("city " + city);
     else ok("city phases, depletion, regen, save, migration, map icon");
 
+    const expedition = await check(`(function () {
+        var bag = player.bag;
+        var origWeight = bag.getCurrentWeight;
+        var origMoto = player.hasMotocycle;
+        var origUse = player.useMoto;
+        var origGun = player.equip.getEquip(EquipmentPos.GUN);
+        var origDog = player.dogState;
+        var origSite = player.nowSiteId;
+        try {
+            if (!Balance.expedition || typeof ExpeditionExt === "undefined") return "missing";
+            if (!string["exp_summary"] || !string["exp_bait_btn"]) return "strings";
+
+            bag.getCurrentWeight = function () { return 0; };
+            if (ExpeditionExt.loadLevel() !== 0) return "load0:" + ExpeditionExt.loadLevel();
+            var light = utils.hook("travel.speed", 100, {});
+            if (Math.abs(light - 100) > 0.01) return "speed-light:" + light;
+
+            bag.getCurrentWeight = function () { return bag.getTotalWeight(); };
+            if (ExpeditionExt.loadLevel() !== 2) return "load2:" + ExpeditionExt.loadLevel();
+            var heavy = utils.hook("travel.speed", 100, {});
+            if (Math.abs(heavy - 70) > 0.01) return "speed-heavy:" + heavy;
+            if (ExpeditionExt.dodgeMul() !== 1.5) return "dodge:" + ExpeditionExt.dodgeMul();
+            bag.getCurrentWeight = origWeight;
+
+            player.dogState = 0;
+            player.useMoto = false;
+            player.equip.unequip(EquipmentPos.GUN);
+            if (ExpeditionExt.noiseLevel() !== 0) return "noise0:" + ExpeditionExt.noiseLevel();
+            var quiet = utils.hook("travel.encounterChance", 1, {});
+            if (Math.abs(quiet - 0.8) > 0.001) return "enc-quiet:" + quiet;
+
+            player.hasMotocycle = function () { return true; };
+            player.useMoto = true;
+            player.equip.equipPos[EquipmentPos.GUN] = "1301011";
+            if (ExpeditionExt.noiseLevel() !== 2) return "noise2:" + ExpeditionExt.noisePoints();
+            var loud = utils.hook("travel.encounterChance", 1, {});
+            if (Math.abs(loud - 1.3) > 0.001) return "enc-loud:" + loud;
+
+            player.nowSiteId = 1;
+            var site = new Site(1);
+            site.genRooms();
+            var idx = -1;
+            var i;
+            for (i = 0; i < site.rooms.length; i++) {
+                if (site.rooms[i].type === "battle" && site.rooms[i].list && site.rooms[i].list.length) {
+                    idx = i;
+                    break;
+                }
+            }
+            if (idx < 0) return "no-battle";
+            site.step = idx;
+            var before = site.rooms[idx].list.length;
+            var origRandom = Math.random;
+            Math.random = function () { return 0; };
+            var room = site.roomBegin();
+            Math.random = origRandom;
+            if (!room.noiseRolled) return "not-rolled";
+            if (room.list.length !== before + 1) return "extra:" + before + "," + room.list.length;
+            if (site.roomBegin().list.length !== before + 1) return "rolled-twice";
+
+            player.bag.increaseItem(1103041, 2);
+            var had = player.bag.getNumByItemId(1103041);
+            var baitRoom = {type: "battle", list: ["m1", "m2", "m3", "m4"]};
+            var removed = ExpeditionExt.applyBait(baitRoom);
+            if (player.bag.getNumByItemId(1103041) !== had - 1) return "meat";
+            if (removed < 1 || removed > 2) return "removed:" + removed;
+            if (baitRoom.list.length !== 4 - removed) return "list:" + baitRoom.list.length;
+            if (!baitRoom.baited) return "not-baited";
+            var one = {type: "battle", list: ["only"]};
+            if (ExpeditionExt.applyBait(one) !== 1 || one.list.length !== 0) return "solo";
+
+            ExpeditionExt.inMapDialog = true;
+            var des = site.getDes();
+            ExpeditionExt.inMapDialog = false;
+            if (des.indexOf(string["exp_noise_2"]) < 0) return "summary";
+            player.bag.increaseItem(1106061, 1);
+            ExpeditionExt.inMapDialog = true;
+            des = site.getDes();
+            ExpeditionExt.inMapDialog = false;
+            if (des.indexOf(string["exp_scout"].slice(0, 5)) < 0 && des.indexOf("Scout") < 0 && des.indexOf("Разведка") < 0 && des.indexOf("侦察") < 0) return "scout:" + des;
+
+            ExpeditionExt.stats.baits = 7;
+            ExpeditionExt.stats.extraZombies = 3;
+            Record.saveAll();
+            game.init();
+            if (!player.save().ext.expedition) return "ext-missing";
+            if (ExpeditionExt.stats.baits !== 7) return "round-baits:" + ExpeditionExt.stats.baits;
+            if (ExpeditionExt.stats.extraZombies !== 3) return "round-extra";
+            Ext.modules.forEach(function (mod) {
+                if (mod.id === "expedition") mod.onNewGame();
+            });
+            if (ExpeditionExt.stats.baits !== 0 || ExpeditionExt.stats.extraZombies !== 0) return "newgame";
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        } finally {
+            if (player && player.bag) player.bag.getCurrentWeight = origWeight;
+            if (player) {
+                player.hasMotocycle = origMoto;
+                player.useMoto = origUse;
+                player.dogState = origDog;
+                player.nowSiteId = origSite;
+                if (player.equip) {
+                    if (origGun) player.equip.equipPos[EquipmentPos.GUN] = origGun;
+                    else player.equip.unequip(EquipmentPos.GUN);
+                }
+            }
+            ExpeditionExt.inMapDialog = false;
+        }
+    })()`);
+    if (expedition !== "clean") fail("expedition " + expedition);
+    else ok("expedition load, noise, bait, scout, save");
+
     if (logs.length) fail("exceptions:\\n" + logs.slice(0, 5).join("\\n"));
     else ok("no exceptions");
 } catch (err) {

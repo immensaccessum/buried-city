@@ -1,0 +1,14 @@
+ExtStrings.ru["exp_noise_0"] = "тихо";
+ExtStrings.ru["exp_noise_1"] = "обычно";
+ExtStrings.ru["exp_noise_2"] = "громко";
+ExtStrings.ru["exp_load_0"] = "легко";
+ExtStrings.ru["exp_load_1"] = "тяжеловато";
+ExtStrings.ru["exp_load_2"] = "тяжело";
+ExtStrings.ru["exp_summary"] = "Шум: %s. Груз: %d/%d (%s).";
+ExtStrings.ru["exp_scout"] = "Разведка: опасность %d, боёв %d, лут %s.";
+ExtStrings.ru["exp_loot_0"] = "мало";
+ExtStrings.ru["exp_loot_1"] = "средне";
+ExtStrings.ru["exp_loot_2"] = "много";
+ExtStrings.ru["exp_bait_btn"] = "Приманка";
+ExtStrings.ru["exp_log_bait"] = "Запах мяса увёл %d зомби.";
+ExtStrings.ru["exp_log_noise"] = "Шум привлёк ещё одного зомби.";

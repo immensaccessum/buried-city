@@ -1,0 +1,14 @@
+ExtStrings.en["exp_noise_0"] = "quiet";
+ExtStrings.en["exp_noise_1"] = "normal";
+ExtStrings.en["exp_noise_2"] = "loud";
+ExtStrings.en["exp_load_0"] = "light";
+ExtStrings.en["exp_load_1"] = "heavy";
+ExtStrings.en["exp_load_2"] = "overloaded";
+ExtStrings.en["exp_summary"] = "Noise: %s. Load: %d/%d (%s).";
+ExtStrings.en["exp_scout"] = "Scout: danger %d, fights %d, loot %s.";
+ExtStrings.en["exp_loot_0"] = "scarce";
+ExtStrings.en["exp_loot_1"] = "modest";
+ExtStrings.en["exp_loot_2"] = "plenty";
+ExtStrings.en["exp_bait_btn"] = "Bait";
+ExtStrings.en["exp_log_bait"] = "The smell of meat led %d zombies away.";
+ExtStrings.en["exp_log_noise"] = "The noise drew another zombie.";

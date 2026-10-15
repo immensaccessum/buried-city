@@ -14,6 +14,12 @@ returns after a few days, repeat visits deplete it, and ignored districts fill
 with the dead. Day bands (1–10, 11–30, 31–60, 61+) scale loot and difficulty.
 The map icon shows the danger. `bt.city()` prints the phase and per-site state.
 
+`ext/expedition` is the trip. The site dialog on the map shows noise and bag load.
+Binoculars (`1106061`) add a scout line. A heavy bag slows travel and makes dodging
+a road encounter take longer. A loud kit (gun, dog, motorcycle) draws more encounters
+and sometimes one extra zombie in a battle room. Meat (`1103041`) is bait: the fight
+screen offers to spend one and pull zombies off that room. `bt.exp()` prints the levels.
+
 ## Run in a browser
 
 From this directory:
@@ -32,6 +38,7 @@ bt.setDay(31)
 bt.give(1106061, 1)
 bt.dump()
 bt.city()
+bt.exp()
 ```
 
 ## Check

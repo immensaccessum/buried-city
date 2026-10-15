@@ -15,5 +15,11 @@ var extList = [
     "src/ext/city/strings_ru.js",
     "src/ext/city/logic.js",
     "src/ext/city/ui.js",
+    "src/ext/expedition/config.js",
+    "src/ext/expedition/strings_en.js",
+    "src/ext/expedition/strings_zh.js",
+    "src/ext/expedition/strings_ru.js",
+    "src/ext/expedition/logic.js",
+    "src/ext/expedition/ui.js",
     "src/ext/core/boot.js"
 ];

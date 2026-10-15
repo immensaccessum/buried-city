@@ -36,5 +36,20 @@ window.bt = {
             phase: CityExt.phase(),
             sites: CityExt.sites
         };
+    },
+    exp: function () {
+        if (typeof ExpeditionExt === "undefined") {
+            return null;
+        }
+        var site = null;
+        if (player && player.map && player.nowSiteId != null) {
+            site = player.map.getSite(player.nowSiteId);
+        }
+        return {
+            noise: ExpeditionExt.noiseLevel(),
+            load: ExpeditionExt.loadLevel(),
+            summary: ExpeditionExt.summaryLine(),
+            scout: site ? ExpeditionExt.scoutLine(site) : ""
+        };
     }
 };

@@ -1,0 +1,14 @@
+ExtStrings.zh["exp_noise_0"] = "安静";
+ExtStrings.zh["exp_noise_1"] = "平常";
+ExtStrings.zh["exp_noise_2"] = "吵闹";
+ExtStrings.zh["exp_load_0"] = "轻松";
+ExtStrings.zh["exp_load_1"] = "偏重";
+ExtStrings.zh["exp_load_2"] = "过载";
+ExtStrings.zh["exp_summary"] = "噪音：%s。负重：%d/%d（%s）。";
+ExtStrings.zh["exp_scout"] = "侦察：危险 %d，战斗 %d，物资%s。";
+ExtStrings.zh["exp_loot_0"] = "稀少";
+ExtStrings.zh["exp_loot_1"] = "一般";
+ExtStrings.zh["exp_loot_2"] = "丰富";
+ExtStrings.zh["exp_bait_btn"] = "诱饵";
+ExtStrings.zh["exp_log_bait"] = "肉味引开了 %d 只僵尸。";
+ExtStrings.zh["exp_log_noise"] = "噪音又引来了一只僵尸。";
