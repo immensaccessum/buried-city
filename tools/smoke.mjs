@@ -617,6 +617,39 @@ try {
     if (zombies !== "clean") fail("zombies " + zombies);
     else ok("zombies types, inject, dodge, burst, armor, save");
 
+    const mood = await check(`(function () {
+        var origSleep = player.isInSleep;
+        var origSpirit = player.spirit;
+        var origCoffee = player.lastCoffeeTime;
+        try {
+            if (typeof MoodExt === "undefined" || !Balance.mood.sleepSpiritMul) return "missing";
+            player.lastCoffeeTime = -999999;
+            player.isInSleep = true;
+            player.spirit = 40;
+            player.changeAttr("spirit", -8);
+            if (player.spirit !== 40) return "asleep-drop:" + player.spirit;
+            var gain = MoodExt.recoverSleepSpirit();
+            if (gain < 1 || player.spirit !== 40 + gain) return "gain:" + gain + "," + player.spirit;
+            player.lastCoffeeTime = cc.timer.time;
+            var dull = MoodExt.recoverSleepSpirit();
+            if (dull > gain) return "coffee:" + dull + "," + gain;
+            player.isInSleep = false;
+            player.changeAttr("spirit", -8);
+            if (player.spirit !== 40 + gain + dull - 8) return "awake:" + player.spirit;
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        } finally {
+            if (player) {
+                player.isInSleep = origSleep;
+                player.spirit = origSpirit;
+                player.lastCoffeeTime = origCoffee;
+            }
+        }
+    })()`);
+    if (mood !== "clean") fail("mood " + mood);
+    else ok("sleep holds mood and restores a little");
+
     const story = await check(`(function () {
         var origDay = cc.timer.time;
         var origNoted = EventsExt.flags.distress_noted;

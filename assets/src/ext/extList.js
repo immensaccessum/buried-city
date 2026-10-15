@@ -33,6 +33,7 @@ var extList = [
     "src/ext/zombies/strings_ru.js",
     "src/ext/zombies/logic.js",
     "src/ext/zombies/ui.js",
+    "src/ext/mood/logic.js",
     "src/ext/story/config.js",
     "src/ext/story/strings_en.js",
     "src/ext/story/strings_zh.js",

@@ -31,6 +31,9 @@ scrap armor. A runner shortens the time to break away on the road. A swollen
 one bursts into virus and, in a district, more dead. Armor shrugs off blades;
 guns do not. `bt.zombies()` prints how many were mixed in.
 
+Sleep holds mood steady and brings a little back each hour. A better bed and a full stomach
+return more. Coffee still ruins that rest for six hours. Coffee and vodka remain the fast lift.
+
 `ext/story` is the way out. A built radio (build 15) catches up six messages in its
 log, ending on day 55. Three notes turn up in the supermarket, the collector's
 route, and the mall. The last room of the portal still opens corridor 081. The
