@@ -26,6 +26,11 @@ cans, a night herd, neighbors asking, fog, a dog that will not sit. Cooldowns
 stop the same scene repeating. `bt.event("distress")` forces one; `bt.events()`
 prints flags.
 
+`ext/zombies` adds three kinds to a pack: a runner, a swollen one, and one in
+scrap armor. A runner shortens the time to break away on the road. A swollen
+one bursts into virus and, in a district, more dead. Armor shrugs off blades;
+guns do not. `bt.zombies()` prints how many were mixed in.
+
 ## Run in a browser
 
 From this directory:
@@ -47,6 +52,7 @@ bt.city()
 bt.exp()
 bt.events()
 bt.event("distress")
+bt.zombies()
 ```
 
 ## Check

@@ -60,6 +60,15 @@ window.bt = {
         EventsExt.fire(ev, {trigger: ev.trigger, siteId: player && player.nowSiteId});
         return ev.id;
     },
+    zombies: function () {
+        if (typeof ZombiesExt === "undefined") {
+            return null;
+        }
+        return {
+            injected: ZombiesExt.stats.injected,
+            bloatedPopped: ZombiesExt.stats.bloatedPopped
+        };
+    },
     exp: function () {
         if (typeof ExpeditionExt === "undefined") {
             return null;

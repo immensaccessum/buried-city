@@ -112,6 +112,7 @@ try {
         if (!SampleExt.migrated) return "not-migrated";
         if (!CityExt.migrated || !player.save().ext.city) return "city-not-migrated";
         if (!player.save().ext.events) return "events-not-migrated";
+        if (!player.save().ext.zombies) return "zombies-not-migrated";
         if (player.storage.getNumByItemId(1101011) !== 3) return "wood";
         bt.give(1106061, 1);
         if (player.storage.getNumByItemId(1106061) !== 1) return "give";
@@ -126,6 +127,7 @@ try {
         if (CityExt.migrated) return "city-remigrated";
         if (!player.save().ext.city) return "city-lost";
         if (!player.save().ext.events) return "events-lost";
+        if (!player.save().ext.zombies) return "zombies-lost";
         if (!SampleExt.data || !SampleExt.data.binoculars) return "restore";
         if (player.storage.getNumByItemId(1106061) !== 1) return "item-after-reload";
         return "clean";
@@ -466,6 +468,14 @@ try {
             EventsExt.current = null;
             EventsExt.travelCb = null;
             if (typeof GLOBAL_DIALOGS !== "undefined") GLOBAL_DIALOGS = 0;
+            var kids = scene.getChildren ? scene.getChildren() : [];
+            var ki;
+            for (ki = kids.length - 1; ki >= 0; ki--) {
+                if (kids[ki].getName && kids[ki].getName() === "dialog" && kids[ki].removeFromParent) {
+                    kids[ki].removeFromParent();
+                }
+            }
+            if (typeof GLOBAL_DIALOGS !== "undefined") GLOBAL_DIALOGS = 0;
             player.isAtHome = true;
             bt.setDay(3);
             if (typeof DialogSmall === "undefined") return "no-DialogSmall";
@@ -488,6 +498,124 @@ try {
     })()`);
     if (evtUi !== "clean") fail("events-ui " + evtUi);
     else ok("events dialog and result");
+
+    const zombies = await check(`(function () {
+        var origRandom = Math.random;
+        var origSite = player.nowSiteId;
+        var battles = [];
+        function stopBattle(b) {
+            if (!b || !cc.director) return;
+            var sch = cc.director.getScheduler();
+            sch.unscheduleAllCallbacksForTarget(b);
+            if (b.player) sch.unscheduleAllCallbacksForTarget(b.player);
+            if (b.monsters) {
+                b.monsters.forEach(function (m) { sch.unscheduleAllCallbacksForTarget(m); });
+            }
+        }
+        try {
+            if (!Balance.zombies || typeof ZombiesExt === "undefined") return "missing";
+            if (!monsterConfig["11"] || monsterConfig["11"].kind !== "runner") return "cfg11";
+            if (!monsterConfig["12"] || monsterConfig["12"].kind !== "burst") return "cfg12";
+            if (!monsterConfig["13"] || monsterConfig["13"].kind !== "armored") return "cfg13";
+            if (!string["monsterType_11"] || !string["zom_log_armor"]) return "strings";
+            if (!cc.spriteFrameCache.getSpriteFrame("monster_dig_type_11.png")) return "sprite11";
+            if (!cc.spriteFrameCache.getSpriteFrame("monster_dig_type_12.png")) return "sprite12";
+            if (!cc.spriteFrameCache.getSpriteFrame("monster_dig_type_13.png")) return "sprite13";
+            if (ZombiesExt.digFrame(["1", "12"], 2, false) !== "#monster_dig_type_12.png") return "frame";
+            if (ZombiesExt.digFrame(["1"], 2, false) !== "#monster_dig_2.png") return "frame-plain";
+
+            var melee = Object.create(Weapon.prototype);
+            var gun = Object.create(Gun.prototype);
+            var armor = {attr: {kind: "armored"}};
+            var meleeHarm = ZombiesExt.scaleHarm(armor, melee, 100);
+            var gunHarm = ZombiesExt.scaleHarm(armor, gun, 100);
+            if (!(meleeHarm < gunHarm)) return "melee:" + meleeHarm + "," + gunHarm;
+
+            if (!player.map.getSite(1)) player.map.unlockSite(1);
+            player.nowSiteId = 1;
+            bt.setDay(1);
+            CityExt.siteState(1).infestation = 0;
+            var virus = player.virus;
+            var mon = Object.create(Monster.prototype);
+            mon.attr = utils.clone(monsterConfig["12"]);
+            mon.dead = false;
+            mon.line = null;
+            mon.useBandit = function () { return false; };
+            mon.battle = {
+                sumRes: {monsterKilledNum: 0},
+                removeMonster: function () {},
+                processLog: function () {},
+                checkGameEnd: function () {}
+            };
+            mon.die(null);
+            if (player.virus < virus + Balance.zombies.bloatedVirus) return "virus:" + player.virus;
+            if (CityExt.siteState(1).infestation < 1) return "infest";
+
+            var plain = new Battle({id: 0, monsterList: ["1", "1"]}, true, 1, false, true);
+            var fast = new Battle({id: 0, monsterList: ["11", "1"]}, true, 1, false, true);
+            battles.push(plain, fast);
+            if (!(fast.dodgeTime < plain.dodgeTime - 0.01)) return "dodge:" + fast.dodgeTime + "," + plain.dodgeTime;
+
+            bt.setDay(31);
+            player.nowSiteId = 1;
+            var before = monsterList["20"].list.join(",");
+            Math.random = function () { return 0; };
+            var mixed = utils.getMonsterListByDifficulty(2);
+            Math.random = origRandom;
+            if (!ZombiesExt.hasKind(mixed, "runner")) return "inject:" + mixed.join(",");
+            if (monsterList["20"].list.join(",") !== before) return "mutated";
+            player.nowSiteId = 500;
+            Math.random = function () { return 0; };
+            var skipped = utils.getMonsterListByDifficulty(2);
+            Math.random = origRandom;
+            if (ZombiesExt.hasSpecial(skipped)) return "bandit-inject";
+
+            autoSpriteFrameController.addSpriteFrames("res/dig_monster.plist");
+            autoSpriteFrameController.addSpriteFrames("res/gate.plist");
+            autoSpriteFrameController.addSpriteFrames("res/ui.plist");
+            var dlg = new RandomBattleDialog({list: ["12", "1"], difficulty: 1, type: 0}, function () {});
+            var dig = dlg.contentNode && dlg.contentNode.getChildByName("dig_des");
+            var want = cc.spriteFrameCache.getSpriteFrame("monster_dig_type_12.png");
+            var gotTex = dig && dig.getTexture && dig.getTexture();
+            var wantTex = want && want.getTexture && want.getTexture();
+            if (!gotTex || gotTex !== wantTex) return "dig-ui";
+            if (dlg.removeFromParent) dlg.removeFromParent();
+
+            player.nowSiteId = 1;
+            var wood = player.bag.getNumByItemId(1101011);
+            ZombiesExt.bind();
+            utils.hookEmit("battle.end", {
+                win: true,
+                battle: {
+                    battleInfo: {monsterList: ["1", "13"]},
+                    useBandit: function () { return false; }
+                }
+            });
+            if (player.bag.getNumByItemId(1101011) !== wood + 2) return "loot:" + player.bag.getNumByItemId(1101011);
+
+            ZombiesExt.stats.injected = 4;
+            ZombiesExt.stats.bloatedPopped = 2;
+            Record.saveAll();
+            game.init();
+            if (!player.save().ext.zombies) return "ext-missing";
+            if (ZombiesExt.stats.injected !== 4) return "round-inj:" + ZombiesExt.stats.injected;
+            if (ZombiesExt.stats.bloatedPopped !== 2) return "round-pop";
+            Ext.modules.forEach(function (mod) {
+                if (mod.id === "zombies") mod.onNewGame();
+            });
+            if (ZombiesExt.stats.injected || ZombiesExt.stats.bloatedPopped) return "newgame";
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        } finally {
+            Math.random = origRandom;
+            battles.forEach(stopBattle);
+            if (player && origSite !== undefined) player.nowSiteId = origSite;
+            if (cc.timer && cc.timer.isPaused && cc.timer.isPaused()) cc.timer.resume();
+        }
+    })()`);
+    if (zombies !== "clean") fail("zombies " + zombies);
+    else ok("zombies types, inject, dodge, burst, armor, save");
 
     if (logs.length) fail("exceptions:\\n" + logs.slice(0, 5).join("\\n"));
     else ok("no exceptions");

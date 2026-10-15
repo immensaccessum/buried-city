@@ -27,5 +27,11 @@ var extList = [
     "src/ext/events/strings_ru.js",
     "src/ext/events/logic.js",
     "src/ext/events/ui.js",
+    "src/ext/zombies/config.js",
+    "src/ext/zombies/strings_en.js",
+    "src/ext/zombies/strings_zh.js",
+    "src/ext/zombies/strings_ru.js",
+    "src/ext/zombies/logic.js",
+    "src/ext/zombies/ui.js",
     "src/ext/core/boot.js"
 ];
