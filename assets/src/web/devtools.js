@@ -37,6 +37,29 @@ window.bt = {
             sites: CityExt.sites
         };
     },
+    events: function () {
+        if (typeof EventsExt === "undefined") {
+            return null;
+        }
+        return {
+            last: EventsExt.last,
+            flags: EventsExt.flags,
+            pending: EventsExt.pending,
+            raidTonight: EventsExt.raidTonight,
+            fogToday: EventsExt.fogToday
+        };
+    },
+    event: function (id) {
+        if (typeof EventsExt === "undefined") {
+            return null;
+        }
+        var ev = EventsExt.byId(id);
+        if (!ev) {
+            return "unknown";
+        }
+        EventsExt.fire(ev, {trigger: ev.trigger, siteId: player && player.nowSiteId});
+        return ev.id;
+    },
     exp: function () {
         if (typeof ExpeditionExt === "undefined") {
             return null;

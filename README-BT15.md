@@ -20,6 +20,12 @@ a road encounter take longer. A loud kit (gun, dog, motorcycle) draws more encou
 and sometimes one extra zombie in a battle room. Meat (`1103041`) is bait: the fight
 screen offers to spend one and pull zombies off that room. `bt.exp()` prints the levels.
 
+`ext/events` is the day. Morning, night, a district, or the road can open a short
+choice. Sixteen of them: a distress call, the plant failing, a caravan, spoiled
+cans, a night herd, neighbors asking, fog, a dog that will not sit. Cooldowns
+stop the same scene repeating. `bt.event("distress")` forces one; `bt.events()`
+prints flags.
+
 ## Run in a browser
 
 From this directory:
@@ -39,6 +45,8 @@ bt.give(1106061, 1)
 bt.dump()
 bt.city()
 bt.exp()
+bt.events()
+bt.event("distress")
 ```
 
 ## Check

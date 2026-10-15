@@ -111,6 +111,7 @@ try {
         game.init();
         if (!SampleExt.migrated) return "not-migrated";
         if (!CityExt.migrated || !player.save().ext.city) return "city-not-migrated";
+        if (!player.save().ext.events) return "events-not-migrated";
         if (player.storage.getNumByItemId(1101011) !== 3) return "wood";
         bt.give(1106061, 1);
         if (player.storage.getNumByItemId(1106061) !== 1) return "give";
@@ -124,6 +125,7 @@ try {
         if (SampleExt.migrated) return "remigrated";
         if (CityExt.migrated) return "city-remigrated";
         if (!player.save().ext.city) return "city-lost";
+        if (!player.save().ext.events) return "events-lost";
         if (!SampleExt.data || !SampleExt.data.binoculars) return "restore";
         if (player.storage.getNumByItemId(1106061) !== 1) return "item-after-reload";
         return "clean";
@@ -338,6 +340,154 @@ try {
     })()`);
     if (expedition !== "clean") fail("expedition " + expedition);
     else ok("expedition load, noise, bait, scout, save");
+
+    const events = await check(`(function () {
+        var origRandom = Math.random;
+        var origReplace = Balance.events && Balance.events.travelReplace;
+        var origHome = player && player.isAtHome;
+        try {
+            if (!Balance.events || typeof EventsExt === "undefined" || typeof EventConfig === "undefined") return "missing";
+            if (EventConfig.length !== 16) return "count:" + EventConfig.length;
+            var ids = {};
+            var i;
+            for (i = 0; i < EventConfig.length; i++) {
+                if (ids[EventConfig[i].id]) return "dup:" + EventConfig[i].id;
+                ids[EventConfig[i].id] = 1;
+            }
+            if (!ids.distress || !ids.bad_water || !ids.gunshots) return "ids";
+            if (!string["evt_distress_title"] || !string["evt_bad_water_log_b"]) return "strings";
+
+            EventsExt.last = {};
+            EventsExt.flags = {};
+            EventsExt.pending = [];
+            EventsExt.open = false;
+            EventsExt.current = null;
+            player.isAtHome = true;
+
+            var distress = EventsExt.byId("distress");
+            bt.setDay(1);
+            if (EventsExt.eligible(distress, {trigger: "day.start"})) return "day1";
+            player.isAtHome = false;
+            bt.setDay(3);
+            if (EventsExt.eligible(distress, {trigger: "day.start"})) return "away";
+            player.isAtHome = true;
+            if (!EventsExt.eligible(distress, {trigger: "day.start"})) return "day3";
+            EventsExt.last.distress = 3;
+            if (EventsExt.eligible(distress, {trigger: "day.start"})) return "cd-same";
+            bt.setDay(10);
+            if (EventsExt.eligible(distress, {trigger: "day.start"})) return "cd-short";
+            bt.setDay(11);
+            if (!EventsExt.eligible(distress, {trigger: "day.start"})) return "cd-done";
+            EventsExt.last = {};
+
+            var jean = player.npcManager.getNPC(2);
+            if (!jean) return "no-jean";
+            jean.isUnlocked = true;
+            jean.reputation = 3;
+            var beforeCans = player.storage.getNumByItemId(1103083);
+            EventsExt.apply({items: [{itemId: "1103083", num: 2}], reputation: {npc: 2, d: 1}}, {});
+            if (player.storage.getNumByItemId(1103083) !== beforeCans + 2) return "items";
+            if (jean.reputation !== 4) return "rep:" + jean.reputation;
+
+            var plant = player.map.getSite(WORK_SITE);
+            if (!plant) return "no-plant";
+            plant.isActive = true;
+            var sawPlant = false;
+            utils.emitter.on("onWorkSiteChange", function (v) { if (v === false) sawPlant = true; });
+            EventsExt.apply({plant: false}, {});
+            if (plant.isActive) return "plant-on";
+            if (!sawPlant) return "plant-emit";
+
+            bt.setDay(1);
+            if (!player.map.getSite(1)) player.map.unlockSite(1);
+            if (!player.map.getSite(2)) player.map.unlockSite(2);
+            if (!player.map.getSite(3)) player.map.unlockSite(3);
+            var neigh = EventsExt.neighbors(2);
+            if (neigh.length < 2) return "neighbors:" + neigh.length;
+            var s0 = CityExt.siteState(neigh[0].id);
+            var s1 = CityExt.siteState(neigh[1].id);
+            s0.infestation = 0;
+            s1.infestation = 0;
+            EventsExt.apply({infest: {mode: "neighbors", n: 2}}, {});
+            if (s0.infestation < 1 || s1.infestation < 1) return "infest:" + s0.infestation + "," + s1.infestation;
+
+            EventsExt.last = {};
+            EventsExt.lastShown = null;
+            bt.setDay(2);
+            Balance.events.travelReplace = 1;
+            Math.random = function () { return 0; };
+            player.mapBattle = {a: 99};
+            var hit = player.randomAttack(function () {});
+            Math.random = origRandom;
+            Balance.events.travelReplace = origReplace;
+            if (!hit) return "travel-miss";
+            if (player.mapBattle && player.mapBattle.a) return "travel-battle:" + player.mapBattle.a;
+            if (EventsExt.lastShown !== "road_pack") return "travel-ev:" + EventsExt.lastShown;
+
+            EventsExt.flags.distress_noted = 1;
+            EventsExt.raidTonight = true;
+            EventsExt.fogToday = true;
+            Record.saveAll();
+            game.init();
+            if (!player.save().ext.events) return "ext-missing";
+            if (!EventsExt.flags.distress_noted) return "round-flag";
+            if (!EventsExt.raidTonight) return "round-raid";
+            if (!EventsExt.fogToday) return "round-fog";
+            Ext.modules.forEach(function (mod) {
+                if (mod.id === "events") mod.onNewGame();
+            });
+            if (EventsExt.flags.distress_noted) return "newgame-flag";
+            if (EventsExt.raidTonight || EventsExt.fogToday) return "newgame-flags";
+            if (Object.keys(EventsExt.last).length) return "newgame-last";
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        } finally {
+            Math.random = origRandom;
+            if (Balance.events && origReplace != null) Balance.events.travelReplace = origReplace;
+            if (player && origHome != null) player.isAtHome = origHome;
+        }
+    })()`);
+    if (events !== "clean") fail("events " + events);
+    else ok("events eligible, apply, plant, infest, travel, save");
+
+    const evtUi = await check(`(function () {
+        try {
+            var scene = cc.director.getRunningScene();
+            if (!scene) return "no-scene";
+            if (!scene.getChildByName("main")) {
+                var dummy = new cc.Node();
+                dummy.setName("main");
+                scene.addChild(dummy);
+            }
+            EventsExt.last = {};
+            EventsExt.pending = [];
+            EventsExt.open = false;
+            EventsExt.current = null;
+            EventsExt.travelCb = null;
+            if (typeof GLOBAL_DIALOGS !== "undefined") GLOBAL_DIALOGS = 0;
+            player.isAtHome = true;
+            bt.setDay(3);
+            if (typeof DialogSmall === "undefined") return "no-DialogSmall";
+            if (!scene.getChildByName("main")) return "still-no-main";
+            bt.event("distress");
+            if (!EventsExt.open) return "not-open:" + EventsExt.lastShown + ",pending:" + EventsExt.pending.length + ",g:" + GLOBAL_DIALOGS;
+            if (typeof GLOBAL_DIALOGS === "undefined" || GLOBAL_DIALOGS < 1) return "dialogs:" + GLOBAL_DIALOGS;
+            var dlg = scene.getChildByName("dialog");
+            if (!dlg) return "no-dialog";
+            var des = dlg.contentNode && dlg.contentNode.getChildByName("des");
+            var text = des && des.getString && des.getString();
+            if (text && String(text).indexOf(String(string["evt_distress_des"]).slice(0, 6)) < 0) return "des:" + text;
+            var choice = EventsExt.current && EventsExt.current.ev.choices[0];
+            EventsExt.choose(choice);
+            if (typeof GLOBAL_DIALOGS === "undefined" || GLOBAL_DIALOGS < 1) return "no-result";
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        }
+    })()`);
+    if (evtUi !== "clean") fail("events-ui " + evtUi);
+    else ok("events dialog and result");
 
     if (logs.length) fail("exceptions:\\n" + logs.slice(0, 5).join("\\n"));
     else ok("no exceptions");
