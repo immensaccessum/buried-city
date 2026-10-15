@@ -31,6 +31,13 @@ scrap armor. A runner shortens the time to break away on the road. A swollen
 one bursts into virus and, in a district, more dead. Armor shrugs off blades;
 guns do not. `bt.zombies()` prints how many were mixed in.
 
+`ext/story` is the way out. A built radio (build 15) catches up six messages in its
+log, ending on day 55. Three notes turn up in the supermarket, the collector's
+route, and the mall. The last room of the portal still opens corridor 081. The
+green door and the tunnel stay. You can also go back to the city. Answering the
+radio, or leaving with three neighbors, appears only if you earned it.
+`bt.story()` prints the flags. `bt.storyEnd("stay")` plays one ending.
+
 ## Run in a browser
 
 From this directory:
@@ -53,6 +60,8 @@ bt.exp()
 bt.events()
 bt.event("distress")
 bt.zombies()
+bt.story()
+bt.storyEnd("stay")
 ```
 
 ## Check

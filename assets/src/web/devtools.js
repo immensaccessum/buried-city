@@ -69,6 +69,28 @@ window.bt = {
             bloatedPopped: ZombiesExt.stats.bloatedPopped
         };
     },
+    story: function () {
+        if (typeof StoryExt === "undefined") {
+            return null;
+        }
+        return {
+            radioNext: StoryExt.radioNext,
+            flags: StoryExt.flags,
+            notes: StoryExt.notes,
+            endings: StoryExt.filterChoices().map(function (ending) {
+                return ending.id;
+            })
+        };
+    },
+    storyEnd: function (id, fast) {
+        if (typeof StoryExt === "undefined") {
+            return null;
+        }
+        StoryExt.fast(!!fast);
+        StoryExt.preview = id || null;
+        cc.director.runScene(new EndStoryScene());
+        return id || "choices";
+    },
     exp: function () {
         if (typeof ExpeditionExt === "undefined") {
             return null;

@@ -617,6 +617,227 @@ try {
     if (zombies !== "clean") fail("zombies " + zombies);
     else ok("zombies types, inject, dodge, burst, armor, save");
 
+    const story = await check(`(function () {
+        var origDay = cc.timer.time;
+        var origNoted = EventsExt.flags.distress_noted;
+        var npcSnap = {};
+        function snapNpc(id) {
+            var npc = player.npcManager.getNPC(id);
+            npcSnap[id] = {unlocked: npc.isUnlocked, reputation: npc.reputation};
+        }
+        function restoreNpc(id) {
+            var npc = player.npcManager.getNPC(id);
+            npc.isUnlocked = npcSnap[id].unlocked;
+            npc.reputation = npcSnap[id].reputation;
+        }
+        try {
+            if (!Balance.story || typeof StoryExt === "undefined" || typeof StoryEndLayer === "undefined") return "missing";
+            if (!itemConfig["1106071"] || !itemConfig["1106072"] || !itemConfig["1106073"]) return "items";
+            if (blackList.randomLoop.indexOf(1106071) < 0) return "blacklist";
+            if (!string["story_radio_6"] || !string["story_stay_1"] || !string["1106072"]) return "strings";
+            if (!cc.spriteFrameCache.getSpriteFrame("icon_item_1106071.png")) return "icon";
+            if (!cc.spriteFrameCache.getSpriteFrame("dig_item_1106071.png")) return "dig";
+            if (!cc.spriteFrameCache.getSpriteFrame("icon_item_1106072.png")) return "alias-icon";
+            if (!cc.spriteFrameCache.getSpriteFrame("dig_item_1106073.png")) return "alias-dig";
+
+            StoryExt.notes = {};
+            StoryExt.flags = {};
+            StoryExt.radioNext = 0;
+            var hook1 = utils.hook("loot.itemIds", [], {site: {id: 1}});
+            var hook32 = utils.hook("loot.itemIds", [], {site: {id: 32}});
+            var hook2 = utils.hook("loot.itemIds", [], {site: {id: 2}});
+            if (hook1.indexOf("1106071") < 0) return "hook1";
+            if (hook32.indexOf("1106072") < 0) return "hook32";
+            if (hook2.indexOf("1106073") < 0) return "hook2";
+            var site = new Site(1);
+            site.genRooms();
+            var found = false;
+            site.rooms.forEach(function (room) {
+                if (room.type !== "work" || !room.list) return;
+                room.list.forEach(function (cell) {
+                    if (String(cell.itemId || (cell.item && cell.item.id)) === "1106071") found = true;
+                });
+            });
+            if (!found) return "rooms";
+
+            player.storage.increaseItem(1106072, 1, true, true);
+            if (!StoryExt.notes["1106072"]) return "read";
+            var again = utils.hook("loot.itemIds", [], {site: {id: 32}});
+            if (again.indexOf("1106072") >= 0) return "redrop";
+
+            delete EventsExt.flags.distress_noted;
+            var plain = StoryExt.filterChoices().map(function (e) { return e.id; }).join(",");
+            if (plain !== "gas,void,stay") return "choices:" + plain;
+            StoryExt.flags.radio_done = 1;
+            EventsExt.flags.distress_noted = 1;
+            var signaled = StoryExt.filterChoices().map(function (e) { return e.id; }).join(",");
+            if (signaled !== "gas,void,stay,signal") return "signal:" + signaled;
+            delete EventsExt.flags.distress_noted;
+            StoryExt.flags = {};
+            StoryExt.notes = {"1106071": 1, "1106073": 1};
+            StoryExt.flags.radio_done = 1;
+            if (StoryExt.filterChoices().map(function (e) { return e.id; }).join(",") !== "gas,void,stay,signal") return "notes-signal";
+
+            [2, 3, 4].forEach(snapNpc);
+            [2, 3, 4].forEach(function (id) {
+                var npc = player.npcManager.getNPC(id);
+                npc.isUnlocked = true;
+                npc.reputation = 5;
+            });
+            var withPeople = StoryExt.filterChoices().map(function (e) { return e.id; }).join(",");
+            if (withPeople !== "gas,void,stay,signal,people") return "people:" + withPeople;
+            [2, 3, 4].forEach(restoreNpc);
+
+            var radioLevel = player.room.getBuild(15).level;
+            player.room.getBuild(15).level = 0;
+            bt.setDay(55);
+            StoryExt.radioNext = 0;
+            StoryExt.flags = {};
+            StoryExt.notes = {};
+            cc.sys.localStorage.setItem("radio" + utils.SAVE_SLOT, "[]");
+            StoryExt.catchUp();
+            if (StoryExt.radioNext !== 6) return "radio-next:" + StoryExt.radioNext;
+            if (!StoryExt.flags.radio_done) return "radio-flag";
+            var log = JSON.parse(cc.sys.localStorage.getItem("radio" + utils.SAVE_SLOT) || "[]");
+            if (log.length !== 6) return "radio-len:" + log.length;
+            if (log[0].uid !== "081") return "radio-uid";
+            if (String(log[0].msg).indexOf("corridor") < 0 && String(log[0].msg).indexOf("коридор") < 0) return "radio-msg:" + log[0].msg;
+
+            bt.setDay(1);
+            StoryExt.radioNext = 3;
+            StoryExt.flags = {radio_done: 1};
+            StoryExt.notes = {"1106071": 1};
+            Record.saveAll();
+            game.init();
+            if (StoryExt.radioNext !== 3) return "round:" + StoryExt.radioNext;
+            if (!StoryExt.flags.radio_done || !StoryExt.notes["1106071"]) return "round-fields";
+            player.room.getBuild(15).level = -1;
+            Ext.modules.forEach(function (mod) {
+                if (mod.id === "story") mod.onNewGame();
+            });
+            if (StoryExt.radioNext || StoryExt.flags.radio_done || StoryExt.noteCount()) return "newgame";
+            var saved = player.save().ext;
+            delete saved.story;
+            StoryExt.radioNext = 4;
+            Ext.restoreAll(saved);
+            if (StoryExt.radioNext !== 0) return "migrate:" + StoryExt.radioNext;
+            player.room.getBuild(15).level = radioLevel;
+            return "clean";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        } finally {
+            if (cc.timer) cc.timer.time = origDay;
+            if (origNoted) EventsExt.flags.distress_noted = origNoted;
+            else delete EventsExt.flags.distress_noted;
+            Object.keys(npcSnap).forEach(restoreNpc);
+        }
+    })()`);
+    if (story !== "clean") fail("story " + story);
+    else ok("story notes, radio, endings, save");
+
+    const storyScene = await check(`(function () {
+        try {
+            StoryExt.fast(true);
+            StoryExt.preview = "stay";
+            cc.director.runScene(new EndStoryScene());
+            return "started";
+        } catch (err) {
+            return "throw:" + (err && err.stack ? err.stack : err);
+        }
+    })()`);
+    if (storyScene !== "started") fail("story-scene " + storyScene);
+
+    const walk = `(function () {
+        function walk(node, name) {
+            if (!node) return null;
+            if (node.getName && node.getName() === name) return node;
+            var children = node.getChildren ? node.getChildren() : [];
+            var i;
+            for (i = 0; i < children.length; i++) {
+                var hit = walk(children[i], name);
+                if (hit) return hit;
+            }
+            return null;
+        }
+        function visibleText(needle) {
+            function scan(node) {
+                if (!node) return false;
+                if (node.getString && node.getOpacity() > 200 && String(node.getString()).indexOf(needle) >= 0) return true;
+                var children = node.getChildren ? node.getChildren() : [];
+                var i;
+                for (i = 0; i < children.length; i++) {
+                    if (scan(children[i])) return true;
+                }
+                return false;
+            }
+            return scan(cc.director.getRunningScene());
+        }
+        return {walk: walk, visibleText: visibleText};
+    })`;
+
+    async function storyWait(expr, label) {
+        var last = "";
+        for (var n = 0; n < 50; n++) {
+            last = await check(expr);
+            if (last === "yes") return true;
+            await sleep(80);
+        }
+        fail("story-scene " + label + " " + last);
+        return false;
+    }
+
+    const clickBg = `(function () {
+        var api = ${walk}();
+        var bg = api.walk(cc.director.getRunningScene(), "storyBg");
+        if (!bg || !bg.enabled) return "no";
+        bg.onClick();
+        return "yes";
+    })()`;
+    const clickChoice = `(function () {
+        var api = ${walk}();
+        var scene = cc.director.getRunningScene();
+        var layer = api.walk(scene, "storyEnd");
+        var btn = api.walk(scene, "storyChoice");
+        if (!btn || !btn.storyFire) return "missing:" + (layer && layer.phase);
+        if (btn.getOpacity() < 200 && layer && layer.phase !== "choices") return "op:" + btn.getOpacity() + " phase:" + layer.phase;
+        btn.storyFire();
+        return "yes";
+    })()`;
+    const seeStay = `(function () {
+        var api = ${walk}();
+        return api.visibleText("You turn around") ? "yes" : "no";
+    })()`;
+    const clickContinue = `(function () {
+        var api = ${walk}();
+        var scene = cc.director.getRunningScene();
+        var layer = api.walk(scene, "storyEnd");
+        var btn = api.walk(scene, "storyContinue");
+        if (!layer || !btn || !btn.storyFire) return "missing:" + (layer && layer.phase);
+        if (layer.phase !== "continue") return "phase:" + layer.phase;
+        btn.storyFire();
+        return "yes";
+    })()`;
+    const seeCredits = `(function () {
+        var api = ${walk}();
+        return api.visibleText("ArithSeq") && api.visibleText("Dice7") ? "yes" : "no";
+    })()`;
+
+    if (await storyWait(clickBg, "intro")) {
+        if (await storyWait(clickBg, "paths")) {
+            if (await storyWait(clickChoice, "choice")) {
+                if (await storyWait(seeStay, "stay-line")) {
+                    if (await storyWait(clickBg, "page")) {
+                        if (await storyWait(clickBg, "closer")) {
+                            if (await storyWait(clickContinue, "continue")) {
+                                if (await storyWait(seeCredits, "credits")) ok("story ending reaches the original credits");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     if (logs.length) fail("exceptions:\\n" + logs.slice(0, 5).join("\\n"));
     else ok("no exceptions");
 } catch (err) {
