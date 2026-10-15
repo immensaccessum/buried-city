@@ -241,13 +241,18 @@ var EventsExt = {
         }
         var outcome = choice && choice.outcome ? choice.outcome : {};
         this.apply(outcome, current.ctx || {});
+        var rolled = outcome._rolled;
         var logKey = outcome.log;
-        if (outcome.roll && outcome._rolled && outcome._rolled.log) {
-            logKey = outcome._rolled.log;
+        if (outcome.roll && rolled && rolled.log) {
+            logKey = rolled.log;
         }
-        var battle = !!(outcome.battle || (outcome._rolled && outcome._rolled.battle));
-        if (typeof EventsExt.openResult === "function" && logKey && string[logKey]) {
-            EventsExt.openResult(string[logKey], battle);
+        var logText = (rolled && rolled._logText) || outcome._logText;
+        if (!logText && logKey) {
+            logText = stringUtil.getString(logKey);
+        }
+        var battle = !!(outcome.battle || (rolled && rolled.battle));
+        if (typeof EventsExt.openResult === "function" && logText) {
+            EventsExt.openResult(logText, battle);
             return;
         }
         this.afterResult(battle);
@@ -354,9 +359,33 @@ var EventsExt = {
         }
     },
 
+    itemTitle: function (itemId) {
+        var info = stringUtil.getString(itemId);
+        if (info && info.title) {
+            return info.title;
+        }
+        return String(itemId);
+    },
+
+    formatItemList: function (list) {
+        var parts = [];
+        var i;
+        for (i = 0; i < list.length; i++) {
+            var name = this.itemTitle(list[i].itemId);
+            if (list[i].num > 1) {
+                parts.push(list[i].num + "× " + name);
+            } else {
+                parts.push(name);
+            }
+        }
+        return parts.join(", ");
+    },
+
     stealFromStorage: function (count) {
+        var taken = [];
+        var byId = {};
         if (!player || !player.storage) {
-            return;
+            return taken;
         }
         var ids = [];
         player.storage.forEach(function (item, num) {
@@ -370,11 +399,17 @@ var EventsExt = {
             var itemId = ids[index];
             if (player.storage.validateItem(itemId, 1)) {
                 player.storage.decreaseItem(itemId, 1);
+                if (!byId[itemId]) {
+                    byId[itemId] = {itemId: itemId, num: 0};
+                    taken.push(byId[itemId]);
+                }
+                byId[itemId].num += 1;
             }
             if (!player.storage.validateItem(itemId, 1)) {
                 ids.splice(index, 1);
             }
         }
+        return taken;
     },
 
     apply: function (outcome, ctx) {
@@ -474,11 +509,16 @@ var EventsExt = {
             this.fogToday = true;
         }
         if (outcome.steal) {
-            this.stealFromStorage(outcome.steal);
+            var taken = this.stealFromStorage(outcome.steal);
+            if (taken.length) {
+                outcome._logText = stringUtil.getString(outcome.log, this.formatItemList(taken));
+            } else if (outcome.emptyLog) {
+                outcome.log = outcome.emptyLog;
+            }
         }
         }
-        if (outcome.log && player && player.log) {
-            var text = stringUtil.getString(outcome.log);
+        if ((outcome._logText || outcome.log) && player && player.log) {
+            var text = outcome._logText || stringUtil.getString(outcome.log);
             if (text) {
                 player.log.addMsg(text);
             }

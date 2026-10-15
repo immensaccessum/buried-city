@@ -14,7 +14,10 @@ var EventConfig = [
         cooldown: 8,
         when: {day: [3], atHome: true},
         choices: [
-            {id: "a", outcome: {attrs: {spirit: 5}, log: "evt_distress_log_a"}},
+            {id: "a", outcome: {roll: [
+                {w: 2, attrs: {spirit: 5}, log: "evt_distress_log_a"},
+                {w: 1, attrs: {spirit: -5}, log: "evt_distress_log_a_bad"}
+            ]}},
             {id: "b", outcome: {flag: "distress_noted", log: "evt_distress_log_b"}},
             {id: "c", outcome: {attrs: {spirit: -5}, log: "evt_distress_log_c"}}
         ]
@@ -28,7 +31,10 @@ var EventConfig = [
         choices: [
             {id: "a", need: {item: 1102063, num: 1}, outcome: {log: "evt_plant_fail_log_a"}},
             {id: "b", outcome: {plant: false, log: "evt_plant_fail_log_b"}},
-            {id: "c", outcome: {chance: 0.5, plant: false, log: "evt_plant_fail_log_c"}}
+            {id: "c", outcome: {roll: [
+                {w: 1, plant: false, log: "evt_plant_fail_log_c"},
+                {w: 1, log: "evt_plant_fail_log_c_ok"}
+            ]}},
         ]
     },
     {
@@ -73,7 +79,7 @@ var EventConfig = [
         choices: [
             {id: "a", outcome: {roll: [
                 {w: 1, items: [{itemId: "1103083", num: 2}], log: "evt_stranger_night_log_a1"},
-                {w: 1, steal: 2, log: "evt_stranger_night_log_a2"}
+                {w: 1, steal: 2, log: "evt_stranger_night_log_a2", emptyLog: "evt_stranger_night_log_a0"}
             ]}},
             {id: "b", outcome: {log: "evt_stranger_night_log_b"}}
         ]
@@ -85,8 +91,8 @@ var EventConfig = [
         cooldown: 8,
         when: {atHome: true, npc: 5},
         choices: [
-            {id: "a", outcome: {attrs: {spirit: 4}, raidTonight: true, log: "evt_bill_watch_log_a"}},
-            {id: "b", outcome: {log: "evt_bill_watch_log_b"}}
+            {id: "a", outcome: {attrs: {vigour: -12}, log: "evt_bill_watch_log_a"}},
+            {id: "b", outcome: {raidTonight: true, log: "evt_bill_watch_log_b"}}
         ]
     },
     {
@@ -97,7 +103,7 @@ var EventConfig = [
         when: {atHome: true, phaseMin: 1},
         choices: [
             {id: "a", outcome: {attrs: {spirit: -6}, log: "evt_night_herd_log_a"}},
-            {id: "b", outcome: {infest: {mode: "neighbors", n: 2}, log: "evt_night_herd_log_b"}},
+            {id: "b", outcome: {infest: {mode: "neighbors", n: 2}, raidTonight: true, log: "evt_night_herd_log_b"}},
             {id: "c", outcome: {infest: {mode: "neighbors", n: 1}, log: "evt_night_herd_log_c"}}
         ]
     },
@@ -130,9 +136,12 @@ var EventConfig = [
         cooldown: 8,
         when: {day: [5]},
         choices: [
-            {id: "a", need: {currency: 8}, outcome: {currency: -8, bagItems: [{itemId: "1103083", num: 2}], log: "evt_caravan_log_a"}},
+            {id: "a", need: {currency: 8}, outcome: {bagItems: [{itemId: "1103083", num: 2}], log: "evt_caravan_log_a"}},
             {id: "b", outcome: {log: "evt_caravan_log_b"}},
-            {id: "c", outcome: {bagItems: [{itemId: "1103083", num: 3}], reputationAll: -1, log: "evt_caravan_log_c"}}
+            {id: "c", outcome: {roll: [
+                {w: 2, bagItems: [{itemId: "1103083", num: 3}], reputationAll: -1, log: "evt_caravan_log_c"},
+                {w: 1, battle: true, log: "evt_caravan_log_c_fight"}
+            ]}},
         ]
     },
     {
@@ -141,7 +150,11 @@ var EventConfig = [
         weight: 12,
         cooldown: 5,
         choices: [
-            {id: "a", outcome: {bagItems: [{itemId: "1101011", num: 3}, {itemId: "1104011", num: 1}], log: "evt_road_pack_log_a"}},
+            {id: "a", outcome: {roll: [
+                {w: 3, bagItems: [{itemId: "1101011", num: 3}, {itemId: "1104011", num: 1}], log: "evt_road_pack_log_a"},
+                {w: 1, log: "evt_road_pack_log_a_empty"},
+                {w: 1, battle: true, log: "evt_road_pack_log_a_fight"}
+            ]}},
             {id: "b", outcome: {log: "evt_road_pack_log_b"}}
         ]
     },
@@ -152,7 +165,11 @@ var EventConfig = [
         cooldown: 5,
         choices: [
             {id: "a", outcome: {log: "evt_gunshots_log_a"}},
-            {id: "b", outcome: {battle: true, log: "evt_gunshots_log_b"}}
+            {id: "b", outcome: {roll: [
+                {w: 2, battle: true, log: "evt_gunshots_log_b"},
+                {w: 1, bagItems: [{itemId: "1101011", num: 2}, {itemId: "1104011", num: 1}], log: "evt_gunshots_log_b_loot"},
+                {w: 1, log: "evt_gunshots_log_b_clear"}
+            ]}},
         ]
     },
     {
@@ -162,9 +179,15 @@ var EventConfig = [
         cooldown: 6,
         when: {siteTracked: true},
         choices: [
-            {id: "a", outcome: {bagItems: [{itemId: "1103083", num: 2}], attrs: {infect: 8}, log: "evt_infected_crate_log_a"}},
+            {id: "a", outcome: {roll: [
+                {w: 2, attrs: {starve: 20, infect: 10}, log: "evt_infected_crate_log_a"},
+                {w: 1, attrs: {starve: 25}, log: "evt_infected_crate_log_a_ok"}
+            ]}},
             {id: "b", outcome: {log: "evt_infected_crate_log_b"}},
-            {id: "c", outcome: {attrs: {spirit: 4}, log: "evt_infected_crate_log_c"}}
+            {id: "c", outcome: {roll: [
+                {w: 1, infest: {mode: "current", n: 1}, log: "evt_infected_crate_log_c"},
+                {w: 1, log: "evt_infected_crate_log_c_ok"}
+            ]}},
         ]
     },
     {
@@ -174,7 +197,10 @@ var EventConfig = [
         cooldown: 7,
         when: {siteTracked: true, item: 1106061, num: 1},
         choices: [
-            {id: "a", outcome: {siteItems: [{itemId: "1103083", num: 1}, {itemId: "1101011", num: 4}], log: "evt_rumor_cache_log_a"}},
+            {id: "a", outcome: {roll: [
+                {w: 3, siteItems: [{itemId: "1103083", num: 1}, {itemId: "1101011", num: 4}], log: "evt_rumor_cache_log_a"},
+                {w: 1, log: "evt_rumor_cache_log_a_miss"}
+            ]}},
             {id: "b", outcome: {log: "evt_rumor_cache_log_b"}}
         ]
     },
@@ -185,7 +211,10 @@ var EventConfig = [
         cooldown: 6,
         when: {siteTracked: true},
         choices: [
-            {id: "a", outcome: {attrs: {water: 20, infect: 6}, log: "evt_bad_water_log_a"}},
+            {id: "a", outcome: {roll: [
+                {w: 2, attrs: {water: 20, infect: 6}, log: "evt_bad_water_log_a"},
+                {w: 1, attrs: {water: 20}, log: "evt_bad_water_log_a_ok"}
+            ]}},
             {id: "b", outcome: {log: "evt_bad_water_log_b"}}
         ]
     }

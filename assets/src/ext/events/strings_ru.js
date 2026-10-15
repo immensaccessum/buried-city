@@ -4,6 +4,7 @@ ExtStrings.ru["evt_distress_a"] = "Ответить";
 ExtStrings.ru["evt_distress_b"] = "Записать";
 ExtStrings.ru["evt_distress_c"] = "Молчать";
 ExtStrings.ru["evt_distress_log_a"] = "Ты ответил. Никто не отозвался, но легче.";
+ExtStrings.ru["evt_distress_log_a_bad"] = "Ответил. Крик, потом рация умерла.";
 ExtStrings.ru["evt_distress_log_b"] = "Частоту записал. Потом.";
 ExtStrings.ru["evt_distress_log_c"] = "Рацию не тронул. Тишина давит.";
 
@@ -14,7 +15,8 @@ ExtStrings.ru["evt_plant_fail_b"] = "Выключить";
 ExtStrings.ru["evt_plant_fail_c"] = "Подождать";
 ExtStrings.ru["evt_plant_fail_log_a"] = "Деталь встала. Станция держится.";
 ExtStrings.ru["evt_plant_fail_log_b"] = "Станцию отрубил. Со светом обождёшься.";
-ExtStrings.ru["evt_plant_fail_log_c"] = "Пустил как есть. Или выдержит, или нет.";
+ExtStrings.ru["evt_plant_fail_log_c"] = "Сама встала. Со светом обождёшься.";
+ExtStrings.ru["evt_plant_fail_log_c_ok"] = "Держится. Пока.";
 
 ExtStrings.ru["evt_neighbor_meds_title"] = "Стук";
 ExtStrings.ru["evt_neighbor_meds_des"] = "Доктор Жан просит бинт. Второй раз не спросит.";
@@ -38,19 +40,20 @@ ExtStrings.ru["evt_masako_coffee_log_a"] = "Масако пьёт и говор�
 ExtStrings.ru["evt_masako_coffee_log_b"] = "Масако пожимает плечами. Найдёт ещё чашку.";
 
 ExtStrings.ru["evt_stranger_night_title"] = "У ворот";
-ExtStrings.ru["evt_stranger_night_des"] = "За воротами кто-то стоит. Лица не видно.";
+ExtStrings.ru["evt_stranger_night_des"] = "За воротами кто-то стоит. Лица не видно. Впустить — лотерея.";
 ExtStrings.ru["evt_stranger_night_a"] = "Впустить";
 ExtStrings.ru["evt_stranger_night_b"] = "Не открывать";
-ExtStrings.ru["evt_stranger_night_log_a1"] = "Незнакомец оставил консервы и пропал.";
-ExtStrings.ru["evt_stranger_night_log_a2"] = "Кто бы ни был — взял со склада и сбежал.";
+ExtStrings.ru["evt_stranger_night_log_a1"] = "Оставили две банки и исчезли в темноте.";
+ExtStrings.ru["evt_stranger_night_log_a2"] = "Со склада унесли: %s. И сбежали.";
+ExtStrings.ru["evt_stranger_night_log_a0"] = "Порылись на складе, ничего не взяли и сбежали.";
 ExtStrings.ru["evt_stranger_night_log_b"] = "Стук прекратился. На улице пусто.";
 
 ExtStrings.ru["evt_bill_watch_title"] = "Билл";
 ExtStrings.ru["evt_bill_watch_des"] = "Билл говорит, ночью пойдёт стая. Просит не спать.";
 ExtStrings.ru["evt_bill_watch_a"] = "Дежурить";
 ExtStrings.ru["evt_bill_watch_b"] = "Отмахнуться";
-ExtStrings.ru["evt_bill_watch_log_a"] = "Дежуришь. Дом будто сжался.";
-ExtStrings.ru["evt_bill_watch_log_b"] = "Сказал Биллу, что стены выдержат.";
+ExtStrings.ru["evt_bill_watch_log_a"] = "Дежуришь до утра. Улица тихая. Ты выжат.";
+ExtStrings.ru["evt_bill_watch_log_b"] = "Спишь. До утра что-то бьётся в стены.";
 
 ExtStrings.ru["evt_night_herd_title"] = "Ночная миграция";
 ExtStrings.ru["evt_night_herd_des"] = "Мёртвые тянутся между районами.";
@@ -58,7 +61,7 @@ ExtStrings.ru["evt_night_herd_a"] = "Запереться";
 ExtStrings.ru["evt_night_herd_b"] = "Шуметь";
 ExtStrings.ru["evt_night_herd_c"] = "Смотреть";
 ExtStrings.ru["evt_night_herd_log_a"] = "Дверь на засов. Ждёшь, пока пройдут.";
-ExtStrings.ru["evt_night_herd_log_b"] = "Шум увёл их на соседние улицы.";
+ExtStrings.ru["evt_night_herd_log_b"] = "Шум увёл их на соседние улицы. Часть нашла и дом.";
 ExtStrings.ru["evt_night_herd_log_c"] = "Одна улица заполнилась. Ты не шевелишься.";
 
 ExtStrings.ru["evt_dog_alert_title"] = "Пёс";
@@ -83,12 +86,15 @@ ExtStrings.ru["evt_caravan_c"] = "Ограбить";
 ExtStrings.ru["evt_caravan_log_a"] = "Отдал восемь монет за две банки.";
 ExtStrings.ru["evt_caravan_log_b"] = "Повозку оставил позади.";
 ExtStrings.ru["evt_caravan_log_c"] = "Еду взял. Об этом ещё услышат.";
+ExtStrings.ru["evt_caravan_log_c_fight"] = "Они не такие беспомощные, как казались.";
 
 ExtStrings.ru["evt_road_pack_title"] = "Рюкзак";
 ExtStrings.ru["evt_road_pack_des"] = "В канаве рюкзак. Хозяина не видно.";
 ExtStrings.ru["evt_road_pack_a"] = "Взять";
 ExtStrings.ru["evt_road_pack_b"] = "Обойти";
 ExtStrings.ru["evt_road_pack_log_a"] = "Дрова и бинт. Кто бросил — уже не здесь.";
+ExtStrings.ru["evt_road_pack_log_a_empty"] = "Пусто. Кто был — уже забрал.";
+ExtStrings.ru["evt_road_pack_log_a_fight"] = "Тянешься к рюкзаку. Кто-то тянется в ответ.";
 ExtStrings.ru["evt_road_pack_log_b"] = "Прошёл мимо. Так спокойнее.";
 
 ExtStrings.ru["evt_gunshots_title"] = "Выстрелы";
@@ -97,21 +103,26 @@ ExtStrings.ru["evt_gunshots_a"] = "Спрятаться";
 ExtStrings.ru["evt_gunshots_b"] = "Проверить";
 ExtStrings.ru["evt_gunshots_log_a"] = "Переждал за стеной.";
 ExtStrings.ru["evt_gunshots_log_b"] = "Пошёл смотреть. Там ещё кто-то живой — или нет.";
+ExtStrings.ru["evt_gunshots_log_b_loot"] = "Тела. Дрова и бинт. Кто стрелял — уже нет.";
+ExtStrings.ru["evt_gunshots_log_b_clear"] = "Никого. Стреляли дальше, чем казалось.";
 
 ExtStrings.ru["evt_infected_crate_title"] = "Ящик";
 ExtStrings.ru["evt_infected_crate_des"] = "Ящик с банками, крышки вздуты, запах не тот.";
-ExtStrings.ru["evt_infected_crate_a"] = "Взять";
-ExtStrings.ru["evt_infected_crate_b"] = "Бросить";
+ExtStrings.ru["evt_infected_crate_a"] = "Съесть";
+ExtStrings.ru["evt_infected_crate_b"] = "Оставить";
 ExtStrings.ru["evt_infected_crate_c"] = "Сжечь";
-ExtStrings.ru["evt_infected_crate_log_a"] = "Банки в сумку. Кожа чешется.";
+ExtStrings.ru["evt_infected_crate_log_a"] = "Голод спал. Живот — нет.";
+ExtStrings.ru["evt_infected_crate_log_a_ok"] = "Одна банка ещё держит. Голод спал.";
 ExtStrings.ru["evt_infected_crate_log_b"] = "Ящик оставил.";
-ExtStrings.ru["evt_infected_crate_log_c"] = "Сжёг. Запах ушёл с дымом.";
+ExtStrings.ru["evt_infected_crate_log_c"] = "Дым. Запах жжёной еды тянет что-то в комнатах.";
+ExtStrings.ru["evt_infected_crate_log_c_ok"] = "Догорело. Никто не пришёл.";
 
 ExtStrings.ru["evt_rumor_cache_title"] = "Тайник";
 ExtStrings.ru["evt_rumor_cache_des"] = "В бинокль видны метки, похожие на склад.";
 ExtStrings.ru["evt_rumor_cache_a"] = "Искать";
 ExtStrings.ru["evt_rumor_cache_b"] = "Идти дальше";
 ExtStrings.ru["evt_rumor_cache_log_a"] = "Нашёл мелочь и снёс на склад района.";
+ExtStrings.ru["evt_rumor_cache_log_a_miss"] = "Метки ни о чём. Или уже забрали.";
 ExtStrings.ru["evt_rumor_cache_log_b"] = "Пошёл дальше.";
 
 ExtStrings.ru["evt_bad_water_title"] = "Стояк";
@@ -119,4 +130,5 @@ ExtStrings.ru["evt_bad_water_des"] = "Труба ещё капает. Вода �
 ExtStrings.ru["evt_bad_water_a"] = "Напиться";
 ExtStrings.ru["evt_bad_water_b"] = "Не трогать";
 ExtStrings.ru["evt_bad_water_log_a"] = "Жажда спала. Живот — нет.";
+ExtStrings.ru["evt_bad_water_log_a_ok"] = "Жажда спала. Живот на этот раз тоже.";
 ExtStrings.ru["evt_bad_water_log_b"] = "Пусть капает.";
