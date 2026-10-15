@@ -110,7 +110,7 @@ var aboutLayer = cc.Layer.extend({
         this.bg.addChild(btn_qq);
         btn_qq.setName("btn_qq");
 
-        var bt15Credit = new cc.LabelTTF("Web build. Derivative of Buried City. Non-commercial.", uiUtil.fontFamily.normal, uiUtil.fontSize.COMMON_1, cc.size(this.bg.width / 5 * 4, 0));
+        var bt15Credit = new cc.LabelTTF("Web build by LetovRF. Derivative of Buried City. Non-commercial.", uiUtil.fontFamily.normal, uiUtil.fontSize.COMMON_1, cc.size(this.bg.width / 5 * 4, 0));
         bt15Credit.setAnchorPoint(0.5, 0.5);
         bt15Credit.setPosition(this.bg.width / 2, this.bg.height / 2 - 300);
         bt15Credit.setColor(cc.color.BLACK);

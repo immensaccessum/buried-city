@@ -230,3 +230,8 @@ BuriedTown, originally named BerryTown, was developed by Chengdu 点犀 (DianXi)
 Thanks to the game's weak online dependency, the majority of the functionality can be enjoyed offline, with the exception of leaderboards, In-App Purchases, and in-game radio.
 
 Developed using Cocos2d-JS, the installation package of Buried Town is unprotected, source code not compiled nor obfuscated, making modifications extremely easy. Although the graphics have been encrypted, the process after obtaining the key (B29B3886-543224E4-71BDF6E3-9275C626) and edit tool (TexturePacker) is trivial (The encryption has been removed in this version). The game's save file is stored under root-only directory using an encrypted sqlite3 database, with the password (1a2b3c4d5fberrytown).
+
+This web fork
+-------------
+
+The text above is the original Buried City readme and is unchanged. This fork is a later web build by LetovRF, a derivative of Buried City. Non-commercial, open source. Play it at http://app10.letovrf.ru/ . Source: https://github.com/immensaccessum/buried-city . What this build actually contains is in `README-BT15.md`.
