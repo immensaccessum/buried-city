@@ -92,6 +92,8 @@ var ExpeditionExt = {
         }
         var battles = 0;
         var loot = 0;
+        var dangerLo = 0;
+        var dangerHi = 0;
         var start = site.step || 0;
         var i;
         for (i = start; i < site.rooms.length; i++) {
@@ -101,6 +103,15 @@ var ExpeditionExt = {
             }
             if (room.type === "battle") {
                 battles++;
+                var diff = room.difficulty || 0;
+                if (diff > 0) {
+                    if (!dangerLo || diff < dangerLo) {
+                        dangerLo = diff;
+                    }
+                    if (diff > dangerHi) {
+                        dangerHi = diff;
+                    }
+                }
             }
             if (room.type === "work" && room.list) {
                 room.list.forEach(function (cell) {
@@ -108,9 +119,9 @@ var ExpeditionExt = {
                 });
             }
         }
-        var danger = 0;
-        if (typeof CityExt !== "undefined" && CityExt.isTracked(site)) {
-            danger = CityExt.dangerLevel(CityExt.siteState(site.id));
+        var danger = "0";
+        if (dangerHi) {
+            danger = dangerLo === dangerHi ? String(dangerHi) : dangerLo + "–" + dangerHi;
         }
         var marks = Balance.expedition.scout.lootLevels;
         var lootLevel = 0;

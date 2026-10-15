@@ -50,10 +50,25 @@ var IAPPackage = {
 
     _chosenTalents: function () {
         if (this._talentSlot !== utils.SAVE_SLOT || this._talentCache === null) {
-            this._talentCache = JSON.parse(cc.sys.localStorage.getItem("chosenTalent" + utils.SAVE_SLOT));
+            var raw = cc.sys.localStorage.getItem("chosenTalent" + utils.SAVE_SLOT);
+            var parsed = [];
+            try {
+                parsed = JSON.parse(raw || "[]");
+            } catch (e) {
+                parsed = [];
+            }
+            this._talentCache = Array.isArray(parsed) ? parsed : [];
             this._talentSlot = utils.SAVE_SLOT;
         }
         return this._talentCache;
+    },
+
+    // New-game selection starts empty. Drop the in-memory list too, or the next
+    // click toggles talents left over from the previous run.
+    resetChosenTalents: function () {
+        this._talentCache = [];
+        this._talentSlot = utils.SAVE_SLOT;
+        cc.sys.localStorage.setItem("chosenTalent" + utils.SAVE_SLOT, "[]");
     },
 
     init: function (player) {

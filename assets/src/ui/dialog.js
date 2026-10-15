@@ -223,6 +223,62 @@ var DialogCommon = Dialog.extend({
             txt2.setPosition(txt1.x + txt1.width + 35, title.y - title.height / 2 + 2);
         }
 
+        // Keep the name on one line. A wrapped title pushes "Progress" onto the
+        // dotted rule under the header. Shrink until the string fits beside the icon
+        // and whatever sits on the right (motorcycle / shoes).
+        var fitTitle = function () {
+            title.updateView();
+            var right = this.rightEdge - 8;
+            var children = this.titleNode.getChildren();
+            var i, child, childLeft;
+            for (i = 0; i < children.length; i++) {
+                child = children[i];
+                if (child === title || child === icon || child === txt1 || child === txt2) {
+                    continue;
+                }
+                childLeft = child.x - child.width * child.anchorX * child.scaleX;
+                if (childLeft < right) {
+                    right = childLeft - 6;
+                }
+            }
+            var room = right - title.x;
+            if (room < 80) {
+                room = 80;
+            }
+            var size = uiUtil.fontSize.COMMON_1;
+            title.setDimensions(0, 0);
+            title.setFontSize(size);
+            title._renderCmd._updateTexture();
+            while (title.width > room && size > 14) {
+                size -= 1;
+                title.setFontSize(size);
+                title._renderCmd._updateTexture();
+            }
+            title.y = this.titleNode.height / 2;
+            if (txt1) {
+                var y = title.y - title.height / 2 + 2;
+                txt1.y = y;
+                if (txt2) {
+                    txt2.y = y;
+                }
+                txt1.x = this.leftEdge;
+                if (txt2) {
+                    txt2.x = txt1.x + txt1.width + 16;
+                }
+            }
+            if (icon) {
+                icon.setAnchorPoint(0, 1);
+                icon.y = title.y + title.height / 2;
+                var maxH = Math.max(title.height, 28);
+                if (icon.height > maxH) {
+                    icon.setScale(maxH / icon.height);
+                }
+            }
+        };
+        this.fitTitle = fitTitle;
+        fitTitle.call(this);
+        this.scheduleOnce(fitTitle, 0);
+
         if (config.action.btn_1) {
             var btn1 = uiUtil.createCommonBtnBlack(config.action.btn_1.txt, this, this.onClickBtn1);
             btn1.setPosition(this.actionNode.getContentSize().width / 2, this.actionNode.getContentSize().height / 2);

@@ -1145,25 +1145,9 @@ uiUtil.showSiteDialog = function (entity, time, fuelNeed, canAfford, okCb, cance
     config.action.btn_2.cb = okCb;
     var dialog = new DialogBig(config);
     
-    var transportNode = uiUtil.createTransportNode(canAfford, function() {
-        //stop using moto
-        player.useMoto = false;
-        dialog.dismiss();
-    }, function() {
-        //start using moto
-        player.useMoto = true;
-        dialog.dismiss();
-    });
-    transportNode.setAnchorPoint(1, 0.5);
-    transportNode.x = dialog.rightEdge + 30;
-    transportNode.y = dialog.titleNode.height / 2;
-    dialog.titleNode.addChild(transportNode);
-    
-    var txt1 = dialog.titleNode.getChildByName("txt_1");
-    var txt2 = dialog.titleNode.getChildByName("txt_2");
-    var icon = dialog.titleNode.getChildByName('icon');
-    txt1.x = icon.x;
-    txt2.x = txt1.x + txt1.width + 35;
+    if (dialog.fitTitle) {
+        dialog.fitTitle();
+    }
 
     dialog.contentNode.getChildByName("dig_des").setScale(0.8);
     var des = dialog.contentNode.getChildByName("des");
@@ -1175,6 +1159,18 @@ uiUtil.showSiteDialog = function (entity, time, fuelNeed, canAfford, okCb, cance
     label.setPosition(dialog.leftEdge, log.getContentSize().height - 30);
     label.setColor(cc.color.BLACK);
     log.addChild(label);
+
+    var transportNode = uiUtil.createTransportNode(canAfford, function() {
+        player.useMoto = false;
+        dialog.dismiss();
+    }, function() {
+        player.useMoto = true;
+        dialog.dismiss();
+    });
+    transportNode.setScale(0.72);
+    transportNode.setAnchorPoint(1, 1);
+    transportNode.setPosition(dialog.rightEdge, label.y - label.height - 4);
+    log.addChild(transportNode);
     
     if (fuelNeed > 0) {
         var str = stringUtil.getString(1340) + " " + fuelNeed;
@@ -1259,6 +1255,9 @@ uiUtil.showHomeDialog = function (entity, time, fuelNeed, canAfford, okCb, cance
     transportNode.x = dialog.rightEdge + 30;
     transportNode.y = dialog.titleNode.height / 2;
     dialog.titleNode.addChild(transportNode);
+    if (dialog.fitTitle) {
+        dialog.fitTitle();
+    }
     
     dialog.contentNode.getChildByName("dig_des").setScale(0.8);
     var des = dialog.contentNode.getChildByName("des");
@@ -1475,6 +1474,8 @@ uiUtil.showItemListDialog = function (itemList) {
 uiUtil.createIconWarn = function (parent, pos, name) {
     if (name === undefined || name === null) {
         name = "warn";
+    } else {
+        name = "" + name;
     }
     uiUtil.removeIconWarn(parent, name);
     var warn = autoSpriteFrameController.getSpriteFromSpriteName("#icon_warn.png");
@@ -1527,6 +1528,8 @@ uiUtil.createBuildWarn = function (parent, bid, pos) {
 uiUtil.removeIconWarn = function (parent, name) {
     if (name === undefined || name === null) {
         name = "warn";
+    } else {
+        name = "" + name;
     }
     if (parent.getChildByName(name)) {
         parent.removeChildByName(name);

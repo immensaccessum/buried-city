@@ -28,6 +28,9 @@ var game = {
     },
     deleteData: function (num) {
         cc.sys.localStorage.setItem("chosenTalent" + num, "[]");
+        if (IAPPackage._talentSlot === num) {
+            IAPPackage._talentCache = [];
+        }
         cc.sys.localStorage.setItem("radio" + num, "[]");
         cc.sys.localStorage.setItem("medalTemp" + num, "[]");
         cc.sys.localStorage.setItem("ad" + num, "0");

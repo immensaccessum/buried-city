@@ -1,3 +1,11 @@
+// Loose change is not a real item. The wallet is player.currency.
+itemConfig.money = {
+    id: "money",
+    weight: 0,
+    price: 1,
+    value: 0
+};
+
 // Living city: day phases, per-site depletion and infestation, loot that returns.
 // Listeners are bound from restore/onNewGame because game.init() replaces utils.emitter.
 var CityExt = {
@@ -133,6 +141,67 @@ var CityExt = {
         state.visits++;
         state.lastVisitDay = today;
         state.decayApplied = 0;
+        this.seedOpenRooms(site);
+    },
+
+    ensureMoneyArt: function () {
+        if (typeof cc === "undefined" || !cc.spriteFrameCache) {
+            return;
+        }
+        if (cc.spriteFrameCache.getSpriteFrame("dig_item_money.png")) {
+            return;
+        }
+        var frame = cc.spriteFrameCache.getSpriteFrame("icon_item_money.png");
+        if (frame) {
+            cc.spriteFrameCache.addSpriteFrame(frame, "dig_item_money.png");
+        }
+    },
+
+    // How many coins a group of searchable rooms is hiding.
+    rollCash: function (site, rooms) {
+        var mul = 1;
+        if (site && this.isTracked(site)) {
+            var state = this.siteState(site.id);
+            var row = this.phaseRow();
+            mul = row.lootMul * (1 - Balance.city.depletionStep * (state.depletion || 0));
+            if (mul < Balance.city.lootFloor) {
+                mul = Balance.city.lootFloor;
+            }
+        }
+        var total = 0;
+        var i;
+        for (i = 0; i < rooms; i++) {
+            if (Math.random() >= Balance.city.cashChance) {
+                continue;
+            }
+            total += utils.getRandomInt(Balance.city.cashMin, Balance.city.cashMax);
+        }
+        return Math.round(total * mul);
+    },
+
+    seedOpenRooms: function (site) {
+        this.ensureMoneyArt();
+        this.seedRooms(site, site.rooms, site.step || 0);
+        this.seedRooms(site, site.secretRooms, site.secretRoomsStep || 0);
+    },
+
+    // Rooms generated before cash existed have no flag. Mark them so a second visit does not add more.
+    seedRooms: function (site, rooms, from) {
+        if (!rooms) {
+            return;
+        }
+        var i;
+        for (i = from; i < rooms.length; i++) {
+            var room = rooms[i];
+            if (!room || room.cashRolled || room.type !== "work" || !room.list) {
+                continue;
+            }
+            room.cashRolled = 1;
+            var n = this.rollCash(site, 1);
+            if (n > 0) {
+                room.list.push({itemId: "money", num: n});
+            }
+        }
     },
 
     onRoomEnd: function (ctx) {
@@ -224,9 +293,30 @@ var CityExt = {
             }
             parts.push(cc.formatStr(string["city_regen_in"], left));
         }
-        return parts.join(" ");
+        return parts.map(function (part) {
+            part = String(part).replace(/\s+$/, "");
+            if (!/[.!?…]$/.test(part)) {
+                part += ".";
+            }
+            return part;
+        }).join(" ");
     }
 };
+
+Hooks.add("loot.itemIds", function (itemIds, ctx) {
+    CityExt.ensureMoneyArt();
+    var rooms = (ctx.site && ctx.site.config && ctx.site.config.workRoom) || 0;
+    var n = CityExt.rollCash(ctx.site, rooms);
+    if (n <= 0) {
+        return itemIds;
+    }
+    itemIds = itemIds.slice();
+    var i;
+    for (i = 0; i < n; i++) {
+        itemIds.push("money");
+    }
+    return itemIds;
+});
 
 Hooks.add("loot.produceValue", function (value, ctx) {
     if (!ctx.site || !CityExt.isTracked(ctx.site)) {
@@ -253,6 +343,53 @@ Hooks.add("battle.difficulty", function (diff, ctx) {
 });
 
 (function () {
+    var origGenRooms = Site.prototype.genRooms;
+    Site.prototype.genRooms = function () {
+        origGenRooms.call(this);
+        if (!this.rooms) {
+            return;
+        }
+        var i;
+        for (i = 0; i < this.rooms.length; i++) {
+            this.rooms[i].cashRolled = 1;
+        }
+    };
+
+    var origSecret = Site.prototype.genSecretRooms;
+    Site.prototype.genSecretRooms = function () {
+        origSecret.call(this);
+        var rooms = this.secretRooms;
+        if (!rooms || !rooms.length) {
+            return;
+        }
+        var last = rooms[rooms.length - 1];
+        if (!last || last.type !== "work" || !last.list) {
+            return;
+        }
+        last.cashRolled = 1;
+        var n = CityExt.rollCash(this, 1);
+        if (n > 0) {
+            last.list.push({itemId: "money", num: n});
+        }
+    };
+
+    var origBagIncrease = Bag.prototype.increaseItem;
+    Bag.prototype.increaseItem = function (itemId, num, includeWater, bypassCheck) {
+        if (String(itemId) === "money") {
+            player.onCurrencyChange(Number(num) || 0);
+            return;
+        }
+        return origBagIncrease.call(this, itemId, num, includeWater, bypassCheck);
+    };
+
+    var origBagWeight = Bag.prototype.validateItemWeight;
+    Bag.prototype.validateItemWeight = function (itemId, num) {
+        if (String(itemId) === "money") {
+            return true;
+        }
+        return origBagWeight.call(this, itemId, num);
+    };
+
     var origCanClose = Site.prototype.canClose;
     Site.prototype.canClose = function () {
         if (CityExt.isTracked(this)) {

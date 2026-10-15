@@ -11,3 +11,7 @@ ExtStrings.en["city_regen_in"] = "Restocks in %d days.";
 ExtStrings.en["city_log_regen"] = "The %s district has something worth taking again.";
 ExtStrings.en["city_log_infest"] = "The %s district is filling with the dead.";
 ExtStrings.en["city_log_deplete"] = "Another sweep of %s turned up less.";
+ExtStrings.en["money"] = {
+    title: "Coins",
+    des: "Loose change from pockets, drawers, and cash registers. It spends the same as market coins."
+};

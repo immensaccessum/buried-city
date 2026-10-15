@@ -11,3 +11,7 @@ ExtStrings.ru["city_regen_in"] = "Снова будет чем поживить�
 ExtStrings.ru["city_log_regen"] = "В районе «%s» снова есть чем поживиться.";
 ExtStrings.ru["city_log_infest"] = "В районе «%s» стало больше мёртвых.";
 ExtStrings.ru["city_log_deplete"] = "Повторный обход «%s» дал меньше.";
+ExtStrings.ru["money"] = {
+    title: "Монеты",
+    des: "Мелочь из карманов, ящиков и касс. Те же монеты, что ходят на рынке."
+};

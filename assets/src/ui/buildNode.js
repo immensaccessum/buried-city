@@ -268,6 +268,9 @@ var BuildNode = BottomFrameNode.extend({
         this.checkBox2.setName("stayHomeCheckBtn");
     },
     cleanBuildAction: function () {
+        if (!this.data) {
+            return;
+        }
         this.data.forEach(function (buildAction, index) {
             buildAction.updateView(null, index);
         });

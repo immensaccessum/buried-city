@@ -316,6 +316,9 @@ var SaveFileLayer = cc.Layer.extend({
                         player.cloned = true;
     
                         cc.sys.localStorage.setItem("chosenTalent" + num, chosenTalent);
+                        if (IAPPackage._talentSlot === num) {
+                            IAPPackage._talentCache = null;
+                        }
                         cc.sys.localStorage.setItem("radio" + num, radio);
                         cc.sys.localStorage.setItem("medalTemp" + num, medalTemp);
                         cc.sys.localStorage.setItem("ad" + num, ad.toString());

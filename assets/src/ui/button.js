@@ -291,28 +291,33 @@ var StatusButton = ButtonWithPressed.extend({
         }
         this.reposition(spriteFrameName);
     },
-    reposition: function (name) {
-        var midPadding = 0;
+    reposition: function () {
+        var gap = 4;
         var icon = this.getChildByName("icon");
         var label = this.getChildByName("label");
-        if (label.isVisible()) {
-            var iconWidth = this.opt.scale ? icon.width * this.opt.scale : icon.width;
-
-            icon.setAnchorPoint(0, 0.5);
-            icon.x = 0;
-            icon.y = this.height / 2;
-            
-            if (name == "#icon_item_money.png") {
-                label.setAnchorPoint(1.2, 0.5);
-            } else {
-                label.setAnchorPoint(1.1, 0.5);
+        var iconWidth = icon.width * icon.scaleX;
+        icon.setAnchorPoint(0, 0.5);
+        icon.x = 0;
+        icon.y = this.height / 2;
+        var contentWidth = iconWidth;
+        if (label.isVisible() && label.getString()) {
+            if (label._renderCmd && label._renderCmd._updateTexture) {
+                label._renderCmd._updateTexture();
             }
-            label.x = this.width;
+            label.setAnchorPoint(0, 0.5);
+            label.x = iconWidth + gap;
             label.y = this.height / 2;
-        } else {
-            icon.setAnchorPoint(0.5, 0.5);
-            icon.x = this.width / 2;
-            icon.y = this.height / 2;
+            contentWidth = label.x + label.width;
+        }
+        this.setContentSize(Math.max(contentWidth, 1), this.height);
+        this.boundingRect = cc.rect(0, 0, this.width, this.height);
+        var pressedBg = this.getChildByName("pressedBg");
+        if (pressedBg) {
+            pressedBg.clear();
+            pressedBg.drawRect(cc.p(0, 0), cc.p(this.width, this.height), cc.color(255, 255, 255, 100), 1, cc.color(255, 255, 255, 10));
+        }
+        if (this.parent && this.parent.layoutStatus) {
+            this.parent.layoutStatus();
         }
     },
     updateView: function (spriteFrameName, str) {

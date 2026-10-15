@@ -19,6 +19,34 @@ var TopFrameNode = cc.Node.extend({
         this.firstLine.setPosition(6, 190);
         this.firstLine.setContentSize(584, 50);
         bg.addChild(this.firstLine);
+        this.firstLine.layoutStatus = function () {
+            var names = ["day", "season", "time", "weather", "temperature", "electric", "currency", "fuel"];
+            var buttons = [];
+            var total = 0;
+            var i, btn;
+            for (i = 0; i < names.length; i++) {
+                btn = this.getChildByName(names[i]);
+                if (!btn) {
+                    return;
+                }
+                buttons.push(btn);
+                total += btn.width;
+            }
+            var spacing = (this.width - total) / (buttons.length + 1);
+            if (spacing < 2) {
+                spacing = 2;
+            }
+            var x = spacing;
+            var pad = spacing / 2;
+            for (i = 0; i < buttons.length; i++) {
+                buttons[i].setAnchorPoint(0, 0.5);
+                buttons[i].setPosition(x, this.height / 2);
+                var left = i === 0 ? spacing : pad;
+                var right = i === buttons.length - 1 ? spacing : pad;
+                buttons[i].boundingRect = cc.rect(-left, 0, buttons[i].width + left + right, buttons[i].height);
+                x += buttons[i].width + spacing;
+            }
+        };
 
         var btnSize = cc.size(this.firstLine.width / 6, this.firstLine.height);
         var halfBtnSize = cc.size(this.firstLine.width / 10, this.firstLine.height);
@@ -121,6 +149,7 @@ var TopFrameNode = cc.Node.extend({
         });
         
         var currency = new StatusButton(cc.size(this.firstLine.width / 6 + 5, this.firstLine.height),"#icon_item_money.png",""+Math.floor(player.currency),{scale: 0.5});
+        currency.setName("currency");
         currency.setPosition(btnSize.width * 5 - 12.5, this.firstLine.getContentSize().height / 2);
         var self = this;
         currency.setClickListener(this, function(sender) {
@@ -161,7 +190,9 @@ var TopFrameNode = cc.Node.extend({
             fuelGauge.updateView("icon_oil_" + val + ".png", Math.floor(player.fuel));
         });
 
+        fuelGauge.setName("fuel");
         this.firstLine.addChild(fuelGauge);
+        this.firstLine.layoutStatus();
 
         this.secondLine = new cc.Node();
         this.secondLine.setAnchorPoint(0, 0);

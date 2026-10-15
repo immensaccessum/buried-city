@@ -59,7 +59,7 @@ var ChooseLayer = cc.Layer.extend({
             btn.addChild(name);
         });
         if (!this.mode) {
-            cc.sys.localStorage.setItem("chosenTalent" + utils.SAVE_SLOT, "[]");
+            IAPPackage.resetChosenTalents();
             this.btnList.forEach(function (btn) {
                 btn.setEnabled(true);
             });

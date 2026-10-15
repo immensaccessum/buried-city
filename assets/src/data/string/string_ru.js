@@ -1,229 +1,207 @@
 var string = {
-"9018": "\nYou felt a little sicker. Something is spreading.\nVirus load + %s",
-"radio_1": "Welcome to the Cheat Terminal.\n\nCommand:\nobtain 'name' int: Obtain item given name, amount.\nobtain everything int: Obtain everything given amount.\nheal: Heal the player on all aspect.\nkill: kill the player.\nfix: Fix generator and gas pump if fixable.\nbackup: Set achievement & medal data to input.\nRestore {data}: Restore backed-up data.",
-"radio_2": "Item number not a number or is 0.",
-"radio_3": "Item name is not found. Please check the name.",
-"radio_4": "Item added. Enjoy...",
-"radio_5": "Data cannot be null.",
-"radio_6": "Medal data is outdated, discarded. ",
-"radio_7": "Restore %s/3 success. ",
-"radio_8": "Input JSON data invalid.",
-"radio_9": "Evaled content cannot be null.",
-"radio_10": "Eval success.",
-"radio_11": "You are healed. Welcome.",
-"radio_12": "Site fixed.",
-"radio_13": "Backup string set to the input prompt, please click it and copy & save the content. Do not edit it.",
-"radio_14": "Type 'help' to learn about the cheat terminal.",
-    "6000": "Выберите сохранение",
-    "6001": "ПУСТОЙ СЛОТ",
-    "6002": "%s, talent: %s, coin: %s%s",
-    "6003": ", cloned",
-    "6004": "Do you really want to clone the save file in slot %s to slot %s?",
-    "6005": " (Copy)",
-    "6006": "This save file is not empty. \nPlease select an empty slot, or delete the save file by pressing 'return'.",
-    "6007": "Сохранение",
-    "6008": "Save file name",
-    "6009": "Save Cloning",
-    "6010": "You can clone any save file at any time to experiment in different strategies. Note that cloned saves are considered cheated and will stop counting towards achievements. The original save is not affected.\n\nYou are cloning the save file in slot %s, named '%s'.\n\nIf you wish to proceed, select 'continue' and pick an empty slot to clone it.",
-    "6011": "Select Empty Save Slot to Clone",
-    "6012": "Save file in slot %s, named '%s' will be deleted. Are you sure?",
-    "6013": "\n\nClick to start new survival",
-    "6014": "\nClick to Start",
-    "6015": "Message Wall",
-    "6016": "Rename Save File",
-    "6017": "The message wall is barely moderated. If it is misused, the server might be taken offline. So please don't be that guy. Treat it as any regular internet chat rooms and stay safe.",
-    "6661": " x",
-    "6662": "Скрытность",
-    "6663": "The stealth perk reduces the chance of zombie encounters, and some other negative events.\n\nHowever, you may want to get more loot by killing zombies that are roaming the street.\n\nTo do this, you can forgo the perk and be less stealthy around zombies, while remaining vigilant towards bandits and night raids.\n\nWould you like to do that?",
-    "6664": "The stealth perk reduces the chance of zombie encounters, and some other negative events.\n\nIf you are down in ammo, health, or energy, you may want to attract less attention.\n\nTo do this, you must be stealthy around zombies as well.\n\nWould you like to do that?",
-    "6665": "Type a message...",
-    "6666": "Please update via Github or other channel.",
-    "6667": "Thanks for playing Buried City! Join the game community and the game's distribution channels, listed below. Report bugs as well!",
-    "6668": "The items are too heavy. The safe is full.",
-    "6669": "You don't have a motorcycle so there is no place to keep the gas. Let's fix it later.",
-    "6670": "You don't have a motorcycle so there is no place to keep the gas.",
-    "6671": "The virus finally defeated your immune system and ended your humanity.",
-    "6672": "Spoiled Food",
-    "6673": "Yesterday, These food has gone bad and is converted to fertilizer (%s outside, %s in home). Fridge can keep food fresh!",
-    "6674": "Accelerate (1 %s)",
-    "6675": "You rolled back the game version. Save file might be damaged. Please start a new game, or revert to previous version.",
-    "6676": "Congratulations, you updated the game.",
-    "6677": "You temporarily fixed the generator.",
-    "6678": "You temporarily fixed the gas pump.",
-    "6679": "The generator has malfunctioned.",
-    "6680": "The gas pump has malfunctioned.",
-    "6681": "Click the button below to delete current survival progress. If you don't want to, please revert to the previous version immediately.",
-    "9113": "Бандиты!",
-    "9114": "You escaped the bandits. Keep going.",
-    "9115": "You have killed the bandits. Keep going.",
-    "9116": "You caved in to the bandit's demand and they will leave you alone. For now...",
-    "9082": "You have escaped from the bandits.",
-    "9083": "You have defeated the bandits. They will leave you alone. For now...",
-    "9039": "He promised that if you capitulate, they will leave you alone for today. They want:",
-    "banditType_1": "Sneaky",
-    "banditType_2": "Robust",
-    "banditType_4": "Cunning",
-    "banditType_5": "Agile",
-    "9045": "%s bandits discovered you!",
-    "9046": "%s bandit is approaching you! Distance %s",
-    "9047": "%s bandit shot you, HP %s",
-    "9048": "You use %s to shoot at %s bandit",
-    "9049": "You wield %s to slash at the %s bandit in front of you",
-    "9050": "You threw a %s into the bandit group",
-    "9051": "Precise shooting! %s bandit's head was blown off",
-    "9052": "%s bandit received %s damage",
-    "9053": "All bandits received %s damage",
-    "9054": "%s %s bandits died",
-    "9358": "You set all the bandits on fire,",
-    "9055": "%s attacked the bandit, and %s bandit received %s damage",
-    "9056": "Bandit is attracted by %s and will temporarily stop attacking you",
-    "9057": "%s collected these items from the bandits. Stored in the stash for now.",
-    "9059": ["Bandits spotted ahead!", "Several patrolling bandits noticed you.", "You are surrounded by a group of bandits."],
-    "9165": "You punched the %s bandit brutally.",
-    "9139": "Number of bandits:",
-    "9118": "You successfully eliminated the bandits",
-    "9109": "Bandit's attack fatally wounded you!",
-    "radio_tut": "To increase chance of encountering fellow survivors, you should construct the radio and broadcast every day.",
-    "motor_tut": "You can save fuel by not riding the motorcycle. The weight bonus still applies. To do so, click the motorcycle icon on this popup.",
+    "radio_1": "Добро пожаловать в чит-терминал.\n\nКоманды:\nobtain 'name' int: получить предмет по имени и количеству.\nobtain everything int: получить все предметы в указанном количестве.\nheal: вылечить игрока по всем параметрам.\nkill: убить игрока.\nfix: починить генератор и бензоколонку, если это возможно.\nbackup: вывести данные достижений и медалей в поле ввода.\nRestore {data}: восстановить данные из копии.",
+    "radio_2": "Количество не число или равно 0.",
+    "radio_3": "Предмет с таким именем не найден. Проверьте имя.",
+    "radio_4": "Предмет добавлен. Пользуйтесь...",
+    "radio_5": "Данные не могут быть пустыми.",
+    "radio_6": "Данные медалей устарели и отброшены. ",
+    "radio_7": "Восстановление %s/3 успешно. ",
+    "radio_8": "Введённый JSON неверен.",
+    "radio_9": "Выполняемый текст не может быть пустым.",
+    "radio_10": "Выполнено.",
+    "radio_11": "Вы здоровы. Добро пожаловать.",
+    "radio_12": "Объект починен.",
+    "radio_13": "Строка копии помещена в поле ввода. Нажмите, скопируйте и сохраните. Не меняйте её.",
+    "radio_14": "Введите 'help', чтобы узнать команды чит-терминала.",
+    "6681": "Нажмите кнопку ниже, чтобы очистить сохраненный файл. Если вы этого не хотите, вернитесь к предыдущей версии немедленно.",
+    "9114": "Вы убежали от бандитов. продолжай движение",
+    "9115": "Вы убили бандитов. продолжай движение",
+    "9116": "Вы уступили требованию бандита, и он отпустил вас.",
+    "9082": "Вы сбежали от бандитов.",
+    "1172": "Капитулировать",
+    "9113": "Встреча с бандитами!",
+    "9039": "Он пообещал вам, что если вы капитулируете, они отпустят вас сегодня. Они хотят:",
+    "banditType_1": "Подлый",
+    "banditType_2": "Надежный",
+    "banditType_4": "Хитрость",
+    "banditType_5": "Ловкий",
+    "9045": "Вас обнаружили бандиты %s!",
+    "9046": "К вам приближается бандит %s! Расстояние %s",
+    "9047": "В тебя стрелял бандит %s, HP %s",
+    "9048": "Вы используете %s, чтобы стрелять в бандита %s",
+    "9049": "Вы используете %s, чтобы рубить бандита %s перед вами",
+    "9050": "Вы бросили %s в бандитскую группу",
+    "9051": "Точная стрельба! Бандиту %s оторвало голову",
+    "9052": "Бандит %s получил урон %s",
+    "9053": "Все бандиты получили урон %s",
+    "9054": "Погибло %s %s бандитов",
+    "9358": "Вы подожгли всех бандитов",
+    "9055": "%s атаковал бандита, и %s бандит получил %s урона",
+    "9056": "Бандит привлечен %s и временно перестанет вас атаковать",
+    "9057": "%s собрал эти предметы у бандитов. Сейчас хранятся в хранилище.",
+    "9059": ["Впереди замечены бандиты!", "Вас заметили несколько патрулирующих бандитов.", "Вы окружены группой бандитов."],
+    "9165": "Вы жестоко ударили бандита %s.",
+    "9139": "Количество бандитов:",
+    "9118": "Вы успешно ликвидировали бандитов",
+    "9109": "Атака бандита нанесла вам смертельный урон!",
+    "radio_tut": "Чтобы повысить шанс встретить товарищей-выживших, вам следует построить радио и время от времени вещать о себе.",
+    "motor_tut": "Вы можете экономить топливо, не катаясь на мотоцикле. Бонус за вес все равно действует. Для этого нажмите на значок мотоцикла в этом всплывающем окне.",
     "site_502": {
-        "name": "Океанариум",
-        "des": "The fish in the aquarium are all dead. The algae infested water rendered the interior eerily crimson. Better not disturb the glass dome, or this might become a watery grave.\nYou cannot use firearms and explosives here."
+        "name": "Аквариум",
+        "des": "Рыбы в аквариуме почти все мертвы. Вода, зараженная водорослями, придает интерьеру жутко-малиновый оттенок. Лучше не нарушать стеклянный купол, иначе это могло бы стать водяной могилой.\nЗдесь запрещено использование огнестрельного оружия и взрывчатки."
     },
-    "equip_needed": "Effective only when equipped as tool.",
-    "no_need_equip": "Passive equipment, no need to equip.",
-    "7000": "Check %s's condition",
-    "7001": "Bring %s outdoor",
-    "7002": "Let %s guard the home",
-    "7003": "Кличка собаки",
-    "7004": "%s feels very good and is ready for combat!",
-    "7005": "%s feels hungry, he needs meat to fight.",
-    "7006": "%s is feeling down and needs encouragement to fight.",
-    "7007": "%s is hurt and needs treatment to heal.",
-    "7011": "At home, click the attribute buttons to check status and use item for %s. Options outside is limited, as you cannot view detailed stats, play with %s, and name him.",
-    "7012": "You healed %s with bandage",
-    "7013": "%s happily chews the bone",
-    "7014": "You played with %s, he seems happy",
-    "7015": "%s attacked and the %s zombie received %s damage.",
-    "7017": "%s found these on the zombie, stored in the stash for now:",
-    "7018": "Dog's gift",
+    "1166": "Сейчас растет %s...",
+    "equip_needed": "Эффективен только при использовании в качестве инструмента.",
+    "no_need_equip": "Пассивное оборудование, не требует экипировки.",
+    "7000": "Проверьте состояние %s",
+    "7001": "Выведите %s на улицу",
+    "7002": "Пусть %s охраняет дом",
+    "7003": "Имя собаки",
+    "7004": "%s чувствует себя отлично и готов к бою!",
+    "7005": "%s голоден, ему нужна пища для борьбы.",
+    "7006": "%s подавлен и ему нужны слова поддержки для борьбы.",
+    "7007": "%s ранен и нуждается в лечении для заживления.",
+    "7011": "Дома нажмите на кнопки атрибутов, чтобы проверить состояние и использовать предмет для %s. Варианты снаружи ограничены, так как вы не можете просматривать подробную статистику, играть с %s и давать ему имя.",
+    "7012": "Вы вылечили %s бинтом",
+    "7013": "%s с удовольствием грызет кость",
+    "7014": "Вы поиграли с %s, ему кажется весело",
+    "7015": "%s атаковал зомби, зомби получил %s урона.",
+    "7017": "%s нашел это на зомби, временно хранится в хранилище:",
+    "7018": "Подарок собаки",
     "17": {
-        "title": "Dog's injury",
-        "des": "Dog can get hurt from combat, and need timely treatment."
+        "title": "Травма собаки",
+        "des": "Собака может пострадать от боя и нуждается в своевременном лечении."
     },
     "18": {
-        "title": "Dog's hunger",
-        "des": "Dog needs meat. One meat is good for 12 hours, you can feed up to 4."
+        "title": "Голод собаки",
+        "des": "Собаке нужна пища. Один кусок мяса хватит на 12 часов, вы можете кормить до 4 раз."
     },
     "19": {
-        "title": "Dog's mood",
-        "des": "Harsh condtions makes dog depressed too. Play with him at home every day, or use a dog bone."
+        "title": "Настроение собаки",
+        "des": "Суровые условия также делают собаку подавленной. Играйте с ним каждый день дома или используйте косточку для собак."
     },
     "1106014": {
-        "title": "Dog bone",
-        "des": "Home-made dog bone can cheer up your dog, even in such harsh environment."
+        "title": "Кость для собаки",
+        "des": "Самодельная кость для собаки может поднять настроение вашей собаки, даже в таких суровых условиях."
     },
+    "6677": "Вы временно починили генератор.",
+    "6678": "Вы временно починили топливный насос.",
+    "6679": "Генератор вышел из строя.",
+    "6680": "Топливный насос вышел из строя.",
     "8027": "Саундтрек",
-    "8028": "Модификации — автор",
+    "8028": "Использованная модифицированная версия - Автор",
     "8029": "Спасибо за игру.",
-    "1266": "Version check error:",
-    "1267": "New version %s available",
-    "1268": "Updates:",
-    "1269": "This update will not affect current survival progress.",
-    "1270": "Some updated content can only be experienced when starting a new survival.",
-    "1271": "This update will forcefully delete the current survival progress.",
+    "6672": "Истекшие продукты",
+    "6674": "Ускорить (1 %s)",
+    "6675": "Вы откатили версию игры. Файл сохранения может быть поврежден. Пожалуйста, начните новую игру или вернитесь к предыдущей версии.",
+    "6676": "Поздравляю, вы обновили игру.",
+    "1266": "Ошибка проверки версии:",
+    "1267": "Новая версия %s доступна",
+    "1268": "Обновления:",
+    "1269": "Это обновление не повлияет на текущий прогресс выживания.",
+    "1270": "Некоторый обновленный контент можно испытать только при запуске нового выживания.",
+    "1271": "Это обновление принудительно удалит текущий прогресс выживания.",
     "1101081": {
-        "title": "Fertilizer",
-        "des": "It's actually just spoiled food, and the only way to use them is to fertilize the crops."
+        "title": "Удобрение",
+        "des": "На самом деле это просто истекшие продукты, и единственный способ использовать их - удобрять растения."
     },
+    "6673": "Вчера эти продукты истекли и были превращены в удобрение (%s снаружи, %s дома). Холодильник сохраняет свежесть продуктов!",
     "21_0": {
-        "title": "Fridge",
-        "des": "If there is electricity, food in home won't go bad."
+        "title": "Холодильник",
+        "des": "Если есть электричество, продукты дома не портятся."
     },
+    "6671": "Вирус наконец победил вашу иммунную систему и положил конец вашей человечности.",
+    "6669": "У вас нет мотоцикла и нельзя хранить извлеченное топливо. Давайте позже это исправим.",
+    "6670": "У вас нет мотоцикла и нельзя хранить извлеченное топливо!",
     "20_0": {
-        "title": "Safe",
-        "des": "Protect your supplies. Items in the Safe won't be stolen or damaged by zombies."
+        "title": "Сейф",
+        "des": "Защитите свои запасы. Предметы в сейфе не будут украдены или повреждены зомби."
     },
+    "6668": "Предметы слишком тяжелы. Сейф не может больше ничего загрузить.",
+    "8116": "Езда на мотоцикле",
+    "8117": "Не ездить на мотоцикле",
+    "8118": "Неактивен (Игрок отказался ехать)",
     "1305011": {
-        "title": "Standard Bullet",
-        "des": "Produced before the disaster, it is less likely to damage the gun and has better accuracy, making it more valuable."
+        "title": "Стандартная пуля",
+        "des": "Произведенная перед катастрофой, она более устойчива к повреждениям, имеет лучшую точность, что делает ее более ценной."
     },
     "1305012": {
-        "title": "Handmade Bullet",
-        "des": "Handmade bullet with low accuracy. Might cause damage to the gun."
+        "title": "Ручная пуля",
+        "des": "Ручная пуля с низкой точностью. Может повредить оружие."
     },
-    "8116": "Ехать на мотоцикле",
-    "8117": "Не ехать на мотоцикле",
-    "8118": "Inactive (opted not to ride)",
-    "1324": "You had trouble sleeping because of the coffee. Sleep after %s hours.",
-    "1325": "Vodka decreased your accuracy by %s%!",
-    "1326": "Продавайте из сумки!",
-    "1327": ["Выкл", "Частично", "Полный"],
-    "1333": "Exchange %s x%s for 15 Virus Load? This action is irreversible.",
+    "6666": "Пожалуйста, обновитесь через Github или другой канал.",
+    "6667": "Спасибо за игру в Buried City! Присоединяйтесь к игровому сообществу и каналам распространения игры, перечисленным ниже. Также сообщайте ошибках!",
+    "1324": "Проблемы со сном из-за кофе. Отдохните через %s часа.",
+    "1325": "Погрешность уменьшилась на %s% из-за алкоголя!",
+    "1326": "Пожалуйста, продайте из сумки!",
+    "1327": ["Выключено", "Частично", "Полностью"],
+    "1333": "Обменять %s x%s на 15 вирусов? Это действие нельзя отменить.",
     "1334": "Обменять",
-    "1335": "You exchanged %s %s for 15 virus load.",
-    "1336": "Increase load upper limit: ",
+    "1335": "Вы обменяли %s %s на 15 вирусов.",
+    "1336": "Увеличить верхний предел загрузки:",
     "1337": "Добро пожаловать!",
-    "1342": "Общежитие",
-    "1343": "The hostel can offer the comforts of home. If you can afford it, that is.",
-    "1344": "You felt like that was not enough. Have to drink more next time.",
-    "1345": "Выпить кофе",
-    "1346": "Выпить водку",
+    "1339": "Привет, я хотел бы обменять это на %s монет. Вы согласны?",
+    "1349": "Вы выбрали только один талант. Захороненный город сложнее оригинальной версии, но поддерживает несколько талантов. Хотите ли вы выбрать заново?",
+    "1350": "Вы не выбрали ни одного таланта. Захороненный город сложнее оригинальной версии, поэтому рекомендуется выбрать хотя бы один талант. Хотите ли вы выбрать заново?",
+    "1351": "Предупреждение",
+    "1342": "Хостел",
+    "1343": "Хостел может предложить некоторые удобства, как дома. Если вы можете себе позволить, конечно.",
+    "1344": "Вам показалось, что этого было недостаточно. Нужно пить больше в следующий раз.",
+    "1345": "Пейте кофе",
+    "1346": "Пейте алкоголь",
     "8103": "Ускорение: ",
     "8104": "Активно",
-    "8105": "Inactive (no item)",
-    "8106": "Inactive (insufficient gas)",
-    "8107": "You found a broken car. Although the rusty car itself is useless, there may be some gas in the tank. As long as you have a siphon tool you can get some gas.",
-    "8108": "You didn't equip a siphon tool!",
-    "8109": "Selected Talents",
-    "8111": "Startled by the brutal battle,",
-    "8112": "Startled by the mess at home,",
-    "8113": "Your mental state has finally collapsed.",
-    "8114": "You leaped from a tall building nearby, attempting to end your own life.",
-    "8115": "You tied a knot on the ceiling, attempting to end your own life.",
+    "8105": "Неактивно (нет предмета)",
+    "8106": "Неактивно (недостаточно топлива)",
+    "8107": "Вы нашли сломанную машину. Сам по себе ржавый автомобиль бесполезен, но в баке может быть немного топлива. Если у вас есть сифон, вы можете забрать немного топлива.",
+    "8108": "У вас нет сифона!",
+    "8109": "Выбранные Таланты",
+    "8111": "Испуган жестокой битвой,",
+    "8112": "Испуган беспорядком дома,",
+    "8113": "Ваше психическое состояние, наконец, рухнуло.",
+    "8114": "Вы прыгнули с высокого здания поблизости, пытаясь покончить со своей жизнью.",
+    "8115": "Вы завязали узел, пытаясь покончить со своей жизнью.",
     "1305075": {
-        "title": "Siphon Tool",
-        "des": "Simple hose and container allow you to use gravity to extract the gas from cars."
+        "title": "Сифон",
+        "des": "Простые шланги и контейнеры позволяют использовать гравитацию для откачивания топлива из автомобиля."
     },
-    "8000": "As the group cautiously pushes open the door, they find themselves within a wide utility corridor.",
-    "8001": "As they takes in their surroundings, they notice a series of doors lining the corridor, each marked with distinct numbers.",
-    "8002": "Casting a glance over their shoulder, they spot the door they just stepped through, labeled with the number 081.",
-    "8003": "As their gaze sweeps the corridor, two contrasting paths are revealed.",
-    "8004": "On one end, a gate adorned with a vivid green exit sign emits an inviting glow above a sturdy blast gate, hinting at potential salvation.",
-    "8005": "On the other end, an infinite, mysterious tunnel stretches into the unknown, shrouded in uncertainty and intrigue.",
-    "8006": "'We are almost there. Which way should we go?'",
-    "8010": "'You're right. We need to get out of here, fast.'",
-    "8011": "They were in front of the gate in no time, frantically turing the wheel. It is, however, not to last.",
-    "8012": "A haunting voice echoes down the hallway, chilling the protagonist to the bone. 'Survivors. What a rare sight. Life is truly incredible.'",
-    "8013": "'Unfortunately, I can't let you go. After all, you should be dead.' The words hang heavily in the air, laden with a sense of impending doom.",
-    "8014": "'Well, let's make it right.' Crimson gas begins to seep from the walls, slowly filling the corridor with a deadly haze.",
-    "8015": "Bill's face is as pale as a ghostly specter. 'It's him. Shit,' he mutters, his voice quivering with fear and dread.",
-    "8016": "The pain was vast yet swift. Soon, nothing but silence remain.",
-    "8020": "The survivor's eyes dart around the corridor. Traces of desperation are evident - some doors bear claw marks, remnants of frantic attempts to escape. ",
-    "8021": "Patches of aged blood seep through the cracks of some doors, an ominous reminder of the horrors that have unfolded within. ",
-    "8022": "It's evident that this place has witnessed unspeakable events, but amidst the darkness, a glimmer of optimism remains - some doors seems undisturbed.",
-    "8023": "'We are obviously in a headquarter of some sort. We could never leave. At least, not here.'",
-    "8024": "Perhaps behind those untouched doors, a semblance of civilization still exists. maybe more survivors are clinging onto life in the face of adversity.",
-    "8025": "Perhaps the apocolypse havn't happened there yet. Maybe there's still a chance to stop them.",
-    "8026": "The survivors quickly stepped through a door and disappeared into the endless void.",
-    "8100": "The blast gate",
-    "8101": "The hallway's depth",
-    "8102": "It's finally over. A door is at the end of the room. With the town under blockade, this is the only way out.",
-    "1349": "You selected only one talent. Buried City is more difficult than the original version, but it supports multiple talents. Would you like to re-select?",
-    "1350": "You haven't selected any talents. Buried City is more difficult than the original version, it is recommended to choose at least one talent. Would you like to re-select?",
-    "1351": "Внимание",
-    "gachapon": {
-        "title": "Sweepstakes",
-        "des": "Try your luck! Huge prize awaits! Winnings guaranteed!"
-    },
+    "8000": "Осторожно открыв дверь, группа оказалась в просторном служебном коридоре.",
+    "8001": "Окинув взглядом окрестности, они заметили ряд дверей вдоль коридора, каждая помечена различными числами.",
+    "8002": "Повернув голову через плечо, они увидели дверь, через которую только что прошли, с номером 081.",
+    "8003": "Осмотрев коридор взглядом, им предстало два контрастных пути.",
+    "8004": "На одном конце, ворота, украшенные ярким зеленым выходным знаком, излучают привлекательное сияние над прочными бронированными воротами, намекая на возможное спасение.",
+    "8005": "На другом конце, бесконечный, загадочный туннель тянется в неизвестность, покрытый неопределенностью и загадкой.",
+    "8006": "'Мы почти там. Куда идем?'",
+    "8010": "'Ты прав. Нам нужно выбраться отсюда, быстро.'",
+    "8011": "Они оказались перед воротами в мгновение ока, отчаянно крутя рукоятку. Однако это не продолжалось долго.",
+    "8012": "Звучащий призрачным голос прокатился по коридору, заставив главного героя до мозга костей. 'Выжившие. Какая редкая картина. Жизнь действительно удивительна.'",
+    "8013": "'К сожалению, я не могу вас отпустить. В конце концов, вы должны быть мертвы.' Эти слова тяжело лежали в воздухе, пропитанные предчувствием грядущей гибели.",
+    "8014": "'Ну что ж, давайте сделаем так.' Из стен начинает просачиваться багровый газ, медленно наполняя коридор смертельной дымкой.",
+    "8015": "Лицо Билла бледно, как у призрачного образа. 'Это он. Черт,' бормочет он, голос дрожит от страха и ужаса.",
+    "8016": "Боль была огромной, но быстро прошла. Скоро осталась лишь тишина.",
+    "8020": "Глаза выживших охватывают коридор. Следы отчаяния видны - на некоторых дверях клыкастые следы, останки отчаянных попыток сбежать.",
+    "8021": "Пятна состаренной крови просачиваются через трещины некоторых дверей, зловещее напоминание о ужасах, которые развернулись внутри.",
+    "8022": "Очевидно, что это место стало свидетелем неописуемых событий, но среди тьмы остался остаток оптимизма - некоторые двери кажутся не тронутыми.",
+    "8023": "'Очевидно, мы в штаб-квартире какой-то организации. Мы не сможем уйти обычным путем.'",
+    "8024": "Может быть, за теми нетронутыми дверьми еще существует признак цивилизации. Может быть, еще больше выживших стоит перед лицом трудностей.",
+    "8025": "Может быть, апокалипсис там еще не произошел. Возможно, еще есть шанс остановить их.",
+    "8026": "Выжившие быстро переступили через дверь и исчезли в безбрежной пустоте.",
+    "8100": "Бронированные ворота",
+    "8101": "Длина коридора",
+    "8102": "Наконец-то все закончилось. На конце комнаты находится дверь. С городом под блокадой, это единственный выход.",
     "1301091": {
-        "title": "Flamethrower",
-        "des": "Inflicts lasting damage to hordes of zombies, the only drawback is that it requires gasoline. A lot of gasoline. If you run out of gasoline halfway through..."
+        "title": "Огнемет",
+        "des": "Наносит долгосрочный урон большому количеству зомби, единственный недостаток - требуется бензин. Много бензина. Если бензина не хватит на полпути..."
     },
-    "1347": "You ignited all the zombies.",
-    "1348": "You are out of gasoline!",
+    "1347": "Вы поджеги все зомби.",
+    "1348": "У вас закончился бензин!",
+    "gachapon": {
+        "title": "Лотерея",
+        "des": "Попробуйте свою удачу! Вас ждет огромный приз! 100% выигрыш!"
+    },
     "gachaponDialog": {
         "title": {
-            "txt_1": "Price: %s Coins"
+            "txt_1": "Цена: %s монет"
         },
         "content": {},
         "action": {
@@ -231,383 +209,378 @@ var string = {
                 "txt": "Играть"
             },
             "btn_1": {
-                "txt": "Never Mind"
+                "txt": "Не сейчас"
             }
         }
     },
-    "1339": "Hi, I'd like to exchange these for %s coins. Are you good with it?",
-    "1338": "Welcome to Buried City, a Buried Town mod made by ArithSeq.\n\nIf the screen content is incomplete, please go to Settings in the bottom right corner and modify Shrink Screen.\n\nThis version has undergone lots of tweaks and has received numerous features. Please read the documentation on the bottom left corner for all the information. \n\nOpen source software, please don't use for commercial gain. Enjoy your stay!",
+    "1338": "Добро пожаловать в Buried City, модификацию для игры Buried Town, созданную ArithSeq.\nЕсли содержимое экрана неполное, пожалуйста, перейдите в настройки в правом нижнем углу и измените размер экрана.\nЭта версия была многочисленно изменена и добавлено множество новых функций. Пожалуйста, прочитайте документацию в левом нижнем углу для получения всей информации.\nПрограммное обеспечение с открытым исходным кодом, пожалуйста, не используйте его в коммерческих целях. Приятного времяпрепровождения!",
     "1103094": {
-        "title": "Cheese",
-        "des": "The smooth and melty texture and the rich milky flavor can make you forget the pressures of survival."
+        "title": "Сыр",
+        "des": "Нежная и расслабляющая текстура, а также богатый молочный вкус могут заставить забыть о выживании."
     },
     "site_501": {
-        "name": "Школа",
-        "des": "The high school hallway, once bustling with people, is now so quiet that you can hear a pin drop. If it weren't for the scattered books and bloodstains, one would think there's a break now."
+        "name": "Средняя школа",
+        "des": "Школьный коридор, когда-то оживленный учениками, теперь настолько тих, что можно услышать падение иголки. Если бы не разбросанные книги и пятна крови, можно было бы подумать, что это праздник."
     },
     "site_666": {
         "name": "Портал",
-        "des": "This television does not take external power and has a hidden world behind the screen. Although we don't know what's on the other side, it's definitely not heaven."
+        "des": "Этот телевизор не требует внешнего питания и скрывает за собой скрытый мир за экраном. Хотя мы не знаем, что находится на другой стороне, это точно не рай."
     },
     "18_0": {
-        "title": "Electric Stove",
-        "des": "It can adapt to extremely unstable voltage. Although it cannot reach the temperature required for cooking, it is still sufficient to meet the heating requirements of a confined space."
+        "title": "Электрическая плита",
+        "des": "Он может адаптироваться к чрезвычайно нестабильному напряжению и, хотя он не может достичь температуры, необходимой для приготовления пищи, все же достаточен для удовлетворения потребностей в обогреве ограниченного пространства."
     },
     "19_0": {
-        "title": "Electric Fence",
-        "des": "Limited by insufficient voltage, the fragile electrical grid is unable to eliminate approaching zombies, but it can 'suggest' some to get lost."
+        "title": "Забор под напряжением",
+        "des": "Ограниченное недостаточным напряжением, самостроенная электрическая сеть не способна уничтожить приближающихся зомби, но может 'предложить' некоторым уйти."
     },
     "14": {
-        "title": "Thirst Level",
-        "des": "Prolonged dehydration can be life-threatening. If there is water in the storage (or backpack if outdoors), you will automatically drink water at regular intervals. If you are particularly thirsty, you will drink more."
+        "title": "Уровень Жажды",
+        "des": "Продолжительная обезвоживание может быть опасной для жизни. Если в комнате (или в рюкзаке, если на улице) есть вода, вы будете автоматически пить её с определёнными интервалами. Если вы особенно испытываете жажду, вы будете пить больше воды."
     },
 
     "15": {
-        "title": "Viral Load",
-        "des": "You are not immune, and you don't have plot armor. If you get injured in battle, the viral load will increase. You can sacrifice other attributes to increase the load limit, but once the virus enters, it stays. If the viral load exceeds the limit, you will immediately turn into a zombie."
+        "title": "Вирусная Нагрузка",
+        "des": "У вас нет иммунитета, и у вас нет защиты сюжета. Если вы получаете ранения в бою, вирусная нагрузка увеличивается. Вы можете пожертвовать другими характеристиками, чтобы увеличить предел нагрузки, но после того, как вирус проникнет, он остаётся в организме. Если вирусная нагрузка превысит предел, вы тут же превратитесь в зомби."
     },
-
-    "water_name": ["Severe Thirst", "Very Thirsty", "Slightly Thirsty", "Not thirsty"],
-    "starve_name": ["Seriously starving", "Starving", "Hungry", "Not hungry"],
-    "vigour_name": ["Exhausted", "Fatigued", "Tired", "Energetic"],
-    "spirit_name": ["Breakdown", "Depressed", "Upset", "Confident"],
-    "injury_name": ["No injury", "Injured", "Slightly injured", "Severely injured", "Fatally injured"],
-    "infect_name": ["No infection", "Light infection", "Medium infection", "Severe infection", "Immune system collapse"],
-    "1328": "You are very thirsty and drank %s water you just obtained.",
-    "1329": "You are very thirsty and drank %s water from your backpack.",
-    "1330": "You are very thirsty and drank %s water from the storage.",
-    "1331": "You drank 1 water from your backpack.",
-    "1332": "You drank 1 water from the storage.",
-    "9030": "Do you want to sell?",
-    "9031": "Do you want to buy?",
+    "1328": "У вас сильная жажда, и вы выпили %s литр воды, который только что получили.",
+    "1329": "У вас сильная жажда, и вы выпили %s литр воды из своего рюкзака.",
+    "1330": "У вас сильная жажда, и вы выпили %s литр воды из комнаты.",
+    "1331": "Вы выпили 1 литр воды из своего рюкзака.",
+    "1332": "Вы выпили 1 литр воды из комнаты.",
+    "9030": "Вы хотите продать?",
+    "9031": "Вы хотите купить?",
     "9033": "Продать",
     "9034": "Купить",
-    "9035": "Stock: ",
-    "9036": "But your backpack cannot hold the stolen items. You quietly put them back.",
-    "1323": "Repair (%s m)",
+    "9035": "Акции: ",
+    "9036": "Но ваш рюкзак не может вместить украденные вещи. Вы их тихо вернули на место.",
+    "1171": "Собака урчит от удовольствия поедая свежее мясо",
+    "1023": "Недостаточно мяса",
+    "1169": "звуковой эффект",
+    "1323": "Ремонт (%s мин)",
+    "site_204": {
+        "name": "Электростанция",
+        "des": "Единственная в городе резервная электростанция долгое время находилась в аварийном состоянии. Если начать, скорее всего, возникнут проблемы."
+    },
+    "1102063": {
+        "title": "Компонент генератора",
+        "des": "Электричество – источник современной цивилизации. Измените компонент генератора, чтобы обеспечить работу электростанции."
+    },
     "1": {
-        "title": "Date",
-        "des": "Number of days you've survived. The more days you stay alive, the more bragging rights you have when you eventually turn into a zombie."
+        "title": "Дата",
+        "des": "Количество дней, проведенных в игре. Если продержишься достаточно долго, после смерти сможешь прихвастнуть перед своими зомби-корешами."
     },
     "2": {
-        "title": "Season",
-        "des": "Autumn average temperature: 10°C. Winter average temperature: 0°C. Low temperature makes it easier to catch a cold. Zombies become more active in cold weather. Remember to bring water with you in Summer - heat stroke can kill."
+        "title": "Сезон",
+        "des": "Средняя температура осенью - 10℃, а зимой - 0℃. В холоде легко простыть, а зомби от недостатка пищи становятся еще безумнее. Не забудьте взять воду летом - солнечный удар может быть смертельным."
     },
     "3": {
-        "title": "Temperature",
-        "des": "In these harsh times, the respiratory problems from a cold can be deadly! If the temperature is too low, light a fire for warmth."
+        "title": "Температура",
+        "des": "При отсутствии лекарств и докторов, даже легкая простуда может перерасти в смертельную болезнь! Если температура совсем низкая, нужно развести огонь для обогрева."
     },
     "4": {
-        "title": "Time",
-        "des": "the sun rises at 6:00 and sets at 20:00. Be careful, zombies become stronger at night, and deal several times as much damage as they do during the day."
+        "title": "Время",
+        "des": "\r\nВыходя наружу, следи за временем. встает в  6:00, заходит в 20:00. Ночью зомби еще более активны и жестоки, урон в разы больше."
     },
     "5": {
-        "title": "HP",
-        "des": "If your HP goes to 0, you either become another zombie or food for the zombies. Try to avoid infections and injuries, make sure you have sufficient food and sleep, and be mindful of your Mood."
+        "title": "Жизнь",
+        "des": "Если очки жизни обнулятся, ты превратишься в зомби или пойдешь на мясо. Избегай травм, болезней, спи и ешь вдоволь, поддерживай хорошее настроение."
     },
     "6": {
-        "title": "Hunger",
-        "des": "Try to keep your stomach full. Chronic hunger can lead to digestive infections and reduce HP regeneration."
+        "title": "Сытость",
+        "des": "Регулярно питайся, хронический голод ведет к инфекциям и замедлению восстановления очков жизни."
     },
     "7": {
-        "title": "Energy",
-        "des": "Sleep is the only way to restore your energy. Lower energy reduces your efficiency in work and combat."
+        "title": "Энергия",
+        "des": "Регулярный сон - единственный способ восстановить энергию, без него работо- и боеспособность значительно снизится."
     },
     "8": {
-        "title": "Mood",
-        "des": "Pain, hunger, and fatigue can affect your mood and make you sleep deprived, which slows down your HP and energy regeneration, and lowers gun accuracy. If you break down, the consequence is dire. Take a break, and if it's available, drink some coffee."
+        "title": "Настроение",
+        "des": "Боль, голод и усталость могут повлиять на ваше настроение и лишить вас сна, что замедлит восстановление здоровья и энергии, а также снизит точность стрельбы. Если вы сломаетесь, последствия будут серьезными. Возьмите перерыв и, если есть возможность, выпейте кофе."
     },
     "9": {
-        "title": "Infection",
-        "des": "Includes digestive, respiratory, and injury infections. Serious infections will result in a rapid depletion of HP, which can possibly be even more dangerous than zombies! Try to treat infections with medicine or Penicillin as soon as you can."
+        "title": "Инфекции",
+        "des": "Кишечные, респираторные инфекции, воспаления ран. Серьезные инфекции и воспаления вызывают быструю потерю жизни, это еще опаснее, чем зомби! Своевременно принимай лекарства или пенициллин!"
     },
     "10": {
-        "title": "Injury",
-        "des": "Injuries can lead to infections and temporarily reduce your maximum HP. Remember to use bandages to heal if you receive injuries during combat."
+        "title": "Травмы",
+        "des": "Раны могут воспалиться, чем сильно снизят очки жизни. После ожесточенного боя не забудь про бинты."
     },
     "11": {
-        "title": "Weather",
-        "des": "The impact of the weather should not be underestimated. Even if you already have shelter, you should adjust your plans according to the weather."
+        "title": "Погода",
+        "des": "Погодой не следует пренебрегать, даже если есть убежище. Лучше корректировать свои планы в зависимости с погодой."
     },
     "12": {
-        "title": "Electricity",
-        "des": "Your appliances and EMP weapons need electricity to operate. Ensure the Power Plant's continual operation is crucial for survival."
+        "title": "Электричество",
+        "des": "Ваши бытовые приборы и оружие EMP требуют электричества для работы. Обеспечение непрерывной работы электростанции критически важно для выживания."
     },
     "1301071": {
-        "title": "EMP Handgun",
-        "des": "Can produce powerful currents that rivals conventional handguns. Without electricity, though, it is useless."
+        "title": "EMP-пистолет",
+        "des": "Может создавать мощные токи, сравнимые с обычными пистолетами. Однако без электричества он бесполезен."
     },
     "1301082": {
-        "title": "EMP Rifle",
-        "des": "Use high voltage current to zap through any organic material. Given that there is electricity, of course."
+        "title": "EMP-винтовка",
+        "des": "Использует высоковольтный ток для проникновения через любой органический материал. При условии, что есть электричество, конечно."
     },
-    "1126": "Есть свет",
-    "1127": "Нет света",
+    "1126": "Есть питание",
+    "1127": "Нет питания",
     "1000": "День %s",
-    "1001": "UP (%s m) ",
-    "1002": "Make (%s m)",
+    "1001": "Улучшить (%s мин)",
+    "1002": "Сделать (%s мин)",
     "1003": "Собрать",
-    "1004": "Работать",
-    "1005": "Build (%s m)",
-    "1006": "You need %s!",
-    "1007": "Now making %s…",
-    "1166": "Now growing %s…",
-    "1008": "Do something else, this will be done in %s hours.",
-    "1009": "%s can be harvested",
-    "1010": "Подбросить дров",
-    "1011": "The stove fire is out. 1 wood lasts for 4 hours.",
-    "1012": "The fire is on. There is %s wood in the stove, which can last for %s hours.",
-    "1013": "You need a chair first!",
-    "1014": "Drink coffee (%s m)",
-    "1015": "You are enjoying a cup of hot coffee.",
-    "1016": "The soft couch and savory coffee make you relax.",
-    "1017": "With coffee and music, you feel like you've gone back to happier times.",
+    "1004": "Выполнить",
+    "1005": "Построить (%s мин)",
+    "1006": "У тебя отсутствует %s!",
+    "1007": "Изготавливается %s…",
+    "1008": "Будет готово через %s ч., займись пока чем-нибудь другим",
+    "1009": "%s можно забирать",
+    "1010": "Добавь топлива",
+    "1011": "Огонь в печи погас, одного полена хватает на 4 часа обогрева.",
+    "1012": "Огонь горит. Кол-во поленьев в топке - %s, их хватит на %s ч. ",
+    "1013": "У тебя нет стула!",
+    "1014": "Выпить кофе (%s мин)",
+    "1015": "Ты наслаждаешься чашкой горячего кофе.",
+    "1016": "Мягкий диван и свежий кофе заставляют тебя расслабиться",
+    "1017": "Кофе и музыка уносят тебя в воспоминания о прежних днях",
     "1018": "Спать",
-    "1019": "Falling asleep, your body and energy recover a little bit.",
-    "1023": "Мало мяса",
+    "1019": "Во сне тело и энергия восстанавливаются",
     "1024": "Нет",
     "1025": "Вес:",
-    "1026": "Запас:",
+    "1026": "Остаток:",
     "1027": "Скорость:",
-    "1028": "Weight %s",
-    "1029": "Quantity %s",
-    "1030": "Да",
+    "1028": "Вес %s",
+    "1029": "Кол-во %s",
+    "1030": "Подтвердить",
     "1031": "Отмена",
-    "1032": "Склад",
-    "1033": "Войти",
-    "1034": "Сумка",
-    "1035": "Хранилище",
-    "1036": "Give %s",
-    "1037": "Посмотреть, что у них есть.",
-    "1038": "you have %s",
-    "1039": "Товары",
-    "1040": "Обмен",
-    "1041": "Ваше снаряжение:",
+    "1032": "Хранилище",
+    "1033": "Войти в инстанс",
+    "1034": "Рюкзак",
+    "1035": "Склад",
+    "1036": "Дать ему %s",
+    "1037": "Посмотреть, что у него есть",
+    "1038": "У тебя есть %s",
+    "1039": "Предметы от сделки",
+    "1040": "Сделка",
+    "1041": "Твое снаряжение:",
     "1042": "Уровень угрозы:",
-    "1043": "Время в пути",
-    "1044": "Бой",
-    "1045": "%s zombies noticed you.",
-    "1046": "%s zombies are approaching at %s distance.",
-    "1047": "You got hit by %s zombie. HP %s",
-    "1048": "You shoot %2s zombie with %1s.",
-    "1049": "You swing at the %2s zombie in front of you with %1s.",
-    "1050": "You throw a %s at the zombie group.",
-    "1051": "Nice shot! The %s zombie's head exploded.",
-    "1052": "The %s zombie has suffered %s damage.",
-    "1053": "All zombies have taken %s damage.",
+    "1043": "Предварительное время",
+    "1044": "бой",
+    "1045": "%s зомби обнаружили тебя!",
+    "1046": "%s зомби приближаются к тебе! Расстояние - %s",
+    "1047": "%s попали в тебя, жизнь: %s",
+    "1048": "Ты застрелил %s зомби из %s",
+    "1049": "Ты зарубил %s зомби, размахивая %s",
+    "1050": "Ты бросил %s в толпу зомби",
+    "1051": "Меткий выстрел!  Головы %s зомби слетели с плеч",
+    "1052": "%s зомби нанесен %s урон",
+    "1053": "Всем зомби нанесен %s урон",
     "1054": "Промах",
-    "1055": "Zombies are attracted by the %s and stopped attacking you.",
-    "1056": "%s %s zombies died.",
-    "1057": "You have fainted due to blood loss.",
-    "1058": "Использовать:",
-    "1059": "Урон:",
-    "1060": "Дальше",
+    "1055": "Зомби заинтересовались %s, временно перестали атаковать тебя",
+    "1056": "%s %s зомби упали",
+    "1057": "Слишком большая кровопотеря, ты потерял сознание",
+    "1058": "Расход:",
+    "1059": "Потери:",
+    "1060": "Следующая комната",
     "1061": "Выбрать инструмент",
-    "1062": "Time spent:",
+    "1062": "Затраченное время:",
     "1063": "Кулак",
     "1064": "Камень",
-    "1065": "I am sorry to interrupt, but can you do me a favor?",
-    "1066": "They need ",
-    "1067": "Your inventory",
-    "1068": "I think you're going to need this. Just take it. We should try to get through these tough times together.",
-    "1069": "You received ",
-    "1070": "I know a place. You may find something helpful there.",
+    "1065": "Действительно неудобно просить, но ты мне не поможешь?",
+    "1066": "Ему нужно",
+    "1067": "Твои запасы",
+    "1068": "Я думаю, тебе нужно это? Не благодари, в трудные времена нужно держаться вместе",
+    "1069": "Ты получаешь ",
+    "1070": "Я знаю одно место, там, возможно, есть кое-что, что тебе нужно",
     "1071": "Отказать",
     "1072": "Согласиться",
-    "1073": "Понятно.",
-    "1074": "Возможная добыча:",
+    "1073": "Понятно",
+    "1074": "Возможные вещи:",
     "1075": "Угроза зомби:",
-    "1077": "A wave of zombies appeared out of nowhere - there are vicious zombies all over town. A few zombies have broken through your defense. They have entered your house and wreaked havoc.",
-    "1078": "A wave of zombies appeared out of nowhere - there are vicious zombies all over town. Thanks to your sturdy defenses, your shelter was able to weather the attack without any losses.",
-    "1079": "You have lost:",
-    "1081": "Сбежать",
-    "1082": "Вы оторвались от зомби.",
-    "1083": "Гибель",
-    "1084": "You have finally fallen after surviving for %s.",
+    "1077": "BerryTown накрыло мощной волной зомби, которые бесчинствуют повсюду. Нескольким зомби удалось прорвать оборону, ворваться в дом и разгромить все вокруг.",
+    "1078": "BerryTown накрыло мощной волной зомби, которые бесчинствуют повсюду. Однако твое жилище осталось неприкосновенным, несколько мощных волн атак зомби разбились о стены надежного укрепления.",
+    "1079": "Твои потери:",
+    "1081": "бегство",
+    "1082": "Ты вырвался из осады зомби!",
+    "1083": "При смерти",
+    "1084": "Ты повержен, после того, как продержался %s",
     "1085": "Воскреснуть",
     "1086": "Принять смерть",
-    "1087": "%s FAK in stock",
-    "1088": "В меню",
-    "1089": "You have your own %s.",
-    "1090": "You have made %s %s (stock: %s)",
-    "1091": "It's done. Get your %s at %s.",
-    "1092": "You got %s %s (stock: %s)",
-    "1093": "You ate a %s (stock: %s)",
-    "1094": "You wrapped your wound with %s (stock: %s)",
-    "1095": "You took %s (stock: %s)",
-    "1096": "You rested while enjoying your coffee %s (stock: %s)",
-    "1097": "You added some wood to the stove.",
-    "1098": "You quickly fall asleep.",
-    "1099": "Some zombies are attempting to enter your house!",
-    "1100": "Someone is knocking at the door.",
-    "1101": "You gave %s %s %s (stock: %s).",
-    "1102": "You rejected %s.",
-    "1103": "You got %s %s (stock: %s).",
-    "1104": "New location %s is unlocked!",
-    "1105": "%s is very thankful for your help! Your friendship increases.",
-    "1106": "%s feels very disappointed. Your friendship decreases.",
-    "1107": "The impurities of %s caused harmful consequences! (%s)",
-    "1108": "The untreated infection has dealt fatal damage to you.",
-    "1109": "The zombie's attack has dealt fatal damage to you.",
-    "1110": "Вы вышли из убежища.",
-    "1111": "Вы вернулись в убежище.",
-    "1112": "You decided to go to %s.",
-    "1113": "Столкновение с зомби!",
-    "1114": "Вы оторвались от зомби. Идёте дальше.",
-    "1115": "Вы убили всех зомби. Идёте дальше.",
-    "1116": "You arrived at %s.",
-    "1117": "You opened %s.",
-    "1118": "Вы убили всех зомби.",
-    "1119": "You have cleared out all threats in %s.",
-    "1120": "New tradable items added.",
-    "1121": "The sun dips below the horizon, and zombies are rambling. You can hear their wailing all around you.",
-    "1122": "Sunshine pours from the window. A new day begins.",
-    "1123": "You struggled back home and use the FAK to save your life (stock: %s).",
-    "1124": "Взять всё",
-    "1125": "The new location %s house has been unlocked.",
-    "1128": "You are full and cannot eat any more.",
-    "1130": "The dog is full, feed him later.",
-    "1131": "The bag is full and the items cannot fit.",
-    "1132": "Your offer is too low! They won't accept!",
-    "1133": "You are too tired to do anything. Go to bed.",
-    "1134": "The stove is full of wood now.",
+    "1087": "Кол-во аптечек в налияии - %s",
+    "1088": "Вернуться в главное меню",
+    "1089": "У тебя есть собственный %s",
+    "1090": "Ты запас %s %s (на складе: %s)",
+    "1091": "Дело сделано, отправляйся к %s и забери %s",
+    "1092": "Ты получаешь %s %s (на складе: %s)",
+    "1093": "Ты съел %s (на складе: %s)",
+    "1094": "Рана перевязана %s бинтами (на складе: %s)",
+    "1095": "Ты съел %s (на складе: %s)",
+    "1096": "Ты решил передохнуть, (выпил чашку кофе (%s на складе: %s)), попробуй расслабиться",
+    "1097": "Дрова в печь подкинуты",
+    "1098": "Ты быстро засыпаешь",
+    "1099": "Несколько зомби пытаются попасть к тебе домой!",
+    "1100": "Кто-то постучал в дверь",
+    "1101": "Ты дал %s%s %s (на складе: %s)",
+    "1102": "Ты отказал %s",
+    "1103": "Ты получаешь %s %s (на складе: %s)",
+    "1104": "Разблокирована новая локация - %s!",
+    "1105": "%s крайне благодарен тебе за все! Уровень близости повышен",
+    "1106": "%s очень разочарован. Уровень близости снизился",
+    "1107": "Вредные примеси в %s вызвали серьезные последствия! (%s)",
+    "1108": "Неподдающаяся контролю инфекция нанесла тебе смертоносный урон!",
+    "1109": "Атака зомби нанесла тебе смертельный урон!",
+    "1110": "Ты покинул дом",
+    "1111": "Ты вернулся домой, разбери багаж, передохни.",
+    "1112": "Ты решил отправиться в %s",
+    "1113": "Встречай зомби!",
+    "1114": "Ты скрылся от зомби, продолжай движение",
+    "1115": "Зомби уничтожены, продолжай движение",
+    "1116": "Ты достиг %s",
+    "1117": "Ты открыл %s",
+    "1118": "Зомби уничтожены",
+    "1119": "Ты полностью ликвидировал угрозу в %s!",
+    "1120": "Разблокированы новые предметы для заключения сделок!",
+    "1121": "Солнце скрылось за горизонтом, зомби начали активизироваться, их стоны раздаются повсюду",
+    "1122": "Луч солнца проник в окно, наконец начался новый день",
+    "1123": "Ты из последних сил добрался домой, используй аптечку, чтобы сохранить жизнь (на складе: %s)",
+    "1124": "Взять все",
+    "1125": "Разблокирована новая локация - дом %s!",
+    "1128": "Голод утолен, больше не хочется",
+    "1129": "На сегодня отдыха довольно, скорее за дело",
+    "1130": "Собака уже наелась, кормить больше не нужно",
+    "1131": "Какая тяжесть, рюкзак не выдержит!",
+    "1132": "Слишком мало, так не пойдет!",
+    "1133": "Ты слишком устал для какой бы то ни было работы, иди лучше поспи",
+    "1134": "В печи больше нет места!",
     "1135": "Расстояние",
-    "1136": "Distance: %s ",
-    "1137": "Trading items: %s",
-    "1138": "Идти",
-    "1139": "Number of zombies:",
-    "1140": "You need the following items",
-    "1141": "(stock: %s)",
-    "1142": "Начать",
+    "1136": "Расстояние: %s пути",
+    "1137": "Вещи для сделки:",
+    "1138": "Отправиться",
+    "1139": "Количество зомби:",
+    "1140": "Чтобы завершить, необходимо",
+    "1141": "(склад: %s)",
+    "1142": "Начать сначала",
     "1143": "Продолжить",
-    "1144": "Sleep for %s hours.",
-    "1145": "Sleep until dawn",
-    "1146": "Insufficient wood",
-    "1147": "Fully upgraded",
-    "1148": "Call out",
-    "1149": "%s, listening content:",
-    "1150": "%s, calling content:",
-    "1151": " Hour ",
-    "1152": " Minute ",
-    "1153": "Setting a trap",
-    "1154": "Do something else. You can get this in two days.",
-    "1155": "Set (%s m)",
-    "1156": "Начать заново? Текущий прогресс будет стёрт.",
-    "1157": "Не надо",
-    "1158": "Ranking list",
-    "1161": "Введите имя",
-    "1162": "Share",
-    "1163": "Главное меню",
-    "1164": "Патроны кончились",
-    "1165": "You punched a %s zombie brutally.",
-    "1167": "Tips:",
-    "1168": "You have found an empty shelter.",
-    "1169": "звуки",
+    "1144": "Поспать %s ч.",
+    "1145": "Спать до рассвета",
+    "1146": "Древесины не хватает",
+    "1147": "Это самый высокий уровень",
+    "1148": "Позвать",
+    "1149": "%s, содержание передачи:",
+    "1150": "%s, содержание зова:",
+    "1151": " ч. ",
+    "1152": " мин. ",
+    "1153": "Установить ловушку",
+    "1154": "Приходи через два дня, займись пока чем-нибудь другим",
+    "1155": "Установить (%s мин)",
+    "1156": "Новая игра удалит прогресс этой. Начать новую игру?",
+    "1157": "Подумай еще раз",
+    "1158": "Рейтинг",
+    "1161": "Введи ник",
+    "1162": "Поделиться",
+    "1163": "Вернуться на главную",
+    "1164": "Нет пуль",
+    "1165": "Ты свирепо избил %s зомби",
+    "1167": "Подсказка:",
+    "1168": "На улицах, где бушуют зомби, ты нашел это убежище, но запасы уже иссякли. Как можно скорее отправляйся к руинам, найди пищу, лекарства и оружие. Только так можно выжить. С каждым новым днем сильнее надежда. Не медли!",
     "1170": "Кулак",
-    "1171": "The dog is happily eating the fresh meat.",
-    "1172": "Сдаться",
-    "1173": "Вы победили зомби.",
     "1192": "Бесплатно",
     "1193": "Назад",
-    "1195": "Голод гонит их",
-    "1196": "They brutally tear and devour each other",
-    "1197": "The void is just around the corner",
-    "1198": "They dance during the last feast",
-    "1199": "Push you to the edge of despair",
-    "1200": "And send you an invitation to hell",
-    "1201": "——Cissy Liu",
-    "1203": "%s day %s hour %s minute",
+    "1195": "Ведомые желанием",
+    "1196": "Они дико рвали и глотали",
+    "1197": "Надвигается пустота",
+    "1198": "Они устроили последнее великое пиршество ",
+    "1199": "Они поставили тебя в безвыходное положение",
+    "1200": "Затем пригласили тебя.",
+    "1201": "——Кисси Лю",
+    "1203": "%s дн. %s ч. %s мин.",
     "1204": "Войти",
-    "1205": "%s is broken!",
-    "1206": "Your energy is low, attack speed is halved.",
-    "1207": "Without weapons, your fist is all you have!",
-    "1208": "Broken:",
+    "1205": "%s поврежден!",
+    "1206": "Мало энергии, скорость атаки в два раза медленнее.",
+    "1207": "Без оружия, только кулаки!",
+    "1208": "Повреждения:",
     "1213": "Купить",
-    "1214": "Куплено",
-    "1215": "You can get the following items:",
-    "1216": "Cheat Shop",
-    "1217": "Выбор таланта",
-    "1221": "(new location %s unlocked)",
-    "1222": "Get:",
-    "1223": "Сегодня ночь тихая.",
-    "1225": "Открыть",
-    "1226": "Вы выжили",
-    "1227": "Открыть",
-    "1228": "Уйти",
-    "1229": "You cannot reenter the secret room once you leave. Are you sure you want to leave?",
+    "1214": "Уже куплено",
+    "1215": "Ты можешь получить следующее:",
+    "1216": " Магазин",
+    "1217": "Выбор талантов",
+    "1221": "(разблокировать новую локацию - %s)",
+    "1222": "Получено:",
+    "1223": "Сегодня спокойный вечер.",
+    "1225": "Разблокировать",
+    "1226": "Ты выжил",
+    "1227": "Разблокировать",
+    "1228": "Покинуть",
+    "1229": "Покинув тайную комнату, в нее нельзя будет вернуться. Выйти?",
     "1230": "Нет",
-    "1233": "Bought",
-    "1234": "Name cannot contain \",\" or \"|\"!",
-    "1235": "Кладбище",
-    "1237": "After sneaking through a street filled with zombies, you found an empty shelter. In order to survive, you have to return to the city to search for supplies in its deserted buildings.",
-    "1238": "You put the food and materials you brought back into your warehouse in the bottom left corner. Now, get some food from the warehouse and then rest in the Sleeping Bag. (Simply tap the icon at the top to check your survival stats)",
-    "1239": "After resting, you regain HP. However, starvation, disease and zombies can still kill you at any time. But you need to find more supplies. You'd better carry a weapon when you head out.",
-    "1245": "Talent is not selected, shop cannot be entered.",
-    "1246": "Стена медалей",
-    "1247": "Medal of Honor",
+    "1233": "Куплено",
+    "1234": "Ник не может содержать символы  “,” и“|”",
+    "1235": "Зал славы",
+    "1237": "Вы прошли улицу, на которой свирепствовали зомби, в конце концов нашли просторную хижину в качестве убежища.  Хоть Ваши запасы иссякли, но для того чтобы выжить, Вам все равно нужно вернуться в маленький городок, поэтому сейчас Вам нужно пойти в заброшенные здания, чтобы пополнить запасы. ",
+    "1238": "Принесенные продукты и материалы оставьте на хранение в левом нижнем углу амбара. Сейчас пойдите в амбар поискать чего-нибудь поесть, потом залезьте в спальный мешок и поспите. (в любое время щелкните в верхней части монитора, чтобы проверить состояние)",
+    "1239": "После продолжительного сна, твои жизненные силы восполнятся. Но это только временно, голод, болезни и зомби незаметно подкрадываются, чтобы завладеть твой жизнью. Тебе нужно искать больше предметов, разумеется, выходя на улицу лучше взять с собой оружие.",
+    "1245": "Талант не выбран, магазин не зайти.",
+    "1246": "Стена орденов",
+    "1247": "Орден славы",
     "1248": "музыка",
-    "1249": "Вкл",
-    "1250": "Выкл",
+    "1249": "вкл",
+    "1250": "выкл",
     "1251": "язык",
-    "1259": "Точно выйти?",
+    "1259": "Выйти из игры?",
     "1262": "Описание",
-    "1263": "Your prior survival are recorded here.",
-    "1264": "There are clear signs that a zombie invasion took place here. The objects that were stacked against the entrances are now scattered all over the place. Some items are missing, others are irrepairably broken.",
-    "1265": "Earned medal",
-    "1272": "You got the achievement: ",
-    "1273": "Вернуться в меню?",
-    "1295": "You have used %s (currently in stock: %s). ",
-    "1296": "%s Effect: ",
-    "1297": "Time Remaining: ",
-    "1298": " Day(s) ",
-    "1299": "(Caution: Other buffs will have their duration halfed upon use.)",
-    "1300": "All explosives are placed.",
-    "1301": "You need to place the explosives",
-    "1302": "Placing the explosives……",
-    "1303": "Place (%smin)",
-    "1304": "The mine field has been prepared.",
-    "1305": "A drink of spirits wakes you up.",
-    "1306": "The acrid fragrance of the spirits drives away the oozy smell of blood, and for a moment the world almost feels like it's normal again.",
-    "1307": "When you are tipsy, the light seems softer in your eyes.",
-    "1308": "Drink (%smin)",
-    "1309": "You quietly settle down and had some vodka (%scurrent stock: %s)), trying to relax.",
+    "1263": "Здесь записаны ваши предыдущие выживания.",
+    "1264": "Внезапно вторгнувшиеся зомби разбросали повсюду ранее аккуратно сложенные здесь предметы, некоторые из них теперь либо лежат непонятно где, либо окончательно испорчены.",
+    "1265": "Получить медаль",
+    "1273": "Вы хотите, чтобы вернуться к меню?",
+    "1295": "Использовано %s (на складе: %s)",
+    "1296": "%s эффект: ",
+    "1297": "Оставшееся время: ",
+    "1298": " дн. ",
+    "1299": "(Примечание: после использования заменяется на другой эффект)",
+    "1300": "Вся взрывчатка заложена.",
+    "1301": "Необходимо заложить взрывчатку",
+    "1302": "Идет закладка взрывчатки...",
+    "1303": "Заложить (%s ед.)",
+    "1304": "Минное поле подготовлено.",
+    "1305": "Стакан спиртного выпит, по телу разливается приятное тепло",
+    "1306": "Крепкий аромат вина разогнал носящееся в воздухе кровавое зловоние, как будто жизнь в мире возвращается в нормальное русло ",
+    "1307": "Во хмелю даже свет становится мягким",
+    "1308": "Выпить (%s ед.)",
+    "1309": "Посиди немного в спокойствии, (выпита 1 бутылка (%s на складе: %s)), расслабься",
     "9000": "Пропустить обучение",
     "9001": "Обучение пропущено",
     "9002": "Не пропускать",
-    "9003": "Дальше: ",
-    "9004": "Thief Log",
-    "9005": "Today's luck: ",
-    "9006": "I think there are something missing...",
-    "9007": "What you just did is despicable.",
-    "9008": "Your backpack is full.",
-    "9009": "Guard level: ",
-    "9010": "Stealing failed! ",
-    "9011": "Stealing success! ",
-    "9012": "You lost: ",
-    "9013": "You got: ",
-    "9014": " Friendship -",
+    "9003": "Далее: ",
+    "9004": "Журнал вора",
+    "9005": "Удача сегодня: ",
+    "9006": "Кажется, что-то пропущено...",
+    "9007": "Твои действия презренны...",
+    "9008": "Твой рюкзак полон.",
+    "9009": "Уровень охраны: ",
+    "9010": "Сговор не удался! ",
+    "9011": "Сговор удался! ",
+    "9012": "Ты потерял: ",
+    "9013": "Ты получил: ",
+    "9014": " Дружба -",
     "9015": "Украсть",
     "9016": "Чит",
-    "9017": "экран",
-    "1260": "Достижения",
-    "1261": "Google Play achievements can be unlocked and viewed here. You can back up and restore progress at any time using the radio CMD: 'backup', 'restore {}'.",
+    "9017": "Уменьшить экран",
     "3000": ["Осень", "Зима", "Весна", "Лето"],
-    "3006": ["Materials ", "Food ", "Medicines ", "Enhancement ", "Equipment ", "Miscellaneous "],
+    "3006": ["Материалы", "Еда", "Лекарство", "Усилить", "Снаряжение", "Прочее"],
     "3007": ["Ящик", "Стол", "Шкаф"],
-    "3008": ["You've discovered a locked case.", "A table with a locked drawer. Seems like it went unnoticed.", "It is obvious that these cupboards have been overlooked by survivors and zombies."],
-    "3009": ["You spotted zombies in front of you!", "You spotted zombies in front of you!", "Some wandering zombies have noticed you. ", "Some wandering zombies have noticed you. ", "You startled a large pack of zombies. They're about to charge at you.", "You startled a large pack of zombies. They're about to charge at you.", "You startled a large pack of zombies. They're about to charge at you.", "A horde of zombies reeking of the horrific smell of death draw close to you.", "You are surrounded by a horde of zombies.", "A horde of zombies reeking of the horrific smell of death draw close to you.", "A horde of zombies reeking of the horrific smell of death draw close to you.", "You are surrounded by a horde of zombies."],
-    "3010": ["You are very generous!", "You are very generous！", "This is a fair trade.", "Almost", "Totally unacceptable！", "Are you kidding me?"],
-    "3011": ["Put your weapons into the backpack first. Afterwards, you can select and equip them for battles.", "Your neighbors have different needs, and they are willing to pay more for them. Try to produce goods by yourself as much as possible and exchange them with your neighbors. Supplies found within the rubble will eventually run out.", "Remember to eat and treat your wounds before going to sleep. A lot of survivors die while they are asleep.", "Things you didn't take from the rubble are stored in your \"Stash.\" You can retrieve them from there anytime.", "In your house, foods and medicines are stored in the \"Storage\" together with other items. Please click the \"Storage\" if you need them.", "You may be injured by a zombie's attack. The wound will become infected if you don't treat it.", "The following will worsen the infection: untreated wounds caused by injuries, digestive discomfort from starvation, and respiratory diseases from cold weather.", "When you leave your shelter, make sure you keep an eye on the time.", "Cold weather in winter can result in a cold followed by severe infections. Make sure that there's wood burning in the fireplace at all times.", "With better friendship, your neighbors will be more willing to give you a hand. They might provide you with rare items or secret locations.", "When you leave your shelter, make sure you keep an eye on the time.", "Zombie night raids will become more powerful as time goes on.", "Tools and weapons have a chance to break when you use them.", "The better the relationship you have with others, the better the prices you can get when bargaining.", "The more complicated an item is to make, the more value it has."],
-    "3012": ["Secret passage", "Secret passage", "Secret passage"],
-    "3013": ["You found a hidden channel behind the broken walls. You suspect that there are secrets and dangers within the darkness.", "You found a hidden channel behind the broken walls. You suspect that there are secrets and dangers within the darkness.", "You found a hidden channel behind the broken walls. You suspect that there are secrets and dangers within the darkness."],
-    "3014": ["Пасмурно", "Солнечно", "Дождь", "Снег", "Туман"],
-    "3015": ["The weather turned cloudy. This is common here, and it seems to sap everybody of their energy.", "Today will be a dry and sunny day. Although you are not a plant, sunlight still makes you feel more energetic.", "It's rainning. The rain water your crops, and washes away your good mood.", "The snow you've been worrying about is finally here. It brings with it terrible cold temperatures and road blockages. The only good thing is that more hares will be attracted by your bait.", "It is foggy. The good news is that the zombies will have trouble sensing you. The bad news is that the fog makes aiming more difficult."],
-    "3016": ["Наступила осень.", "Наступила зима.", "Наступила весна.", "Наступило лето."],
+    "3008": ["Ты нашел запертый ящик.", "Это стол с запертыми ящиками, кажется тут еще никто не рылся.", "Очевидно, что эти шкафы уже обыскали люди и зомби."],
+    "3009": ["Впереди зомби!", "Впереди зомби!", "Несколько бродячих зомби тебя заметили.", "Несколько бродячих зомби тебя заметили.", "Потревожена большая группа зомби, они направляются е тебе.", "Потревожена большая группа зомби, они направляются е тебе.", "Потревожена большая группа зомби, они направляются е тебе.", "Группа зомби приближается к тебе, нагоняя смертельный ужас", "Тебя окружила группа зомби", "Группа зомби приближается к тебе, нагоняя смертельный ужас", "Группа зомби приближается к тебе, нагоняя смертельный ужас", "Тебя окружила группа зомби"],
+    "3010": ["Ты слишком прямодушный!!", "Какая щедрость!", "Это честная сделка.", "Немного не хватило.", "Абсолютно неприемлемо!", "Ты шутишь?"],
+    "3011": ["Чтобы воспользоваться оружием в бою, его сначала нужно положить в рюкзак, затем выбрать на панели вооружения.", "У твоих соседей разные потребности, за которые они готовы платить больше.", "Перед сном не забудь поесть, принять лекарства, наложить бандажи. Многие из выживших счастливчиков затем умерли во сне.", "Старайся производить товары самостоятельно, торгуй ими с соседями. Запасы в руинах когда-то закончатся.", "Перед сном не забудь поесть, принять лекарства, наложить бандажи. Многие из выживших счастливчиков затем умерли во сне.", "Атакующие зомби могут нанести тебе ранения. Если ранами не заниматься, они воспалятся и приведут к возникновению серьезных инфекций.", "Воспалившиеся раны, вызванный голодом дискомфорт в кишечнике, вызванные холодом изменения в респираторном тракте, могут усилить инфекцию.", "Выходя наружу, обращай внимание на время, затрачиваемое на дорогу.", "Зимние холода легко вызывают простуду и ведут к образованию серьезных инфекций. Следи, чтобы в печи постоянно горели поленья.", "Чем лучше отношения с соседями, тем больше вероятность, что они окажут дополнительную помощь, например, дадут драгоценные предметы или покажут скрытые инстансы.", "Выходя наружу, обращай внимание на время, затрачиваемое на дорогу.", "Со временем, разрушительная сила зомби во время ночных атак будет расти.", "Используемое оружие и инструменты со временем изнашиваются.", "Чем лучше отношения с соседями, тем выгоднее для тебя будут цены от сделок.", "Чем сложнее сделанный тобой товар, тем выше стоимость."],
+    "3012": ["Секретный ход", "Секретный ход", "Секретный ход"],
+    "3013": ["За стеной, дыру в которой ты обнаружил, кажется есть еще и пещера. Интуиция подсказывает, что в темноте кроются опасности и тайны.", "За стеной, дыру в которой ты обнаружил, кажется есть еще и пещера. Интуиция подсказывает, что в темноте кроются опасности и тайны.", "За стеной, дыру в которой ты обнаружил, кажется есть еще и пещера. Интуиция подсказывает, что в темноте кроются опасности и тайны."],
+    "3014": ["Облачно", "Солнечно", "Дождливо", "Снегопад", "Туман"],
+    "3015": ["Пасмурная погода. Это наиболее распространенный вариант погоды, унылый и неизменный изо дня в день.", "С первыми лучами восходящего солнца становится понятно, что сегодня будет сухой солнечный день. Хотя тебе и недоступен фотосинтез, но солнце всегда делает тебя более энергичным.", "Пошел дождь, дождевая вода омывает твой урожай, а звуки капающих капель приводят твои чувства в беспорядок.", "Твои опасения сбываются, надвигается снегопад, несущий с собой ужасный холод, приводя в негодность дороги. Единственный плюс - больше кроликов попадаются на приманку в ловушке.", "Опускается туман. Хорошая новость в том, что зомби в тумане скучают, действуют не так проворно. Однако целиться в тумане сложнее!"],
+    "3016": ["Наступила осень", "Наступила зима", "Наступила весна.", "Наступило лето."],
     "5000": {
         "title": {
             "title": "name",
-            "txt_1": "Progress  %s",
-            "txt_2": "Items  %s"
+            "txt_1": "Прогресс: %s",
+            "txt_2": "Вещей на хранении: %s"
         },
         "content": {
             "des": "des"
@@ -623,578 +596,570 @@ var string = {
     },
     "1101011": {
         "title": "Дерево",
-        "des": "A versatile material that is commonly seen in buildings. Can be crafted into furniture, or used as a heat source."
+        "des": "Универсальный материал. Используется для строительства, изготовления мебели, как топливо."
     },
     "1101021": {
-        "title": "Металл",
-        "des": "Includes steel, easily mouldable copper, and low melting point lead. Can be used to create structures or manufacture ammo."
+        "title": "Железо",
+        "des": "В том числе сталь, легкоплавкая медь и тугоплавкий свинец. Используется как подпора конструкций, для связи, а также как оружие и боеприпасы."
     },
     "1101031": {
         "title": "Ткань",
-        "des": "Cloth, leather, paper, and plastic sheets. Can be used as crafting components for a lot of stuff."
+        "des": "Ткань, кожа, бумага и полиэтиленовая пленка."
     },
     "1101041": {
         "title": "Детали",
-        "des": "Basic parts of complex devices and an integral part of various equipment."
+        "des": "Детали - неотъемлемая часть основных приборов, сложных аппаратов и оборудования."
     },
     "1101051": {
-        "title": "Компоненты",
-        "des": "Components found within electrical appliances can be repurposed into other appliances."
+        "title": "Электрические компоненты",
+        "des": "\r\nОбщие компоненты для электроприборов."
     },
     "1101061": {
         "title": "Вода",
-        "des": "It is unclear what zombies actually are and how the affliction spreads. Drinking distilled water is a good idea in case the virus is waterborne."
+        "des": "Ввиду отсутствия информации о происхождении зомби, рекомендуется пить дистиллированную воду."
     },
     "1101071": {
-        "title": "Chemical materials",
-        "des": "Bottles and jars of powders and liquids that give off an acrid smell."
+        "title": "Химические материалы",
+        "des": "Наполненные порошками и жидкостями бутылки источают едкий запах."
     },
     "1101073": {
-        "title": "Data Module",
-        "des": "A re-programmable module used as a key component in a lot of high-tech machinery."
+        "title": "Модуль данных",
+        "des": "Интеллектуальный модуль, основной компонент множества машин высокого класса."
     },
     "1102011": {
-        "title": "Pistol part",
-        "des": "A broken pistol, it needs to be repaired and reassembled to be of any use."
+        "title": "Сломанный пистолет",
+        "des": "Сломанный пистолет, после ремонта может использоваться как оружие."
     },
     "1102022": {
-        "title": "Shotgun part",
-        "des": "A broken shotgun, it needs to be repaired and reassembled to be of any use."
+        "title": "Сломанное ружье",
+        "des": "Сломанное ружье, после ремонта может использоваться как оружие."
     },
     "1102033": {
-        "title": "AK47 part",
-        "des": "A broken AK47, it needs to be repaired and reassembled be of any use."
+        "title": "Сломанный автомат",
+        "des": "Сломанный автомат, после ремонта может использоваться как оружие."
     },
     "1102042": {
-        "title": "Katana part",
-        "des": "A broken samurai sword, It needs to be repaired to be of any use."
-    },
-    "1102063": {
-        "title": "Generator Component",
-        "des": "Electricity is the source of modern civilization. Replace the Generator Component to ensure Power Plant's operation."
-    },
-    "site_204": {
-        "name": "Электростанция",
-        "des": "The town's only backup power plant has been in disrepair for a long time. Even if it is started, problems are likely to arise."
+        "title": "\r\nКатана",
+        "des": "Сломанный самурайский меч, может использоваться как оружие после ремонта."
     },
     "1103011": {
         "title": "Картофель",
-        "des": "A nourishing and easily grown crop, potatoes are a staple for staving off hunger after their introduction to Europe in the 16th century. Eating raw potatoes can cause digestive infection."
+        "des": "Его легко выращивать, он питателен. После того, как был завезен в Европу в 16 веке, он сыграл ключевую роль в борьбе с голодом. Употребление сырого картофеля может вызвать кишечную инфекцию."
     },
     "1103022": {
-        "title": "Roasted potatoes",
-        "des": "Cooked using the oldest cooking method known to man - roasting. It is easier to digest and prevents digestive infections."
+        "title": "Печеный картофель",
+        "des": "Картофель, приготовленный самым примитивным способом, достаточно подогреть, чтобы избежать кишечных инфекций. Отлично усваивается."
     },
     "1103033": {
-        "title": "Mashed potatoes",
-        "des": "Cooked potatoes seasoned with salt. Delicious and nutritious!"
+        "title": "Картофельное пюре",
+        "des": "Сделанно из вареного картофеля с добавлением соли, вкусно и питательно!"
     },
     "1103041": {
         "title": "Мясо",
-        "des": "Fresh uninfected meat. In this world of zombies, it is very important to know the source of your meat. Eating raw meat can result in a digestive infection."
+        "des": "Употребление сырого мяса может вызвать кишечную инфекцию. В наводненном зомби мире необходимо убедиться в источнике происхождения мяса."
     },
     "1103052": {
-        "title": "Broth",
-        "des": "Stew requires less firewood to cook than roasted meat and is easier to digest as well."
+        "title": "Бульон",
+        "des": "В отличии барбекю, экономит топливо, легче переваривается и усваивается."
     },
     "1103063": {
-        "title": "Barbecue",
-        "des": "Cooked using the old-fashioned way: roasting, allows for better nutrient absorption and prevents digestive infection."
+        "title": "Жаркое",
+        "des": "Мясо, приготовленное самым примитивным способом - жаркой, достаточно подогреть, чтобы избежать кишечных инфекций. Отлично усваивается."
     },
     "1103074": {
-        "title": "Flavored stew",
-        "des": "A stew made from multiple ingredients, it reminds you of a carefree family life."
+        "title": "Тушеные овощи",
+        "des": "Состав блюда сложен, а процесс приготовления утомителен, но вкус каждый раз напоминает о матери и беззаботно прожитых днях."
     },
     "1103083": {
-        "title": "Canned food",
-        "des": "Hermetically sealed foodstuffs. It's not tasty, but it's safe to eat."
+        "title": "Консервы",
+        "des": "Герметично упакованные, хотя на вкус не очень, зато, по крайней мере, источник происхождения понятен."
     },
     "1104011": {
-        "title": "Бинт",
-        "des": "A hemostatic sterile gauze with herbs inside. It helps relieve pain and prevent infections."
+        "title": "Бинты",
+        "des": "Стерильные марлевые бинты останавливают кровотечение, целебные травы внутри способствуют заживлению ран, своевременное наложение облегчает боль от ран и предотвращает возникновение инфекции."
     },
     "1104021": {
-        "title": "Ointment",
-        "des": "A mixture of crushed herbs and alcohol, with ingredients that help stabilize and treat infections."
+        "title": "Лекарство",
+        "des": "Смесь спирта и трав с активными ингредиентами, контролирует и лечит инфекции."
     },
     "1104032": {
-        "title": "Homemade penicillin",
-        "des": "Desperate times calls for desperate measures! The effects are unknown and the risks are high, this homemade concoction will either cure you or kill you."
+        "title": "Самодельный пенициллин",
+        "des": "С непредсказуемыми последствиями применения! Эффект неизвестен, риск применения высок. Может и вылечить инфекцию, и насмерть отравить."
     },
     "1104043": {
-        "title": "Penicillin",
-        "des": "The best option to treat an infection. If you can get your hands on some of it, that is."
+        "title": "Пенициллин",
+        "des": "Лучший выбор для лечения инфекций!"
     },
     "1105011": {
         "title": "Кофе",
-        "des": "Caffeine is a mild stimulant. It can raise your sensitivity, alertness, and also improve your mental state."
+        "des": "Кофеин - мягкий стимулятор, повышает чувствительность, внимание, улучшает психическое состояние."
     },
     "1105022": {
         "title": "Водка",
-        "des": "Distilled from potatoes. In these dangerous times, it's probably better not to get drunk."
+        "des": "Вырабатывается ферментацией из сахаросодержащих культур. В условиях повышенного риска сохраняй ясную голову, не напивайся."
     },
     "1105033": {
-        "title": "Alcohol",
-        "des": "You can get high concentration alcohol for sterilization and medicine producing purposes by distilling vodka."
+        "title": "Спирт",
+        "des": "Полученный после дистилляции и конденсации водки, спирт применяется для обеззараживания и изготовления лекарств."
     },
     "1105042": {
-        "title": "Potato Buds",
-        "des": "Potato buds contain the poison solanine, so these are inedible but they can be planted to grow new potatoes."
+        "title": "Пророщенный картофель",
+        "des": "Содержит вредный для человека соланин, используется для выращивания, не в пищу."
     },
     "1105051": {
-        "title": "Herbs",
-        "des": "Herbs are the oldest form of medicine that humans have. Many health effects have been scientifically proven now regarding their use."
+        "title": "Травы",
+        "des": "\r\nТравы - старейшее из лекарственных средств. Медицинский эффект некоторых уже научно доказан."
     },
     "1106013": {
         "title": "Собака",
-        "des": "Man's best friend, a dog can help guard the shelter and help out in combat. He eats meat regularly."
+        "des": "Собака - друг человека, предупреждает при появлении врага и в борьбе с ним. Корм для собаки - мясо."
     },
     "1106054": {
-        "title": "First aid kit",
-        "des": "(FAK) The first aid equipment and medicine within this kit can save lives just in the nick of time (available when near death, no need to carry it along with you)."
+        "title": "Аптечка первой помощи",
+        "des": "Включает все материалы и лекарства для оказания неотложной помощи, в критический момент может спасти твою жизнь (не нужно носить с собой, появляется, когда смерть уже близко)"
     },
     "1107012": {
-        "title": "Protoplasm Serum",
-        "des": "A supplement used in the military that gives you more capable to endure and survive."
+        "title": "Протоплазматическая сыворотка",
+        "des": "Военная разработка, твой шанс пожить подольше."
     },
     "1107022": {
-        "title": "Transmission Blocker",
-        "des": "No mistake about it, this thing can prevent you from being infected for days like a protective barrier."
+        "title": "Трансфер-фактор",
+        "des": "Ошибки быть не может, ты как под защитным колпаком, на несколько дней можно забыть о заражениях."
     },
     "1107032": {
-        "title": "Stimpack",
-        "des": "A high-nutrient inject specifically designed for wilderness survival. The user will not feel fatigue for long periods of time."
+        "title": "Допинг",
+        "des": "Высокоэнергетическое вещество, специально разработанное для выживания в полевых условиях. Приняв его, ты долгое время не будешь чувствовать усталости."
     },
     "1107042": {
-        "title": "Military Ration",
-        "des": "It's incredible that you don't feel hungry for days after eating what is merely made of honey, flour, and salad oil."
+        "title": "Военный паек",
+        "des": "Невероятно, но факт. Съев смесь из меда, муки и масла ты несколько дней не почувствуешь голода."
     },
-    "b_1107052": "You won't accumulate viral load for a while.",
+    "b_1107052": "Вы не будете накапливать вирус в течение некоторого времени.",
     "1107052": {
-        "title": "Experimental Antidote",
-        "des": "While a breakthrough in the cure for the zombie virus has not been achieved yet, temporarily preventing the accumulation of the virus is still possible."
+        "title": "Экспериментальный противоядие",
+        "des": "Хотя прорыв в лечении вируса зомби еще не был достигнут, временное предотвращение заражения вирусом все равно возможно."
     },
     "1301011": {
         "title": "Пистолет",
-        "des": "Short-range self-defense weapon. Its damage is more consistent when enemies are closer."
+        "des": "Оружие для самообороны ближнего действия. Наносит больший урон, когда враг находится близко."
     },
     "1301022": {
         "title": "Дробовик",
-        "des": "A long-barreled single-shot shotgun. It has long range and high precision, but slow reload."
+        "des": "Длинноствольное оружие дальнего действия, высокоточное, скорость низкая, два ствола."
     },
     "1301033": {
-        "title": "AK47",
-        "des": "With long range and a quick firing rate, this rifle kills enemies easily with its 3-round burst firing."
+        "title": "Автомат",
+        "des": "Дальнего действия, высокая скорость, стрельба очередями быстро уничтожает врага."
     },
     "1301041": {
-        "title": "Magnum",
-        "des": "Police-issued revolver. It has good range and decent accuracy."
+        "title": "Магнум",
+        "des": "Полицейский револьвер с удлиненным дулом. Дальнобойный."
     },
     "1301052": {
-        "title": "M40",
-        "des": "An old military sniper rifle, equipped with an optical scope for better accuracy."
+        "title": "М40",
+        "des": "Военная снайперская винтовка старого образца, оптический прицел, повышает коэффициент попадания."
     },
     "1301063": {
-        "title": "FAMAS",
-        "des": "The service rifle of NATO troops, it has good mobility, stability, and accuracy. Very rare in the wild, though..."
+        "title": "Винтовка FAMAS",
+        "des": "Личное оружие войск НАТО, мобильна и устойчива."
     },
     "1302011": {
         "title": "Лом",
-        "des": "A tool that can quickly open locked cabinets. Also a useful weapon against zombies."
+        "des": "Рабочий инструмент, быстро отпирает закрытые двери и ящики. Также эффективное оружие против зомби."
     },
     "1302021": {
         "title": "Топор",
-        "des": "A staple of horror films. It's not great at breaking locks, but it's excellent at breaking zombies."
+        "des": "Рабочий инструмент, часто фигурирует в фильмах ужасов. Им не так просто открывать замки, зато рубить зомби очень удобно."
     },
     "1302032": {
-        "title": "Katana",
-        "des": "A sharp blade capable of quickly dispatching zombies."
+        "title": "Катана",
+        "des": "Острое лезвие пригодно для быстрого убийства."
     },
     "1302043": {
-        "title": "Chainsaw",
-        "des": "An ultimate weapon that zombies have no defense against. It is also great for removing barriers or opening cabinets."
+        "title": "Электропила",
+        "des": "Непревзойденное оружие против зомби. Отлично устраняет барьеры и отпирает шкафы."
     },
     "1303012": {
-        "title": "Explosive",
-        "des": "A powerful homemade pipe bomb, capable of taking out a group of zombies."
+        "title": "Самодельная взрывчатка",
+        "des": "Мощное самодельное оружие, производит мощные взрывы, уничтожая зомби группами."
     },
     "1303022": {
-        "title": "Smoke Bomb",
-        "des": "Use chemical reaction to produce a lot of smoke. Add some meat, and bandits and zombies alike will be distracted."
+        "title": "Дымовая бомба",
+        "des": "Используйте батарейки для нагрева химикатов и производства много дыма. Добавьте немного мяса, и как зомби, так и грабители будут отвлечены."
     },
     "1303033": {
-        "title": "Rocket Launcher",
-        "des": "A heavy weapon that deals massive damage to zombie hordes. It's a bit expensive though."
+        "title": "Гранатомет",
+        "des": "Поражает своей мощью, наносит зомби большой урон, хотя и слегка дороговат."
     },
     "1303044": {
-        "title": "Grenade",
-        "des": "NATO superweapon. This grenade devastates all enemies within its blast radius. A must for any fighter."
+        "title": "Мощная граната",
+        "des": "Главный козырь вооруженных сил НАТО, наносит разрушительные повреждения любой цели, незаменимое оружие для убийств и грабежей."
     },
     "1304012": {
-        "title": "Thick coat",
-        "des": "Made out of multi-layered fabrics and leather, it can reduce the damage caused by scratches and bites from zombies."
+        "title": "Толстая куртка",
+        "des": "Из многослойной ткани и кожи, сокращает количество повреждений от царапин и укусов зомби."
     },
     "1304023": {
-        "title": "Anti-riot suit",
-        "des": "A thick coat covered with sheet metal that protects critical parts from zombies and physical damage."
+        "title": "Спецкостюм",
+        "des": "Толстый костюм оснащен металлическими пластинами в ключевых местах, значительно сокращает ущерб, наносимый зомби телу."
     },
     "1306001": {
-        "title": "Boot",
-        "des": "This boot has a thickened instep and a reinforced sole. It can protect your feet, allowing you to move faster through rubble."
+        "title": "Ботинки",
+        "des": "Утолщенная подошва и кожа, защищают ноги, повышают скорость движения в руинах."
     },
     "1305023": {
-        "title": "Enhanced backpack",
-        "des": "A backpack that has been enhanced in capacity and strength, allowing it to bear more weight."
+        "title": "Улучшенный рюкзак",
+        "des": "Более крепкий рюкзак с большей вместимостью, выдерживает больший вес."
     },
     "1305024": {
-        "title": "Military Grade Backpack",
-        "des": "Made to military specifications, this backpack is the best you can get, allowing you to carry the most stuff."
+        "title": "Военный рюкзак",
+        "des": "Выполнен в соответствии с военными стандартами, легкий и удобный."
     },
     "1102053": {
-        "title": "Motorcycle Engine",
-        "des": "The core component for making motorcycles."
+        "title": "Мотоциклетный двигатель",
+        "des": "Основной компонент для изготовления мотоциклов."
     },
     "1305034": {
-        "title": "Motorcycle",
-        "des": "An old-fashioned motorcycle with a large carrying capacity, significantly increasing your travel speed."
+        "title": "Мотоцикл",
+        "des": "Старомодный мотоцикл с большой грузоподъемностью, значительно повышающий скорость передвижения."
     },
     "1305053": {
-        "title": "Strong Flashlight",
-        "des": "Don't underestimate it. With this, zombies hiding in corners will have nowhere to hide. Greatly reduces the chance of encountering zombies."
+        "title": "Мощный фонарик",
+        "des": "Не недооценивайте его; в его присутствии зомби, прячущиеся в углах, не будут иметь где спрятаться. Значительно снижает шанс столкновения с зомби."
     },
     "1102073": {
-        "title": "Gasoline Pump Component",
-        "des": "Apart from lacking ceramics, this component is flawless. Gasoline is too corrosive, and plastic becomes brittle within days."
+        "title": "Компонент топливного насоса",
+        "des": "За исключением отсутствия керамики, этот компонент безупречен. Топливо слишком коррозионно, и пластик становится хрупким в течение нескольких дней."
     },
     "16": {
-        "title": "Gasoline",
-        "des": "Without gasoline, motor vehicles won't function. This precious resource is best kept a secret from other survivors. Highly flammable and explosive, it can only be stored in the fuel tank of your motorcycle."
+        "title": "Бензин",
+        "des": "Без бензина не будут работать транспортные средства с двигателем. Этот драгоценный ресурс следует держать в секрете от других выживших. Высоко воспламеняемое и взрывоопасное вещество, которое можно хранить только в топливном баке."
     },
-    "1340": "Нужно топлива:",
-    "1341": "Your boots are worn-down.",
+    "1340": "Потребность в топливе:",
+    "1341": "Ваши ботинки сломаны.",
     "1305064": {
-        "title": "Hyper Detector",
-        "des": "Equipped with a sensitive probe and capable of automatic terrain surveying. In China, it even works better than a Luoyang shovel. Greatly increase the probability of finding secret rooms."
+        "title": "Детектор частиц высоких энергий",
+        "des": "Оснащен чувствительным датчиком, с функцией автоматической топографической съемки, раскопает все почище бульдозера. Значительно увеличьте вероятность обнаружения секретных комнат."
     },
     "1_0": {
-        "title": "Toolbox",
-        "des": "A basic tool box which can be used to repair and craft simple tools or equipment."
+        "title": "Ящик для инструментов",
+        "des": "Содержит набор основных инструментов, с помощью которых можно ремонтировать, собирать простые орудия."
     },
     "1_1": {
-        "title": "Workbench",
-        "des": "Includes a vice and other equipment, allowing you to make more complicated items."
+        "title": "Верстак",
+        "des": "Содержит основное необходимое оборудование для слесаря, такое как тиски и т.д. Может выполнять сложные процессы."
     },
     "1_2": {
-        "title": "Workroom",
-        "des": "A well-equipped work space. You can manufacture almost anything if you have the necessary materials."
+        "title": "Цех",
+        "des": "Оборудованное рабочее пространство. При наличии подходящих материалов, можно воплотить множество задумок."
     },
     "2_0": {
-        "title": "Greenhouse",
-        "des": "A simple shed built with plastic sheets. It can reduce farming time and increase crop production. You can use it to plant potatoes."
+        "title": "Теплица",
+        "des": "Построена с помощью прозрачной полиэтиленовой пленки, позволяет удерживать внутри тепло. Сокращает цикл роста с/х культур, повышает производительность. Ты можешь использовать ее, чтобы выращивать картофель."
     },
     "2_1": {
-        "title": "Greenroom",
-        "des": "An upgraded greenhouse that creates a more suitable environment for accelerated crop growth."
+        "title": "Оранжерея",
+        "des": "Усовершенствованный вариант теплицы, более комфортная среда для ускоренного роста культур."
     },
     "3_0": {
-        "title": "Medicine Box",
-        "des": "Contains basic medical supplies. Meets the basic requirements for survival."
+        "title": "Аптечка",
+        "des": "Содержит основное медицинское оборудования, практически весь минимум, необходимый для выживания."
     },
     "3_1": {
-        "title": "Medicine Cabinet",
-        "des": "Contains medical and laboratory equipment. You made this to put your crazy ideas into action."
+        "title": "Медицинский чемоданчик",
+        "des": "Содержит некоторую медтехнику и лабораторное оборудование, с такой штукой можно воплотить странные идеи в реальность."
     },
     "4_0": {
-        "title": "Stove",
-        "des": "Old kitchenware that burns wood for heat. It's just like a grill."
+        "title": "Плита",
+        "des": "Старинное кухонное приспособление, работает на дровах, практически то же самое, что и гриль для барбекю."
     },
     "4_1": {
-        "title": "Kitchen",
-        "des": "You can make simple dishes in the kitchen now, allowing you to save on firewood."
+        "title": "Кухня",
+        "des": "Содержит простую кухонную утварь, с помощью которой можно по-простому обработать пищу и сэкономить топливо."
     },
     "4_2": {
-        "title": "Well-equipped Kitchen",
-        "des": "You can cook a full meal with the kitchenware included here. Seems like you will stay here for a long time."
+        "title": "Оборудованная кухня",
+        "des": "Относительно полностью оборудованная кухня, где в ограниченных условиях можно приготовить нормальную пищу. Кажется, ты задержишься тут надолго."
     },
     "5_0": {
-        "title": "Wood Stove",
-        "des": "Burns wood for warmth. Keep the fire going during winter to protect yourself from pneumonia."
+        "title": "Печь",
+        "des": "Обогревает при помощи дерева в качестве топлива. Зимой не забывай вовремя подкладывать топливо, чтобы не умереть от пневмонии."
     },
     "6_0": {
-        "title": "Distiller",
-        "des": "Heats up and collects distilled water, ensuring you have pure water that is safe to drink."
+        "title": "Дистиллятор",
+        "des": "Нагревает и конденсирует воду, взятую из внешних источников, отделяет нелетучие примеси."
     },
     "6_1": {
-        "title": "Thermostat Distiller",
-        "des": "With better temperature control, you can now use this to distill vodka and get high concentration alcohol."
+        "title": "Перегонный аппарат",
+        "des": "Перегоняет алкоголь, получая более концентрированный спирт."
     },
     "7_0": {
-        "title": "Cellar",
-        "des": "A place where you can ferment potatoes with microorganisms to get vodka."
+        "title": "Винный погреб",
+        "des": "При помощи микроорганизмов ферментирует содержащие сахар культуры, получая водку."
     },
     "8_0": {
-        "title": "Hare Trap",
-        "des": "A clever yet simple trap that can be used to catch hares and get meat."
+        "title": "Кроличья ловушка",
+        "des": "Хитроумная ловушка ловит зайцев на мясо."
     },
     "9_0": {
-        "title": "Sleeping Bag",
-        "des": "A small yet warm sleeping bag where you can take a break."
+        "title": "Спальный мешок",
+        "des": "Обеспечивает базовое тепло и комфортные условия сна."
     },
     "9_1": {
-        "title": "Beddings",
-        "des": "More comfortable than a sleeping bag, but still not ideal."
+        "title": "Постельные принадлежности",
+        "des": "Более комфортно, чем спальный мешок, но все равно не идеально."
     },
     "9_2": {
         "title": "Кровать",
-        "des": "A flat and comfortable bed where you can have a good night sleep."
+        "des": "Ровная и комфортная кровать гарантирует качественный сон."
     },
     "10_0": {
-        "title": "Chair",
-        "des": "Sit down and just let your mind wander - a good way to relax."
+        "title": "Стул",
+        "des": "Присесть, отдохнуть. Тоже способ расслабиться."
     },
     "10_1": {
-        "title": "Sofa",
-        "des": "Rest for a while and enjoy a rare moment of peace."
+        "title": "Диван",
+        "des": "Сделай перерыв, насладись редкими минутами мира и спокойствия."
     },
     "10_2": {
-        "title": "Living Room",
-        "des": "Despite how shabby this room is, it reminds you of home."
+        "title": "Гостинная",
+        "des": "Несмотря на примитивные условия, все равно создает ощущение дома."
     },
     "11_0": {
         "title": "Забор",
-        "des": "A simple protective measure. It isn't much, but it's still an obstacle for the zombies."
+        "des": "Простая мера защиты, но по крайней мере создает некоторое препятствие для пытающихся проникнуть внутрь зомби."
     },
     "11_1": {
-        "title": "Wall",
-        "des": "A stronger fence topped with barbed wire. Weaker zombies can be stopped for the whole night."
+        "title": "Стена",
+        "des": "Усиленный колючей проволокой забор, легко занимает зомби на всю ночь."
     },
     "11_2": {
-        "title": "Fortification",
-        "des": "This is the best that you can do. You still can't slack off, but at least smaller hordes of zombies can't invade your shelter."
+        "title": "Укрепления",
+        "des": "В любом случае, это предел твоих возможностей. Хотя полностью расслабиться невозможно, но все же они удерживают небольшие группы зомби от проникновения в твой дом."
     },
     "12_0": {
-        "title": "Kennel",
-        "des": "Dogs can help you fight off zombies during the night. Don't forget to feed him!"
+        "title": "Собачья будка",
+        "des": "Собака поможет защититься от зомби в ночное время, не забывай кормить ее!"
     },
     "b_a_9": {
         "title": "Сон",
-        "des": "The only way to restore HP and Energy is to sleep. Improve your rest by making a better bed, and keep satiety and mood levels high."
+        "des": "Сон - единственный способ восстановить жизнь и энергию. Эффективность сна можно повысить при помощи хорошей кровати, достаточной пищи и хорошего настроения."
     },
     "b_a_8": {
-        "title": "Trap",
-        "des": "Simple traps that can catch hares in the grass. In this world, hares are a valuable source of protein. Fortunately, they are unaffected by the zombie virus."
+        "title": "Ловушка",
+        "des": "Простой ловушкой можно поймать кроликов в траве. В этом диком мире, кроличье мясо - драгоценный источник белка. К счастью, кролики не зомбифицировались."
     },
     "b_a_12": {
-        "title": "Feed",
-        "des": "Dogs cannot help with your defenses when they're hungry. Feed your dogs at least once a day."
+        "title": "Питание собаки",
+        "des": "Когда собака голодна, она не может оказать тебе помощь в обороне жилища. Поэтому кормить собаку нужно минимум раз в день."
     },
     "b_a_10": {
-        "title": "Coffee Time",
-        "des": "Harsh conditions can cause a mental breakdown. Have a seat and drink some coffee. Just relax and relieve your stress."
+        "title": "Время для кофе",
+        "des": "Выживание в плохой среде ведет к психологическим расстройствам. Присядь, выпей чашку кофе, сними стресс, расслабься."
     },
     "b_a_5": {
-        "title": "Ignition",
-        "des": "You may catch a cold or respiratory infection if the temperatures are under 10℃. Make sure to add wood to the fireplace if it's cold outside."
+        "title": "Зажигание",
+        "des": "При температуре ниже 10℃ можно простыть и заработать респираторные инфекции. Поэтому в холодную погоду, следи, чтобы в печи были дрова."
     },
     "15_0": {
-        "title": "Радио",
-        "des": "These relics are now used to get the latest weather forecast, and call out to other survivors to visit you."
+        "title": "Старинное радио",
+        "des": "Эти реликвии теперь используются для получения последних прогнозов погоды. Призывайте, чтобы увеличить шанс встретить других!"
     },
     "13_0": {
-        "title": "Хранилище"
+        "title": "Склад"
     },
     "14_0": {
         "title": "Ворота"
     },
     "16_0": {
-        "title": "Machine tool",
-        "des": "Can process various materials."
+        "title": "Станок",
+        "des": "Обрабатывает различные материалы в полуавтоматическом режиме."
     },
     "16_1": {
-        "title": "Refined machine tool",
-        "des": "Can make parts with higher precision requirements. "
+        "title": "Прецизионный станок",
+        "des": "Производит детали с более высокими требованиями к точности исполнения."
     },
     "17_0": {
-        "title": "Mine field",
-        "des": "On the surface it looks like nothing more than an uneven patch of land, but a deadly explosion might be hiding beneath every rock."
+        "title": "Минное поле",
+        "des": "На первый взгляд просто неровный участок земли, на самом деле в каждой выбоине и каждом камне таится опасность быть разорванным в клочья."
     },
     "b_a_17": {
-        "title": "Place explosive",
-        "des": "Loaded with ample explosives, the minefield serves as the final line of defense against zombies."
+        "title": "Закладываемая взрывчатка",
+        "des": "Загруженное достаточным количеством взрывчатки, минное поле служит последней линией обороны от зомби."
     },
     "b_a_10_1": {
-        "title": "Vodka time",
-        "des": "You must stay vigilant in dangerous environments, but it's also important to relax and relieve stress."
+        "title": "Хмельное время",
+        "des": "Хотя в обстановке постоянной опасности нужно сохранять трезвый ум, но иногда, когда давление становится невыносимым, можно и немного расслабиться."
     },
     "npc_1": {
-        "name": "Mr. Luo",
-        "des": "Alcoholic Luo fought in the Gulf War and worked in a factory after returning. He may help you with weapons if you have a drink with him once in a while.",
-        "dialogs": ["At the time I was just leaving a bar because the youngsters were being too loud. When I was paying my bill, a drunk girl woke up and attacked the guest sitting next to her. Thank God I wasn't drunk.", "The conditions keep getting worse with hidden threats and adversaries everywhere. It makes me feel like I'm back in Baghdad, only now all my buddies are gone.", "Thanks to the zombies, I lost most of my good bottles. Damn it!", "I don't fear death, but I won't go to that bar again. The memories are too much to bear, all those familiar faces gone in an instant.", "I'm going to work after this drink. Once I have enough bullets, I'm gonna kill every last one of those monsters."]
+        "name": "Г-н Ло",
+        "des": "Пристрастный к выпивке г-н Ло воевал в Персидском заливе, затем вышел в отставку и поступил на работу на завод. Если время от времени приглашать его на стаканчик, может быть он поможет тебе с оружием.",
+        "dialogs": ["Тогда я как раз собирался покинуть бар, сборища молодежи слишком шумные. Когда я расплачивался, из угла внезапно выпрыгнула пьяная девчонка и приземлилась на соседний стол... Слава богу, что я не был пьян!", "Ситуация ухудшается с каждым днем, такое чувство, что я вернулся в Багдад. Повсюду угроза, кровопролитие, товарищи уходят один за другим.", "Проклятые зомби уничтожили столько отменного вина!", "Я не боюсь смерти, но все же я не решусь вернуться в тот бар. Слишком это ужасно, знакомые места, люди, все изменилось.", "Выпью стаканчик и за работу. Как только у меня будет достаточно пуль, я прикончу их всех!"]
     },
     "npc_2": {
-        "name": "Dr. Jean",
-        "des": "A pharmacist and the only witness to the zombie outbreak from the hospital. With no survival skills and starving all the time, can she hold on any longer?",
-        "dialogs": ["I was near the exit when I heard the commotion. People were screaming and trying to escape, some even jumped out of the windows.", "I won't ever forget that experience. My hands wouldn't stop trembling, and my car wouldn't start. A patient who had his arm in plaster was dismembered and eaten right on top of my hood!", "I want to know how my mom is, but all communications are out. The whole family could be together if only I hadn't given up my holiday.", "Food! Food! My doctoral studies didn't teach me anything about growing food!", "Thank God, I'm not alone. I don't know how I'd hang on without you guys."]
+        "name": "Доктор Ким",
+        "des": "Фармацевт, единственный выживший очевидец бойни, устроенной зомби в больнице. Из-за слабого здоровья, страдает частыми приливами голода. Сколько она сможет продержаться в такой обстановке?",
+        "dialogs": ["Когда я подходила к двери, внезапно вспомнила, что медицинский чемоданчик все еще в дорожной сумке. Затем раздался какой-то шум, люди с криками побежали наружу, некоторые выпрыгивали прямо из окон.", "Мне никогда не забыть эту сцену: мои руки тряслись без остановки, никак не получалось завести машину. Пациента с рукой в гипсе, разорвали и сожрали прямо на капоте моей машины.", "Хотелось бы знать как там сейчас моя мама, но все средства коммуникации разрушены. Я действительно сожалею, что не взяла отпуск. Так хотя бы все члены семьи были бы вместе.", "Еда! Еда! В докторантуре меня не учили, как выращивать пищу!", "Слава богу, что я здесь не в одиночестве. Не знаю, как бы я смогла здесь без вас."]
     },
     "npc_3": {
-        "name": "Jeff",
-        "des": "A furniture store owner and a part-time fireman. He's as good at chopping zombies as he is at chopping wood, but he breaks his tools all the time.",
-        "dialogs": ["Wood is humanity's favorite gift from nature. Everything will be okay so long as we have wood.", "monsters in human bodies. Wood has its own texture and temperament, but at least it won't hurt anybody.", "I've killed a zombie before. He was a regular customer of mine. He had a summer home which needed a lot of furniture. I didn't hesitate at all when killing him, because it was only an empty shell bereft of humanity.", "Tools are used up too quickly. I can fix all problems except for this. I'll help people when they ask for it, but why can't they just get stronger themselves?", "There is only wood here, but wood is all you need."]
+        "name": "Джэфф",
+        "des": "Владелец магазина мебели, по совместительству пожарный. Мощное тело и неукротимый дух позволяют ему рубить зомби как дрова. Цена за это - быстрый износ инструмента.",
+        "dialogs": ["Дерево - извечно лучший подарок человечеству, если есть дерево, то будет все!", "Я предпочитаю жить с деревьями, чем с этими человекоподобными монстрами. У дерева есть текстура, свой характер, но оно никогда не проявит злобы.", "Я убил одного зомби, который раньше был моим постоянным клиентом, для коттеджа которого требовалось много красивой мебели. Тогда я не колебался, потому что из человека он превратился просто в оболочку.", "Помимо износа инструмента, с остальным я могу справиться самостоятельно. Если другие обратятся ко мне за помощью, я помогу. Но почему они не могут стать немного сильнее?", "Здесь есть дерево, дерево - это все, что тебе нужно."]
     },
     "npc_4": {
-        "name": "Masako",
-        "des": "A girl that ran away from a rich family to escape from strict rules. She is a machinist and loves coffee more than tea.",
-        "dialogs": ["I'm not scared, I've experienced this before. Oh, I mean in zombie movies and video games.", "It would be nice if there was more coffee. Savory coffee reminds me of happier times. I can spend an entire day with just a cup of coffee and a computer.", "I don't think zombies like the sun, because they become much more active at night.", "There's nothing to complain about. I set up an electric fence around my house, so it's safe even at night. There's not enough material though, otherwise I'd make fences for everyone.", "I'm working on an electric saw, generator, and radio. I have so many plans, but not enough materials."]
+        "name": "Масако",
+        "des": "По слухам - ребенок богатых родителей, убежала из дома, подальше от строгих семейных устоев и устроилась здесь механиком. Любит пить кофе больше, чем чай.",
+        "dialogs": ["Я не боюсь, потому что все это мне хорошо знакомо. Ой, я говорю о видеоиграх и фильмах.", "Было бы побольше кофе. Ароматный кофе пробуждает воспоминания, возвращая назад в прошлое. Кофейник и компьютер - все, что мне требуется, чтобы прожить день.", "Наверное, им не нравится день. Ночью боеспособность зомби значительно возрастает.", "Мне не на что жаловаться, я окружила дом оградой из сетки под напряжением, так что и ночью тут безопасно. Жаль только, что материалы не так просто раздобыть, а то бы и другим установила такие же. ", "Электропила, ветрогенератор, радио... это все я сделала сама. Еще много дел и так мало материала."]
     },
     "npc_5": {
-        "name": "Bill",
-        "des": "No one knows where he's from. However, whenever he shows up, he brings all this fantastic stuff we desperately need.",
-        "dialogs": ["Idiot!  Spielberg is an idiot. It's because of his stupid decision that the world has become what it is now. ", "Where am I from?  Oh no, I can't tell you that. It's a trade secret, you know.", "If my hunch is right, some people will be here soon. Don't get me wrong, though, I didn't say they are here to help.", "Bob is dead. Job is dead too. My friends, my brothers — they're all gone. Now I'm the only one left.", "Spending all your time with those disgusting zombies is enough to drive you crazy. Seeing you here, though, reminds I'm still human."]
+        "name": "Билл",
+        "des": "Никто не знает откуда он, но он всем запомнился тем, что каждый раз, когда он приходит, он приносит множество дефицитных и странных вещей.",
+        "dialogs": ["Болван! Спилберг болван, только из-за его глупости мир превратился в то, что он есть сейчас.", "Откуда я? О, этого я тебе сказать не могу, коммерческая тайна, ну ты понимаешь...", "Если мои догадки верны, скоро здесь появятся люди, не пойми меня неправильно, не могу сказать, что все они хорошие...", "Боб умер, Стив Джобс тоже умер... Мои друзья, братья, все. Я остался один.", "Целыми днями с этими мерзкими зомби, я скоро слечу с катушек. И вот я вижу тебя, я уж думал, что кроме меня людей не осталось..."]
     },
     "npc_6": {
-        "name": "Stranger",
-        "des": "A kind-hearted stranger who claims to be here by chance. He is good at brewing, cooking, and surving in the wildness. It's almost as though he was born for this disaster!",
-        "dialogs": ["In any case, we are still alive.", "As long as you can control the fermentation conditions, you will make good alcohol.", "I think there are many similarities between cooking and doing scientific experiments.", "I enjoy talking with you, but I don't like to talk about my past.", "I am afraid the hardest times has yet to come. Those who survive may encounter even more troubles and suffering."]
+        "name": "Незнакомец",
+        "des": "Называется случайным туристом, довольно дружелюбен, разбирается в виноделии, кулинарии и навыках выживания в дикой местности. Как будто специально рожден для жизни в условиях этого бедствия!",
+        "dialogs": ["Так или иначе, мы все еще живы.", "При изготовлении вина необходимо лишь контролировать условия микробиологической ферментации, и тогда успех не за горами.", "Думаю, приготовление пищи имеет много общего с научными экспериментами.", "Мне нравится с Вами болтать, но я не хочу распространяться о своем прошлом.", "Боюсь, это не самый сложный период. Возможно, на долю выживших выпадет еще больше страданий."]
     },
     "site_1": {
         "name": "Супермаркет",
-        "des": "People who ran away in a panic robbed this place. The windows are smashed and shards of glass are everywhere."
+        "des": "В панике люди все здесь разграбили, окна разбиты, повсюду разбитое стекло."
     },
     "site_2": {
         "name": "Торговый центр",
-        "des": "This used to be the most crowded place in town, but it's now just a mess. Shopping carts, garbage, and corpses are everywhere."
+        "des": "Когда-то самый роскошный уголок района, сейчас повсюду валяются тележки для покупок, мусор, обломки, полная разруха."
     },
     "site_3": {
-        "name": "Жилой дом",
-        "des": "Finding an escape route is always a problem for high-rise apartments. If you find that the elevator is full of zombies, you won't have much luck with the stairs either."
+        "name": "Высотный жилой дом",
+        "des": "Пути для побега - основная проблема высотных зданий. Откроешь лифт, а он полон зомби. Но и лестница в этом случае не вариант."
     },
     "site_4": {
-        "name": "Холодильный склад",
-        "des": "Meats and fruits were stored here before being transported to retail outlets. Survivors and zombies came however, leaving almost nothing behind."
+        "name": "Рефрижераторный склад",
+        "des": "Раньше склад был наполнен свежими фруктами и мясом, ожидающими продажи. Выжившие и зомби уже побывали здесь, вряд ли что-то осталось."
     },
     "site_5": {
         "name": "Кинотеатр",
-        "des": "There is a poster that says \"Now Showing - 30 Second Thriller.\""
+        "des": "На плакате написано \"Горячий показ - 30 секунд ужаса\""
     },
     "site_6": {
-        "name": "Фастфуд",
-        "des": "Our foods are devouring their foods, will this be written in a book if zombies take over the world?"
+        "name": "Закусочная быстрого питания",
+        "des": "Наша еда ест свою пищу - если мир в конечном итоге захватят зомби, появится ли такое выражение в их книгах?"
     },
     "site_7": {
         "name": "Музей",
-        "des": "The most desolate building in this town, before the outbreak and after. There's no magic in the ancient artifacts here, so don't bother trying to use them against the zombies."
+        "des": "Самое пустынное место как раньше, так и сейчас. Бросание старинных ваз в зомби эффект имеет не больший, чем бросание обычных бутылок. Бутылку еще и держать удобней."
     },
     "site_8": {
         "name": "Кофейня",
-        "des": "You can see signs of panic from the broken cups and crushed laptops. The waiters here don't serve food, they serve death and infection."
+        "des": "Разбитые чашки, растоптанные ноутбуки и портативные устройства - все это отображает хаос того времени: официант вместо меню преподнес смертоносный поцелуй."
     },
     "site_9": {
-        "name": "Парк аттракционов",
-        "des": "Sunshine is pale here. Words cannot describe the horror, in what used to be a place of laughter and joy."
+        "name": "Парк развлечений",
+        "des": "Солнечный лучи разбиваются в осколки, будучи не в состоянии пробить толщу отчаяния, опутавшую это место, когда-то созданное для радости, теперь же исполненное ужаса."
     },
     "site_10": {
-        "name": "Дома",
-        "des": "Everything has been taken away, and many homes have been abandoned to the zombies. A bottle of water is now more valuable than any trophy or photograph."
+        "name": "Жилые дома",
+        "des": "Взяв все самое необходимое, люди покинули дома, оставив их на растерзание зомби. Трофеи и семейные фотографии теперь не сравнятся в цене с бутылкой воды."
     },
     "site_11": {
         "name": "Вилла",
-        "des": "Everybody, no matter how rich they were, looks equally delicious to a zombie."
+        "des": "Для зомби все равны."
     },
     "site_12": {
         "name": "Полицейский участок",
-        "des": "Sudden disaster caused panic and people rushed to the police station for safety. Unfortunately, forts are usually captured from within."
+        "des": "Перед лицом катастрофы, многие люди искали защиты в полицейском участке. Но как часто бывает, самые большие крепости рушатся изнутри."
     },
     "site_13": {
         "name": "Мотель",
-        "des": "People often rest here in preparation of tomorrow's journey. Sweet dreams, but this is your final destination."
+        "des": "Усталый путник находит здесь место для отдыха, готовясь продолжить свой путь. Дорогой путешественник, будь уверен, это конец пути."
     },
     "site_14": {
         "name": "Тюрьма",
-        "des": "Sealed places such as jail fears no zombies. Bodies and open gates hints that the culprit is not the zombies, though. They don't waste food."
+        "des": "Изолированная от мира, строго охраняемая, уж где не стоит бояться атак зомби. Кровь на полу, двери нараспашку, ответ очевиден. Это дело рук зомби, они не разбрасываются едой."
     },
     "site_20": {
         "name": "Бар",
-        "des": "Flirting and passion, drinking and throwing up, beauties and zombies. The final party that took place here will never be forgotten by its survivors."
+        "des": "Тайны и страсти, выпивка и рвота, красотки и зомби, последний здешний кутеж мало кто из выживших сможет забыть."
     },
     "site_21": {
         "name": "Завод",
-        "des": "An automated production line saves on manpower and handles orders effectively. This means nothing to zombies and survivors, but you can still scavenge some materials from here."
+        "des": "Автоматизированные линии снижают затраты на рабочую силу, эффективно обрабатывают заказы со всего мира. Для беглецов и зомби не представляют никакого интереса, однако запчасти могут тебе пригодиться."
     },
     "site_22": {
         "name": "Склад",
-        "des": "Visitors are disappointed by the empty shelves. Of course, the goods were transported away before the outbreak took place."
+        "des": "Очевидно, что пустой склад разочарует любого посетителя. Навалочные грузы еще до катастрофы перевезли в другое место."
     },
     "site_30": {
         "name": "Мебельный магазин",
-        "des": "No one brings furniture along when escaping, but survivors can make use of the wood here."
+        "des": "Когда спасаешься бегством, тут уже не до мебели. Хотя выжившие могут найти здесь древесину для топлива."
     },
     "site_31": {
         "name": "Магазин одежды",
-        "des": "Does fashion catch zombies' eyes? If a shabby zombie is holding a shirt, we should call that his food bag."
+        "des": "Привлекает ли одежда модных фасонов зомби? Если потрепанный зомби держит в руках футболку, вернее всего предположить, что это упаковка его только что съеденной трапезы."
     },
     "site_32": {
-        "name": "Канализация",
-        "des": "Originally the domain of homeless people, you might be able to find some use in this forgotten corner of civilization. After all, you're in the same predicament."
+        "name": "Коллектор",
+        "des": "Ранее служил прибежищем для бродяг. Затем с восстановлением городской экономики и они его покинули. Скрытые в этом месте ресурсы могут помочь, все равно твоя ситуация не лучше, чем у нищего."
     },
     "site_33": {
-        "name": "Район 13",
-        "des": "Deserted sentry towers, barracks, and labs, with military symbols on some damaged equipment. Nobody knows anything about this abandoned army base."
+        "name": "Секретная база",
+        "des": "Заброшенный часовой пост, казармы и лаборатории, на некотором разрушенном оборудовании до сих пор видны военные знаки. Об этой базе и ее назначении до сих пор ничего неизвестно."
     },
     "site_41": {
-        "name": "Хозяйственный магазин",
-        "des": "Besides food and drugs, tools are also necessary for survival. Everybody knows that however, and the place is already a mess after being ransacked by previous visitors."
+        "name": "Строительный магазин",
+        "des": "Помимо продовольствия и лекарств, инструменты также играют важную роль в игре на выживание. Так как каждый об этом подумал, то тут теперь царит полный беспорядок и разруха."
     },
     "site_42": {
-        "name": "Магазин техники",
-        "des": "Electric appliances have taken over our time, lives, and wallets. Nobody cares about them now though, this store was almost burned into ashes."
+        "name": "Магазин электротоваров",
+        "des": "Различные электросистемы управляют нашей жизнью, забирая наше время, опустошая кошельки. Теперь они оказались первыми, вышедшими из строя, сильный пожар опустошил большую часть магазина."
     },
     "site_43": {
-        "name": "Офис",
-        "des": "A branch of a multinational firm. It brought to this town not just jobs and tax revenue, but also a horde of zombies."
+        "name": "Офисное здание",
+        "des": "В здании располагался филиал международной компании, создавший в городе множество рабочих мест, обеспечивая налоговые поступления, а также обеспечил появление огромного количества зомби."
     },
     "site_51": {
         "name": "Больница",
-        "des": "The hospital is like a cultural vessel for zombies. Weak or incapacitated patients are now either food for the zombies, or have become zombies themselves."
+        "des": "Больница больше всего похожа на колыбель зомби. Слабые, малоподвижные пациенты стали их пищей или спутниками."
     },
     "site_52": {
-        "name": "Вокзал",
-        "des": "The expressways are closed, so a lot of people have gathered here. Not a single train were able to leave the station however, and the panicking crowd is just as dangerous as the zombies."
+        "name": "Ж/д станция",
+        "des": "Скоростные магистрали закрыты, толпы людей в панике устремились к железнодорожной станции, но ни один поезд так и не покинул перрон. Травмы, получаемые в результате действий неконтролируемой толпы, еще хуже тех, что наносят зомби."
     },
     "site_100": {
         "name": "Дом",
-        "des": "This desolated shack is the only shelter for you to live on."
+        "des": "Опустошенный дом, твое единственное убежище."
     },
     "site_201": {
-        "name": "Заправка",
-        "des": "Various vehicles are parked so haphazardly in the station that they cannot move either forward or backward. It's a miracle that no explosion has occurred."
+        "name": "Автозаправка",
+        "des": "На автозаправке брошены в беспорядке автомобили, тупик, никак не пройти. Полный хаос, это просто удивительно, как в таком бардаке не произошел взрыв и пожар!"
     },
     "site_202": {
         "name": "Свалка",
-        "des": "The town's garbage dump is so smelly that even zombies dare not approach it. Although there may be supplies in it, but... gimme a moment I need to puke"
+        "des": "Городская помойка такая вонючая, что даже зомби не смеют к ней приблизиться. Хотя в ней могут быть припасы, но... не будем об этом, давайте выплюнем"
     },
     "site_400": {
         "name": "Рынок выживших",
-        "des": "This survivor-organized bazaar sells supplies every day. You can also sell to others, and buy services. Capitalism is more ferocious and unkillable than zombies."
+        "des": "На базаре, организованном выжившими, каждый день будут появляться новые товары. Пожалуйста, продавайте припасы в 'Хранилище'. Капитализм действительно более свиреп, чем зомби."
     },
     "site_500": {
-        "name": "Логово бандитов",
-        "des": "This unremarkable building is actually the camp of a gang of bandits. Since you dare to rob me, then you should not be afraid of me taking it back.\nWarning: Bandits may carry weapons!"
+        "name": "Бандитское логово",
+        "des": "Это ничем не примечательное здание на самом деле является лагерем шайки разбойников. Раз уж вы осмелились ограбить меня, то вам не стоит бояться, что я заберу его обратно.\nПредупреждение: грабители могут иметь оружие!"
     },
     "13": {
-        "title": "Coins",
-        "des": "Although the island is under the siege of zombies, coins are still the best medium for bartering with people."
+        "title": "Монеты",
+        "des": "Несмотря на то, что остров находится в осаде зомби, монеты по-прежнему являются единственным средством обмена с людьми."
     },
     "npc_7": {
-        "name": "W. White",
-        "des": "Before the disaster, He was a chemistry teacher in the town's high school, but judging by the equipment at home, the chemical reactions here are not even taught by universities.",
-        "dialogs": ["Cough..Cough..Cough.. Sorry, occupational disease. Protective materials are getting harder and harder to get.", "Jesse! Jesse! Hey, life is getting more and more stressful without Jesse.", "I can also make some chemical substances that are 'off the counter', hehehe...", "Stop! Put your hands up! Hey, you're not a thief... You can put your hands down... Sorry...", "I still miss the time when I was fighting with my wife and friends. Now, I have to fight for everything."]
+        "title": "В. Уайт",
+        "des": "До катастрофы Он был учителем химии в средней школе города, но, судя по оборудованию дома, химические вещества здесь не преподают даже в университетах.",
+        "dialogs": ["Кхе..Кхе..Кхе.. Извините, профессиональное заболевание. Достать защитные материалы становится все труднее и труднее.", "Джесси! Джесси! Эй, без Джесси жизнь становится все более и более напряженной.", "Я также могу сделать некоторые химические вещества, которые 'без прилавка', хе-хе-хе...", "Стоп! Поднимите руки! Эй, вы не вор... Тогда извините.", "Я все еще скучаю по тому времени, когда я дрался с женой и друзьями. Теперь я должен драться со всеми."]
     },
     "statusDialog2": {
         "title": {
-            "txt_1": "Current: %s"
+            "txt_1": "Текущий: %s"
         },
         "content": {
-            "des2": "Coins are the only recognized currency in the Survivor Market. You can buy and sell supplies there."
+            "des2": "Монеты — единственная признанная валюта на Рынке выживших. Вы можете покупать и продавать там припасы и зарабатывать монеты."
         },
         "action": {
             "btn_1": {
@@ -1202,447 +1167,482 @@ var string = {
             }
         }
     },
-    "9019": "Искать (30 минут)",
+    "9019": "Поиск (30 минут)",
     "9020": "Продать",
-    "9022": "Количество: ",
-    "9023": " итоговая цена: ",
-    "9024": "You are about to sell (%s) for %s coins",
-    "9025": "You sold (%s) and got %s coins",
-    "9026": "You are about to spend %s coins to buy (%s)",
-    "9027": "You spent %s coins to buy (%s)",
-    "9028": "You don't have enough coins! The current coin is: %s",
-    "9032": "You returned home to found everything in a mess. Attracted by your wealth and lack of guard, bandits plundered your house and you lost:",
+    "9022": "Выберите количество: ",
+    "9023": "Общая цена: ",
+    "9024": "Вы собираетесь продать (%s) за %s монет",
+    "9025": "Вы продали (%s) и получили %s монет",
+    "9026": "Вы собираетесь потратить %s монет на покупку (%s)",
+    "9027": "Вы потратили %s монет на покупку (%s)",
+    "9028": "Ваших монет недостаточно для оплаты комиссии! Текущая монета: %s",
+    "9032": "Ты вернулся домой и обнаружил все в беспорядке. Привлеченные твоим богатством и отсутствием охраны, воры ограбили твой дом, и ты потерял:",
     "site_61": {
-        "name": "Институт 081",
-        "des": "One would never expect to find such an enormous structure 30 meters underground beneath a secret base. Who on earth built this place? And what happened here?"
+        "name": "Исследовательский институт 081",
+        "des": "С трудом верится, что на глубине 30 метров под землей этого городишки скрывается огромная секретная база. Кто ее построил? Что здесь произошло?"
     },
     "site_301": {
-        "name": "Elevator",
-        "des": "Judging by the rusted frame, no one has been here for a long time. The air is thick with the stench of something rotten. The whole place feels damp and ominious."
+        "name": "Подъемная платформа",
+        "des": "Жуткое место. Влажный затхлый воздух, ржавые поручни, дверная рама, кажется, здесь давно никого не было."
     },
     "site_302": {
-        "name": "Guardroom",
-        "des": "Something horrible must have happened here. The floor is covered with broken glass and blackened bloodstains."
+        "name": "КПП",
+        "des": "Здесь, видимо, произошло нечто ужасное... Повсюду битое стекло, весь пол черный от запекшейся крови."
     },
     "site_303": {
-        "name": "Gallery",
-        "des": "What a nasty place. Some sort of sticky green stuff is caked everywhere. Maggots are swarming in piles of minced meat and unknown organs on the floor. God, I'm so gonna throw up."
+        "name": "Павильон",
+        "des": "Вот где грязища... Повсюду зеленая слизь, на полу валяются куски мяса и органы, в которых кишат и копошатся личинки... Боже, меня тошнит..."
     },
     "site_304": {
-        "name": "Storage Room",
-        "des": "Looks like most of the stuff here were moved. There's some scraps and broken modules scattered all over the floor. A name card on the wall reads \"Bill.\" He was probably the manager here."
+        "name": "Кладовая",
+        "des": "Все вещи, должно быть, перевезли. На полу разбросаны детали и модули, на стене висит рабочий табель, в нем значится имя \"Билл\". Наверное, здешний администратор."
     },
     "site_305": {
-        "name": "Power Room",
-        "des": "The sign outside the door says \"Employee Only.\". Only rusty equipments and zombies roam the floor now."
+        "name": "Распределительная",
+        "des": "На дверной табличке помимо имен большими буквами написано \"НЕ СПЕЦИАЛИЗИРОВАННОМУ ПЕРСОНАЛУ ВХОД ЗАПРЕЩЕН\"."
     },
     "site_306": {
-        "name": "Sanitation Room",
-        "des": "A room used for disinfecting, each section seperated by a row of curtains. Who knows if a monster or something will suddenly jump from out of there."
+        "name": "Дезинфекционная камера",
+        "des": "Предназначенное для дезинфекции и стерилизации, помещение окутано отделительным изоляционным пологом, кто знает, вдруг из недр камеры выскочит какой-нибудь монстр…"
     },
     "site_307": {
-        "name": "Dining Room",
-        "des": "Dried-up corpses litter the empty cafeteria floor. A putrid smell wafts though the air. I wonder…is this place for humans or zombies?"
+        "name": "Столовая",
+        "des": "Весь пол просторной столовой устлан иссушенными трупами, в воздухе стоит страшная вонь. Еще стоит подумать для кого именно это место - столовая?"
     },
     "site_308": {
-        "name": "Laboratory One",
-        "des": "Nothing here, except some stinking corpses."
+        "name": "Лаборатория 1",
+        "des": "Кроме смердящих трупов здесь ничего нет."
     },
     "site_309": {
-        "name": "Laboratory Two",
-        "des": "The room is filled with all kinds of experimental instruments and jars. On one of the tables is a broken picture frame with a girl smiling in the photo. Hey, little girl, did you also turn into a zombie?"
+        "name": "Лаборатория 2",
+        "des": "Вся комната заполнена лабораторным оборудованием и банками, на столе разбитая фоторамка, на фото - очаровательная улыбающаяся девчушка. Привет, малышка, ты тоже стала зомби?"
     },
     "site_310": {
-        "name": "Materials Warehouse",
-        "des": "Many unknown instruments are haphazardly piled in the corner. Whatever those instruments do, one thing's for sure. None of them comes in handy."
+        "name": "Сырьевой склад",
+        "des": "Угол до отказа забит разнообразными неизвестными устройствами, но, очевидно, использовать их не получится."
     },
     "site_311": {
-        "name": "Main Control Room",
-        "des": "Here is probably the center of this underground fortress. Some warning lights still flicker sporadically on the control panel. A giant axe lodged obliquely in the middle of the control panel makes this place a gruesome sight."
+        "name": "Центральная аппаратная",
+        "des": "Здесь, похоже, был центр этой подпольной крепости, на пульте управления до сих пор слабо мигают сигнальные огни, из центра пульта торчит огромных размеров топор. Жуткое зрелище."
     },
     "site_312": {
-        "name": "Bedroom",
-        "des": "Probably the place where someone used to rest. A lovely doll sits quietly on the bedside. Everything looks fine, but something feels off. What could be the matter?"
+        "name": "Спальня",
+        "des": "Место чьего-то отдыха, на подушке лежит милая тряпичная кукла, с виду все нормально. И все равно что-то не так, но что?"
     },
     "site_203": {
-        "name": "Chemical warehouse",
-        "des": "Far away from your shelter, the chemical warehouse gives off a variety of acrid smells. A corner of the warehouse shows clear signs of previous explosions and fires."
+        "name": "Склад химикатов",
+        "des": "Склад химикатов, расположенный вдали от жилых домов, распространяет вокруг едкие запахи. Один из углов склада имеет явные следы взрывов и пожара."
     },
-    "hp": "HP",
-    "spirit": "Mood",
-    "starve": "Hunger",
-    "vigour": "Energy",
-    "injury": "Injury",
-    "infect": "Infection",
-    "temperature": "Temperature",
-    "b_1107012": "Increases maximum HP. ",
-    "b_1107022": "Grants immunity to infection.",
-    "b_1107032": "You no longer feel fatigued. ",
-    "b_1107042": "You no longer feel hungry. ",
-    "water_down": ["You're extremely thirsty - your vision is becoming blurred.", "You're very thirsty - when you close your eyes, you think of water.", "You want to drink water."],
-    "infect_up": [null, "Bacteria are spreading throughout your body", "The infection is rapidly spreading. You feel aches all over your body.", "A serious infection has resulted in a fever. You feel like your life is draining away."],
-    "infect_down": [null, null, "The infection is temporarily under control. For now, it has stopped spreading.", "The infection went into remission, but it is still dangerous.", "The medicine had some effect, but the infection is still severe."],
-    "injury_up": [null, "Your wound has become bigger.", "Your injury has become worse, it may become infected at any time.", "Your injuries are very severe. You can hardly move."],
-    "injury_down": [null, null, "The injury has been stabilized. You are ok now.", "Blood still seeps through the wound, but it is not getting worse.", "Your injury is still severe, whatever you did, you need more."],
-    "temperature_up": [null, null, "The room is getting warmer."],
-    "temperature_down": [null, "The temperature is very low. You sneeze."],
-    "starve_up": [null, "You feel better, but you need more food.", "You feel less hungry.", "You don't feel that hungry anymore."],
-    "starve_down": ["You are very hungry.", "You are hungrier.", "You want to eat something."],
-    "vigour_up": [null, "You have recovered a bit of energy, but you still need some sleep.", "You have recovered some energy, but you'd still like to sleep for a few more minutes.", "You had a great sleep, and you feel very energetic."],
-    "vigour_down": ["You are exhausted, all you can think about is sleep.", "You are tired.", "You yawned."],
-    "spirit_up": [null, "You force yourself back into reality, and try to focus on surviving this ordeal.", "You feel better, and you convince yourself to keep it up.", "You are confident and passionate again."],
-    "spirit_down": ["You're on the brink of an mental breakdown. Everything seems so meaningless….", "You feel very depressed.", "Your mood gets worse."],
-    "time_str": ["One month ago", "One week ago", "%s days ago", "%s hours ago", "%s minutes ago", "%s seconds ago", "Just now"],
+    "hp": "Жизнь",
+    "spirit": "Настроение",
+    "starve": "Сытость",
+    "vigour": "Энергия",
+    "injury": "Травмы",
+    "infect": "Инфекции",
+    "temperature": "Температура",
+    "b_1107012": "Увеличить лимит HP",
+    "b_1107022": "Больше никаких заражений",
+    "b_1107032": "Больше никакой усталости",
+    "b_1107042": "Больше никакого голода",
+    "water_name": ["Сильная жажда", "Очень жаждет", "Слегка хочет пить", "Не хочет пить"],
+    "starve_name": ["Серьезно голодает", "Голодает", "Голоден", "Не голоден"],
+    "vigour_name": ["Измученный", "Усталый", "Уставший", "Энергичный"],
+    "spirit_name": ["Крах", "Подавленный", "Расстроенный", "Уверенный"],
+    "injury_name": ["Без травм", "Травмированный", "Легкая травма", "Тяжелая травма", "Смертельная травма"],
+    "infect_name": ["Без инфекции", "Легкая инфекция", "Средняя инфекция", "Тяжелая инфекция", "Крах иммунной системы"],
+    "water_down": ["Вы чрезвычайно жаждете - ваше зрение становится размытым.", "Вы очень жаждете - когда закрываете глаза, вы думаете о воде.", "Вам хочется пить воду."],
+    "infect_up": [null, "В твоем теле размножаются бактерии.", "Инфекция быстро распространяется, все тело болит.", "Серьезная инфекция вызвала жар. Тебе кажется, что жизнь покидает тебя."],
+    "infect_down": [null, null, "Инфекция временно находится под контролем. По крайней мере, пока не распространяется.", "Инфекция перешла в состояние ремиссии, но перспективы не оптимистичны.", "Лекарство подействовало, но инфекция все еще не побеждена."],
+    "injury_up": [null, "Твоя рана стала больше.", "Состояние раны ухудшается, в нее в любой момент может попасть инфекция.", "Твои раны слишком серьезные, двигаться практически невозможно."],
+    "injury_down": [null, null, "Твои раны под контролем, ты почти в безопасности.", "Рана все еще кровоточит, но состояние не ухудшилось.", "Травмы серьезные, необходим уход."],
+    "temperature_up": [null, null, "В комнате становится теплее."],
+    "temperature_down": [null, "Температура слишком низкая. Ты чихнул."],
+    "starve_up": [null, "Кажется уже получше, но нужно больше питаться", "Голод ощущается не так остро.", "Голод уже не такой сильный."],
+    "starve_down": ["Ты чувствуешь непреодолимый голод", "Ты еще больше хочешь есть", "Ты хочешь есть"],
+    "vigour_up": [null, "Энергия немного восстановилась, но тебе еще нужно поспать", "Энергия восстановлена, но тебе хочется поспать еще пару минут.", "Полноценный сон восстановил энергию."],
+    "vigour_down": ["Ты слишком устал, думаешь только о сне", "Ты немного устал", "Ты зеваешь"],
+    "spirit_up": [null, "Ты заставляешь себя вернуться к реальности и ухватиться за последнюю надежду", "Ты набрался смелости. Продолжай в том же духе.", "Уверенность в своих силах вернулась, а с ней и боевой дух."],
+    "spirit_down": ["Ты на грани, для тебя все потеряло смысл", "Ты подавлен", "Твое настроение ухудшилось"],
+    "time_str": ["Месяц назад", "Неделю назад", "%s дн. Назад", "%s час. назад", "%s мин. назад", "%s сек. назад", "Только что"],
     "statusDialog": {
         "title": {
-            "txt_1": "Current: %s"
+            "txt_1": "Текущий:%s"
         },
         "content": {},
         "action": {
             "btn_1": {
-                "txt": "OK"
+                "txt": "ОК"
             }
         }
     },
     "item_1": {
         "title": {
-            "txt_1": "Stock: %s"
+            "txt_1": "Запас:%s"
         },
         "content": {},
         "action": {
             "btn_1": {
-                "txt": "OK"
+                "txt": "ОК"
             }
         }
     },
     "item_2": {
         "title": {
-            "txt_1": "Stock: %s"
+            "txt_1": "Запас:%s"
         },
         "content": {},
         "action": {
             "btn_1": {
-                "txt": "Back"
+                "txt": "Назад"
             },
             "btn_2": {
-                "txt": "Eat (10 m)"
+                "txt": "Есть (10 мин)"
             }
         }
     },
     "item_3": {
         "title": {
-            "txt_1": "Stock: %s"
+            "txt_1": "Запас:%s"
         },
         "content": {},
         "action": {
             "btn_1": {
-                "txt": "Back"
+                "txt": "Назад"
             },
             "btn_2": {
-                "txt": "Use (10 m)"
+                "txt": "Использовать (10 мин)"
             }
         }
     },
     "build": {
         "title": {},
         "content": {
-            "log": "To build you need:"
+            "log": "Необходимость застройки:"
         },
         "action": {
             "btn_1": {
-                "txt": "OK"
+                "txt": "ОК"
             }
         }
     },
-    "monsterType_1": "Mutilated",
-    "monsterType_2": "Rotten",
-    "monsterType_3": "Bloated",
-    "monsterType_4": "Thin",
-    "monsterType_5": "Hungry",
-    "monsterType_6": "Swift",
-    "monsterType_7": "Ferocious",
-    "monsterType_8": "Evil",
-    "monsterType_9": "Furious",
-    "monsterType_10": "Mutant",
+    "monsterType_1": "Сгнивший",
+    "monsterType_2": "Гниющий",
+    "monsterType_3": "Тучный",
+    "monsterType_4": "Щуплый",
+    "monsterType_5": "Голодный",
+    "monsterType_6": "Быстрый и злобный",
+    "monsterType_7": "Свирепый",
+    "monsterType_8": "Грустный",
+    "monsterType_9": "Яростный",
+    "monsterType_10": "Мутант",
     "p_0": {
-        "name": "Survivor",
-        "des": "Has nothing to rely on. In the face of disaster, you must fight your hardest to survive.",
-        "effect": "Weapon loss reduced by 75%"
+        "name": "Выживший",
+        "des": "Тебе не на кого положиться, перед лицом катастрофы остается только идти вперед и пытаться выжить.",
+        "effect": "Потери оружия уменьшены на 75%."
     },
     "p_101": {
-        "name": "Marksman",
-        "des": "Well trained in shooting, and familiar with firearms. ",
-        "effect": "Hit increases to 130%"
+        "name": "Снайпер",
+        "des": "Пройдя профессиональную подготовку, ты умеешь обращаться с оружием. ",
+        "effect": "Прямое попадание увеличивается до 130%"
     },
     "p_102": {
-        "name": "Athlete",
-        "des": "Persistent excercising rewarded you with a stronger physique and faster recovery times. ",
-        "effect": "HP increases to 125%"
+        "name": "Здоровяк",
+        "des": "Продолжай упражняться, превзойди комплекцией обычных людей. ",
+        "effect": "Жизнь увеличивается до 125%"
     },
     "p_103": {
-        "name": "Scavenger",
-        "des": "Good at scavenging useful items from the rubble. ",
-        "effect": "Item drops increased by 25%."
+        "name": "Мусорщик",
+        "des": "И в мусоре найдешь ценность. ",
+        "effect": "Коэффициент добычи ресурсов в инстансе достигает 125%"
     },
     "p_104": {
-        "name": "Communicator",
-        "des": "You get along with people easily, and they help you out often.",
-        "effect": "Receive additional gifts from NPCs. Refusing to help will not decrease friendship."
+        "name": "Дипломат",
+        "des": "Ты хорошо ладишь с людьми, поэтому люди оказывают тебе благосклонность и помощь.",
+        "effect": "Получите большой бонус при взаимодействии с НПС. Отказ от просьбы НПС не приведет к снижению очков отношений. Неудачные попытки кражи будут иметь сниженное влияние."
     },
     "p_201": {
-        "name": "Food Bag",
-        "des": "Instantly receive food.\\n(It will be placed automatically in your Storage.) "
+        "name": "Продуктовый мешок",
+        "des": "Получить продуктовый мешок сейчас. \\n (получить на складе)"
     },
     "p_202": {
-        "name": "Shopping Bag",
-        "des": "Instantly receive luxury goods.\\n(It will be placed automatically in your Storage.) "
+        "name": "Сумка для покупок",
+        "des": "Получить продуктовый мешок сейчас. \\n (получить на складе)"
     },
     "p_203": {
-        "name": "First-Aid Kit",
-        "des": "Instantly receive a first-aid kit and get a chance to revive.\\n(It will be placed automatically in your Storage.)"
+        "name": "Аптечка первой помощи",
+        "des": "Получить вещества, вызывающие привыкание, сейчас. \\n (получить на складе)"
     },
     "p_204": {
-        "name": "Medical Package",
-        "des": "Instantly receive medicine.\\n(It will be placed automatically in your Storage.) "
+        "name": "Медицинская сумка",
+        "des": "Получить аптечку первой помощи сейчас, можно воскреснуть 1 раз. \\n (получить на складе)"
     },
     "p_205": {
-        "name": "Weapons Package",
-        "des": "Instantly receive weapons and ammo.\\n(It will be placed automatically in your Storage.) "
+        "name": "Сумка с боеприпасами",
+        "des": "Получить лекарство сейчас. \\n (получить на складе)"
     },
     "p_206": {
-        "name": "Grand Warfare Pack",
-        "des": "Instantly receive Grand Warfare Pack.\\n(It will be placed automatically in your Storage.) "
+        "name": "Боевой подарок",
+        "des": "Получить боевой подарок сейчас. \\n (получить на складе)"
     },
     "p_207": {
-        "name": "Grand HP Pack",
-        "des": "Instantly receive Grand HP Pack.\\n(It will be placed automatically in your Storage.) "
+        "name": "Жизненный подарок",
+        "des": "Получить жизненный подарок сейчас. \\n (получить на складе)"
     },
     "p_105": {
-        "name": "Hoarder",
-        "des": "The supplies hoarded before the disaster finally comes into play.",
-        "effect": "Get a lot of materials at the beginning."
+        "name": "Хранитель",
+        "des": "Накопленные запасы перед катастрофой наконец-то приходят в игру.",
+        "effect": "Получите большое количество материалов в начале."
     },
     "p_106": {
-        "name": "Ingenuity",
-        "des": "Handywork is your specialty.",
-        "effect": "Item crafting, moving, and furniture upgrades are 30% faster."
+        "name": "Находчивость",
+        "des": "Ручная работа - ваша специализация.",
+        "effect": "Создание предметов и улучшение мебели происходит на 30% быстрее."
     },
     "p_107": {
-        "name": "Stealth",
-        "des": "You are particularly good at hiding your track.",
-        "effect": "25% less chance of encountering zombies, night raids, and thief visits.\n\nYou can choose whether or not you want to be stealthy for zombie encounters."
+        "name": "Скрытность",
+        "des": "Вы особенно хороши в скрытии своих следов.",
+        "effect": "На 25 % меньше вероятности столкнуться с зомби, ночными нападениями и визитами воров.\n\nМожно выбрать, прятаться ли от зомби."
     },
     "p_109": {
-        "name": "Cheat: Free IAP",
+        "name": "Чит: Безлимитный IAP",
         "effect": "",
-        "des": "Cheat function, unlimited free purchases in the store, and Radio CMD. (Achievements will not be counted)"
+        "des": "Чит-функция, неограниченные бесплатные покупки в магазине и Radio CMD. (Достижения не будут учитываться)"
     },
     "p_110": {
-        "name": "Cheat: Unlock All",
+        "name": "Чит: Разблокировать все",
         "effect": "",
-        "des": "Cheat function, unlock all locations, NPCs, max friendship, and repeatable locations. (Achievements will not be counted)"
-    },
-    "p_111": {
-        "name": "Patient Zero",
-        "effect": "You are immune to the virus. Or so it seems...",
-        "des": "Immune to the virus from combat. Instead, virus will catch up to you as days progress."
+        "des": "Функция чита, разблокирует все копии, НИПы, максимальную дружбу и повторяемые локации. (Достижения не будут учитываться)"
     },
     "p_108": {
-        "name": "Backpacker",
-        "des": "You have an extra large backpack.",
-        "effect": "Backpack size +30."
+        "name": "турист",
+        "des": "У вас есть дополнительный большой рюкзак.",
+        "effect": "Размер рюкзака +30."
     },
     "m_103": {
-        "name": "Ironman Medal (Grade 3)",
-        "condition": "Survive 10 days",
-        "des": "Start with 6 × [canned food] at the beginning of a new game."
+        "name": "орден железного человека 3ей степени",
+        "condition": "выжил 5 дней в течение одной игры",
+        "des": "при старте дается 6 консервы"
     },
     "m_102": {
-        "name": "Ironman Medal (Grade 2)",
-        "condition": "Survive 100 days",
-        "des": "Start with 2 × [bandages] at the beginning of a new game."
+        "name": "орден железного человека 2ой степени",
+        "condition": "выжил 60 дней в течение одной игры",
+        "des": "при старте дается 2 бинта"
     },
     "m_101": {
-        "name": "Ironman Medal (Grade 1)",
-        "condition": "Survive 365 days",
-        "des": "Start with 1 × [Penicillin] at the beginning of a new game."
+        "name": "орден железного человека 1ой степени",
+        "condition": "выжил 120 дней в течение одной игры",
+        "des": "при старте дается 1 пенициллин"
     },
     "m_203": {
-        "name": "Medal of Valor (Grade 3)",
-        "condition": "Kill 20 zombies during encounter",
-        "des": "Increase maximum HP by 10"
+        "name": "орден за храбрость 3ей степени",
+        "condition": "уничтожил 20 зомби",
+        "des": "плюс 10 к верхней границе жизни "
     },
     "m_202": {
-        "name": "Medal of Valor (Grade 2)",
-        "condition": "Kill 400 zombies during encounter",
-        "des": "Increase maximum HP by 20"
+        "name": "орден за храбрость 2ой степени",
+        "condition": "уничтожил 200 зомби",
+        "des": "плюс 20 к верхней границе жизни"
     },
     "m_201": {
-        "name": "Medal of Valor (Grade 1)",
-        "condition": "Kill 6000 zombies during encounter",
-        "des": "Increase maximum HP by 50"
+        "name": "орден за храбрость 1ой степени",
+        "condition": "уничтожил 2000 зомби",
+        "des": "плюс 50 к верхней границе жизни"
     },
     "m_303": {
-        "name": "Medal of Freedom (Grade 3)",
-        "condition": "Clear 10 secret chambers",
-        "des": "Start with 30 × [bullets] at the beginning of a new game."
+        "name": "Орден свободы 3ей степени",
+        "condition": "опустошил 5 тайников",
+        "des": "при старте дается 30 снарядов"
     },
     "m_302": {
-        "name": "Medal of Freedom (Grade 2)",
-        "condition": "Clear 30 secret chambers",
-        "des": "Start with 1 × [pistol] at the beginning of a new game."
+        "name": "Орден свободы 2ой степени",
+        "condition": "опустошил 15 тайников",
+        "des": "при старте дается 1 пистолет"
     },
     "m_301": {
-        "name": "Medal of Freedom (Grade 1)",
-        "condition": "Clear 100 secret chambers",
-        "des": "Start with 1 × [M40] at the beginning of a new game."
+        "name": "Орден свободы 1ой степени",
+        "condition": "опустошил 30 тайников",
+        "des": "при старте дается один М40"
     },
+    "1260": "Достижение",
+    "1261": "Достижения Google можно разблокировать и просмотреть оффлайн здесь. Вы можете создавать резервные копии и восстанавливать прогресс в любое время, используя радио-команды: 'backup', 'restore {}'.",
+    "1272": "Вы разблокировали достижение: ",
     "bt_season_1": {
-        "title": "In winter",
-        "des": "Live through autumn."
+        "title": "Зимой",
+        "des": "Пережить осень."
     },
     "bt_season_2": {
-        "title": "In spring",
-        "des": "Live through winter."
+        "title": "Весной",
+        "des": "Пережить зиму."
     },
     "bt_season_3": {
-        "title": "In summer",
-        "des": "Live through spring."
+        "title": "Летом",
+        "des": "Пережить весну."
     },
     "bt_season_4": {
-        "title": "In autumn",
-        "des": "Live through summer."
+        "title": "Осенью",
+        "des": "Пережить лето."
     },
     "bt_produce_1": {
-        "title": "Farmer",
-        "des": "Plant 50 potatoes."
+        "title": "Фермер",
+        "des": "Посадить 50 картофелей."
     },
     "bt_produce_2": {
-        "title": "Hunter",
-        "des": "Get 25 pieces of meat."
+        "title": "Охотник",
+        "des": "Сделать 25 кусков мяса."
     },
     "bt_produce_3": {
-        "title": "Fish",
-        "des": "Make 100 water."
+        "title": "Рыба",
+        "des": "Получить 100 воды."
     },
     "bt_produce_4": {
-        "title": "Alcoholic",
-        "des": "Make 50 bottles of Vodka."
+        "title": "Алкоголик",
+        "des": "Сделать 50 бутылок водки."
     },
     "bt_make_1": {
-        "title": "This is a war!",
-        "des": "Make an AK47."
+        "title": "Это война!",
+        "des": "Сделать АК-47."
     },
     "bt_make_2": {
-        "title": "Passive defence",
-        "des": "Make an Anti-riot suit."
+        "title": "Пассивная защита",
+        "des": "Сделать антибеспорядочный костюм."
     },
     "bt_make_3": {
-        "title": "Quartermaster",
-        "des": "Make a military backpack."
+        "title": "Снабженец",
+        "des": "Сделать военный рюкзак."
     },
     "bt_make_4": {
-        "title": "Ninja",
-        "des": "Make a katana."
+        "title": "Ниндзя",
+        "des": "Сделать катану."
     },
     "bt_npc_1": {
-        "title": "Hi, Mr. Luo!",
-        "des": "Meet Mr. Luo."
+        "title": "Привет, господин Луо!",
+        "des": "Встретиться с господином Луо."
     },
     "bt_npc_2": {
-        "title": "So kind of you, Luo!",
-        "des": "Friendship with Mr. Luo increases to 100%."
+        "title": "Как вы любезны, господин Луо!",
+        "des": "Дружба с господином Луо достигла 100%."
     },
     "bt_npc_3": {
-        "title": "Hi, Jeff!",
-        "des": "Meet Jeff."
+        "title": "Привет, Джефф!",
+        "des": "Встретиться с Джеффом."
     },
     "bt_npc_4": {
-        "title": "So kind of you, Jeff!",
-        "des": "Friendship with Jeff increases to 100%."
+        "title": "Как вы любезны, Джефф!",
+        "des": "Дружба с Джеффом достигла 100%."
     },
     "bt_npc_5": {
-        "title": "Hi, Dr. Jean!",
-        "des": "Meet Dr. Jean."
+        "title": "Привет, доктор Джин!",
+        "des": "Встретиться с доктором Джин."
     },
     "bt_npc_6": {
-        "title": "So kind of you, Doctor!",
-        "des": "Friendship with Dr. Jean increases to 100%."
+        "title": "Как вы любезны, доктор!",
+        "des": "Дружба с доктором Джин достигла 100%."
     },
     "bt_npc_7": {
-        "title": "Hi, Masasko!",
-        "des": "Meet Masako."
+        "title": "Привет, Масако!",
+        "des": "Встретиться с Масако."
     },
     "bt_npc_8": {
-        "title": "So kind of you, Masako!",
-        "des": "Friendship with Masako increases to 100%."
+        "title": "Так мило с вашей стороны, Масако!",
+        "des": "Дружба с Масако достигла 100%."
     },
     "bt_npc_9": {
-        "title": "Hi, Bill!",
-        "des": "Meet Bill."
+        "title": "Привет, Билл!",
+        "des": "Встретиться с Биллом."
     },
     "bt_npc_10": {
-        "title": "So kind of you, Bill!",
-        "des": "Friendship with Bill increases to 100%."
+        "title": "Так мило с вашей стороны, Билл!",
+        "des": "Дружба с Биллом достигла 100%."
     },
     "bt_npc_11": {
-        "title": "Hi, Mr... Stranger!",
-        "des": "Meet Stranger."
+        "title": "Привет, мистер... Незнакомец!",
+        "des": "Встретить Незнакомца."
     },
     "bt_npc_12": {
-        "title": "So kind of you, Mister!",
-        "des": "Friendship with Stranger increases to 100%."
+        "title": "Так мило с вашей стороны, мистер!",
+        "des": "Дружба с Незнакомцем достигла 100%."
     },
     "bt_npc_13": {
-        "title": "Hi, Mr. White!",
-        "des": "Meet W.White."
+        "title": "Привет, мистер Уайт!",
+        "des": "Встречайте У.Уайта."
     },
     "bt_npc_14": {
-        "title": "So kind of you, Walter!",
-        "des": "Friendship with W.White increases to 100%."
+        "title": "Как вы милы, Уолтер!",
+        "des": "Уровень дружбы с У.Уайтом увеличился на 100%."
     },
     "bt_item_1": {
-        "title": "Bang!",
-        "des": "Get a Magnum."
+        "title": "Бах!",
+        "des": "Получить Магнум."
     },
     "bt_item_2": {
-        "title": "Bam!",
-        "des": "Get a M40."
+        "title": "Бам!",
+        "des": "Получить М40."
     },
     "bt_item_3": {
-        "title": "Dadada!",
-        "des": "Get a FAMAS."
+        "title": "Дадада!",
+        "des": "Получить FAMAS."
     },
     "bt_item_4": {
-        "title": "Horror fans",
-        "des": "Get a chain saw."
+        "title": "Поклонники ужасов",
+        "des": "Получить бензопилу."
     },
     "bt_item_5": {
-        "title": "Whimsy",
-        "des": "Get a zombie bait."
+        "title": "Фантазия",
+        "des": "Получить приманку для зомби."
     },
     "bt_item_6": {
-        "title": "Terrorist",
-        "des": "Get a homemade explosive."
+        "title": "Террорист",
+        "des": "Получить самодельный взрывчатый вещество."
     },
     "bt_cost_1": {
-        "title": "Excited",
-        "des": "Drink coffee 50 times."
+        "title": "Возбуждение",
+        "des": "Выпить кофе 50 раз."
     },
     "bt_cost_2": {
-        "title": "More excited",
-        "des": "Drink coffee 100 times."
+        "title": "Еще больше возбуждения",
+        "des": "Выпить кофе 100 раз."
     },
     "bt_cost_3": {
-        "title": "Cheer up",
-        "des": "Drink coffee 150 times."
+        "title": "Бодрость",
+        "des": "Выпить кофе 150 раз."
     },
     "bt_special_1": {
-        "title": "Electricity!",
-        "des": "Fix power generator 5 times."
+        "title": "Электричество!",
+        "des": "Починить генератор электроэнергии 5 раз."
     },
     "bt_special_2": {
-        "title": "Fort Knox",
-        "des": "Reach maximum home defense once."
-    }
+        "title": "Форт Нокс",
+        "des": "Достичь максимальной защиты дома."
+    },
+    "9018": "\nВам стало хуже. Что-то распространяется.\nВирусная нагрузка + %s",
+    "1173": "Вы победили зомби.",
+    "6000": "Выберите сохранение",
+    "6001": "ПУСТОЙ СЛОТ",
+    "6002": "%s, талант: %s, монеты: %s%s",
+    "6003": ", копия",
+    "6004": "Точно скопировать сохранение из слота %s в слот %s?",
+    "6005": " (Копия)",
+    "6006": "Это сохранение не пустое. \nВыберите пустой слот или удалите сохранение кнопкой «Назад».",
+    "6007": "Файл сохранения",
+    "6008": "Имя сохранения",
+    "6009": "Копирование сохранения",
+    "6010": "Сохранение можно скопировать в любой момент, чтобы проверить другую тактику. Копии считаются читерскими, и достижения по ним не засчитываются. Исходное сохранение не меняется.\n\nВы копируете сохранение из слота %s с именем «%s».\n\nЧтобы продолжить, выберите «Продолжить» и пустой слот.",
+    "6011": "Выберите пустой слот для копии",
+    "6012": "Сохранение в слоте %s с именем «%s» будет удалено. Вы уверены?",
+    "6013": "\n\nНажмите, чтобы начать новое выживание",
+    "6014": "\nНажмите, чтобы начать",
+    "6015": "Стена сообщений",
+    "6016": "Переименовать сохранение",
+    "6017": "Стену сообщений почти не модерируют. Если ей будут злоупотреблять, сервер могут отключить. Не будьте тем самым человеком. Ведите себя как в обычном чате и берегите себя.",
+    "6661": " x",
+    "6662": "Скрытность",
+    "6663": "Скрытность снижает шанс встретить зомби и некоторые другие неприятности.\n\nНо добычу можно получить, убивая зомби на улице.\n\nДля этого откажитесь от скрытности рядом с зомби и оставайтесь осторожны с бандитами и ночными набегами.\n\nСделать так?",
+    "6664": "Скрытность снижает шанс встретить зомби и некоторые другие неприятности.\n\nЕсли мало патронов, здоровья или сил, лучше привлекать меньше внимания.\n\nДля этого нужно быть скрытным и рядом с зомби.\n\nСделать так?",
+    "6665": "Введите сообщение...",
+    "9083": "Вы победили бандитов. Пока они вас не тронут...",
+    "p_111": {
+        "name": "Нулевой пациент",
+        "effect": "Вы невосприимчивы к вирусу. Или так кажется...",
+        "des": "В бою вирус вас не берёт. Зато с каждым днём он нагоняет сам."
+    },
 };
