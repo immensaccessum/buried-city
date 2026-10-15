@@ -1,6 +1,6 @@
 {
-    "debugMode": 1,
-    "noCache": false,
+    "debugMode": 0,
+    "noCache": true,
     "showFPS": false,
     "frameRate": 60,
     "id": "gameCanvas",
@@ -11,7 +11,6 @@
         "src/web/engineCompat.js",
         "src/web/resList.js",
         "src/web/webBoot.js",
-        "src/web/devtools.js",
         "src/util/preloading.js"
     ]
 }

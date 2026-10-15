@@ -115,6 +115,12 @@ var aboutLayer = cc.Layer.extend({
         bt15Credit.setPosition(this.bg.width / 2, this.bg.height / 2 - 300);
         bt15Credit.setColor(cc.color.BLACK);
         this.bg.addChild(bt15Credit);
+
+        var bt15Link = new cc.LabelTTF("https://github.com/OpenSourcePatents/buried-city", uiUtil.fontFamily.normal, uiUtil.fontSize.COMMON_3, cc.size(this.bg.width / 5 * 4, 0));
+        bt15Link.setAnchorPoint(0.5, 0.5);
+        bt15Link.setPosition(this.bg.width / 2, this.bg.height / 2 - 360);
+        bt15Link.setColor(cc.color.BLACK);
+        this.bg.addChild(bt15Link);
     }
 });
 

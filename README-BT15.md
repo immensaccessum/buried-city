@@ -4,10 +4,10 @@ Derivative of Buried City (ArithSeq's mod of BuriedTown 1.4.3 by Locojoy/Dice7).
 Original credits stay where they are. This work is non-commercial and stays open source.
 See `license.txt`.
 
-This branch is the extension host for the later systems (expeditions,
-events, zombies, shelter, residents, mood, story).
-A sample item, Binoculars (`1106061`), proves the pipeline: config, strings, loot hook,
-loose sprites, save field.
+This branch is the web build: a living city, trips, a day of choices, three kinds
+of dead, a radio, and five endings. Sleep keeps mood from falling in bed.
+Shelter and residents are not in this build. Binoculars (`1106061`) scout a
+district before you leave.
 
 `ext/city` is the living city. Districts are no longer closed forever: loot
 returns after a few days, repeat visits deplete it, and ignored districts fill
@@ -49,7 +49,11 @@ From this directory:
 python3 -m http.server 8080 -d assets
 ```
 
-Open http://localhost:8080/ . `file://` does not work; the engine loads scripts with XHR.
+Open http://localhost:8080/ . The site root is the `assets/` directory: a public
+server should answer `https://host/` from that folder, not `https://host/assets/`
+and not `file://`.
+
+Add `?debug=1` to load the `bt` console. Without that flag the page has no debug commands.
 
 In the browser console, after a game has started:
 

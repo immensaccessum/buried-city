@@ -45,7 +45,7 @@ try {
         ws.send(JSON.stringify({ id: i, method, params }));
     });
     await send("Runtime.enable");
-    await send("Page.navigate", { url: "http://localhost:" + PORT + "/index.html" });
+    await send("Page.navigate", { url: "http://localhost:" + PORT + "/index.html?debug=1" });
 
     let booted = "";
     for (let n = 0; n < 40; n++) {
